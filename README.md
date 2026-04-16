@@ -212,6 +212,12 @@ To publish it:
 3. Under `Build and deployment`, select `GitHub Actions`.
 4. Push a new commit or manually run the `Deploy GitHub Pages` workflow.
 
+If the workflow fails with `Get Pages site failed`:
+
+- The repository does not have GitHub Pages enabled yet.
+- The fastest fix is to open `Settings` -> `Pages` and set `Source` to `GitHub Actions`, then rerun the workflow.
+- Optional: create a repository secret named `PAGES_TOKEN` with a token that can administer Pages. The workflow will then try to enable Pages automatically on the first run.
+
 Once enabled, the site will publish at:
 
 - `https://openfate-ai.github.io/bazi-engine/` for the current repository name
