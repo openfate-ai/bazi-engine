@@ -201,6 +201,22 @@ Birth input (civil time)
 
 `@openfate/bazi-engine` gives you the data. **[OpenFate.ai](https://openfate.ai/bazi)** gives you the complete AI-powered interpretation — relationship analysis, career forecasting, and interactive AI chat with your chart.
 
+## GitHub Pages Site
+
+This repository now includes a static GitHub Pages microsite in [`docs/index.html`](docs/index.html).
+
+To publish it:
+
+1. Push the repository to GitHub on the `main` branch.
+2. In the repository settings, open `Pages`.
+3. Under `Build and deployment`, select `GitHub Actions`.
+4. Push a new commit or manually run the `Deploy GitHub Pages` workflow.
+
+Once enabled, the site will publish at:
+
+- `https://openfate-ai.github.io/bazi-engine/` for the current repository name
+- or `https://<owner>.github.io/<repo>/` for forks and renamed repositories
+
 ## License
 
 MIT — Free to use, modify, and distribute commercially.

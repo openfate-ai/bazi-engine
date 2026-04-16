@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenFate Bazi Engine</title>
+    <meta
+      name="description"
+      content="A high-precision TypeScript Bazi engine with True Solar Time correction, lunar conversion, Da Yun cycles, and interaction detection."
+    />
+    <meta name="robots" content="index,follow" />
+    <style>
+      :root {
+        --bg: #f6f0e4;
+        --bg-deep: #e8ddca;
+        --ink: #1c1a17;
+        --muted: #5f5648;
+        --panel: rgba(255, 250, 242, 0.82);
+        --line: rgba(28, 26, 23, 0.12);
+        --accent: #a23d2f;
+        --accent-strong: #7b271d;
+        --accent-soft: #f0d8c3;
+        --gold: #a47b2c;
+        --shadow: 0 20px 60px rgba(65, 46, 24, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        background:
+          radial-gradient(circle at top left, rgba(162, 61, 47, 0.16), transparent 30%),
+          radial-gradient(circle at right 20%, rgba(164, 123, 44, 0.18), transparent 26%),
+          linear-gradient(180deg, var(--bg) 0%, #efe5d4 56%, #e7d8bf 100%);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(28, 26, 23, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(28, 26, 23, 0.03) 1px, transparent 1px);
+        background-size: 28px 28px;
+        pointer-events: none;
+        opacity: 0.55;
+      }
+
+      a {
+        color: var(--accent-strong);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.18em;
+      }
+
+      .page {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        align-items: center;
+        padding: 48px 0 64px;
+      }
+
+      .hero-card,
+      .panel {
+        backdrop-filter: blur(14px);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-card {
+        border-radius: 28px;
+        overflow: hidden;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.9fr;
+      }
+
+      .hero-copy {
+        padding: 56px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(28, 26, 23, 0.08);
+        font-size: 0.86rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, var(--gold), var(--accent));
+        box-shadow: 0 0 0 4px rgba(162, 61, 47, 0.08);
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-weight: 700;
+        line-height: 0.98;
+      }
+
+      h1 {
+        margin-top: 22px;
+        font-size: clamp(3.3rem, 8vw, 6.4rem);
+        letter-spacing: -0.05em;
+      }
+
+      .lede {
+        margin: 24px 0 0;
+        max-width: 44rem;
+        color: var(--muted);
+        font-size: clamp(1.05rem, 2vw, 1.22rem);
+        line-height: 1.7;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 32px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 20px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-size: 0.98rem;
+        text-decoration: none;
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button-primary {
+        color: #fff8f4;
+        background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+        box-shadow: 0 14px 30px rgba(123, 39, 29, 0.22);
+      }
+
+      .button-secondary {
+        color: var(--ink);
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.58);
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .metric {
+        padding: 18px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.52);
+        border: 1px solid rgba(28, 26, 23, 0.08);
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 1.6rem;
+        letter-spacing: -0.04em;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 0.94rem;
+        line-height: 1.5;
+      }
+
+      .hero-side {
+        position: relative;
+        padding: 32px;
+        background:
+          linear-gradient(180deg, rgba(122, 87, 30, 0.14), rgba(162, 61, 47, 0.08)),
+          linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.12));
+        border-left: 1px solid var(--line);
+      }
+
+      .chart-card {
+        position: sticky;
+        top: 32px;
+        padding: 26px;
+        border-radius: 24px;
+        background: rgba(28, 26, 23, 0.92);
+        color: #f7efe2;
+        box-shadow: 0 24px 45px rgba(28, 26, 23, 0.3);
+      }
+
+      .chart-card p,
+      .chart-card li {
+        color: rgba(247, 239, 226, 0.75);
+      }
+
+      .chart-pillars {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin: 22px 0;
+      }
+
+      .pillar {
+        padding: 14px 8px;
+        border-radius: 18px;
+        text-align: center;
+        background: linear-gradient(180deg, rgba(247, 239, 226, 0.16), rgba(247, 239, 226, 0.06));
+        border: 1px solid rgba(247, 239, 226, 0.12);
+      }
+
+      .pillar .label {
+        display: block;
+        margin-bottom: 8px;
+        color: rgba(247, 239, 226, 0.58);
+        font-size: 0.73rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .pillar .value {
+        display: block;
+        font-size: 1.55rem;
+      }
+
+      .code {
+        margin-top: 18px;
+        padding: 18px;
+        border-radius: 18px;
+        overflow-x: auto;
+        background: rgba(247, 239, 226, 0.06);
+        border: 1px solid rgba(247, 239, 226, 0.08);
+        color: #f7efe2;
+        font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+
+      section {
+        padding: 0 0 28px;
+      }
+
+      .section-header {
+        padding: 0 8px 22px;
+      }
+
+      .section-header h2 {
+        font-size: clamp(2.1rem, 4vw, 3.4rem);
+        letter-spacing: -0.05em;
+      }
+
+      .section-header p {
+        max-width: 48rem;
+        color: var(--muted);
+        font-size: 1.02rem;
+        line-height: 1.75;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .features {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .panel {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .panel h3 {
+        font-size: 1.4rem;
+        letter-spacing: -0.03em;
+      }
+
+      .panel p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .workflow {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent-strong);
+        font-size: 0.94rem;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 0.92fr;
+        gap: 18px;
+      }
+
+      .list {
+        margin: 16px 0 0;
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .list li + li {
+        margin-top: 6px;
+      }
+
+      footer {
+        padding: 16px 0 72px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .foot-card {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .split,
+        .features,
+        .workflow {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy,
+        .hero-side {
+          padding: 28px;
+        }
+
+        .metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .chart-card {
+          position: static;
+        }
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .hero-card,
+        .panel {
+          animation: rise 720ms ease both;
+        }
+
+        .panel:nth-child(2) {
+          animation-delay: 80ms;
+        }
+
+        .panel:nth-child(3) {
+          animation-delay: 140ms;
+        }
+
+        .panel:nth-child(4) {
+          animation-delay: 200ms;
+        }
+
+        @keyframes rise {
+          from {
+            opacity: 0;
+            transform: translateY(24px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">Open source metaphysics engine</span>
+              <h1>Bazi with the edge cases handled.</h1>
+              <p class="lede">
+                <code>@openfate/bazi-engine</code> is the TypeScript calculation layer behind
+                accurate Four Pillars software: True Solar Time correction, lunar conversion,
+                Da Yun cycles, and branch interaction detection in one package.
+              </p>
+              <div class="actions">
+                <a class="button button-primary" href="https://openfate.ai/bazi">Try OpenFate AI</a>
+                <a class="button button-secondary" href="https://github.com/openfate-ai/bazi-engine">View Repository</a>
+                <a class="button button-secondary" href="https://www.npmjs.com/package/@openfate/bazi-engine">Install from npm</a>
+              </div>
+              <div class="metrics">
+                <div class="metric">
+                  <strong>24</strong>
+                  <span>Solar Terms handled with minute-level precision.</span>
+                </div>
+                <div class="metric">
+                  <strong>100+</strong>
+                  <span>Regression cases spanning DST, leap months, and global timezones.</span>
+                </div>
+                <div class="metric">
+                  <strong>1</strong>
+                  <span>Deterministic data layer you can wire into your own app or workflow.</span>
+                </div>
+              </div>
+            </div>
+            <aside class="hero-side">
+              <div class="chart-card">
+                <h2>Sample chart snapshot</h2>
+                <p>
+                  Example output for the Beijing quick-start date in the package README.
+                </p>
+                <div class="chart-pillars" aria-label="Example Four Pillars">
+                  <div class="pillar">
+                    <span class="label">Year</span>
+                    <span class="value">戊寅</span>
+                  </div>
+                  <div class="pillar">
+                    <span class="label">Month</span>
+                    <span class="value">甲子</span>
+                  </div>
+                  <div class="pillar">
+                    <span class="label">Day</span>
+                    <span class="value">甲午</span>
+                  </div>
+                  <div class="pillar">
+                    <span class="label">Hour</span>
+                    <span class="value">庚午</span>
+                  </div>
+                </div>
+                <div class="code"><pre style="margin: 0;">npm install @openfate/bazi-engine
+
+import { calculateBaziChart } from '@openfate/bazi-engine';
+
+const chart = calculateBaziChart({
+  year: 1998,
+  month: 12,
+  day: 13,
+  hour: 12,
+  minute: 0,
+  gender: 'female',
+  longitude: 116.39,
+  timezone: 8,
+});</pre></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-header">
+          <h2>Why this package exists</h2>
+          <p>
+            Most Bazi calculators get the tricky parts wrong. This engine exists for teams that
+            need reproducible chart output inside apps, automations, CRM tooling, research
+            workflows, and AI analysis products.
+          </p>
+        </div>
+        <div class="grid features">
+          <article class="panel">
+            <h3>True Solar Time built in</h3>
+            <p>
+              Longitude correction and equation-of-time adjustments are integrated instead of
+              treated as an afterthought.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>Lunar and solar input</h3>
+            <p>
+              Accept standard solar input or lunar dates, including leap months, without bolting
+              on a second conversion layer.
+            </p>
+          </article>
+          <article class="panel">
+            <h3>Structured output for software</h3>
+            <p>
+              Return pillars, day master, cycles, and interactions in JSON-ready shapes that are
+              easy to render or hand off to AI systems.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-header">
+          <h2>Best fit</h2>
+          <p>
+            The engine works especially well when you need deterministic calculations first and
+            interpretation second.
+          </p>
+        </div>
+        <div class="grid workflow">
+          <article class="panel">
+            <span class="step-number">1</span>
+            <h3>Consulting platforms</h3>
+            <p>Generate accurate charts inside dashboards, CRMs, or client-reporting systems.</p>
+          </article>
+          <article class="panel">
+            <span class="step-number">2</span>
+            <h3>Compatibility products</h3>
+            <p>Compare charts for matchmaking, relationship analysis, or team-fit workflows.</p>
+          </article>
+          <article class="panel">
+            <span class="step-number">3</span>
+            <h3>AI agents</h3>
+            <p>Feed structured chart data into your own prompt stack or reasoning pipeline.</p>
+          </article>
+          <article class="panel">
+            <span class="step-number">4</span>
+            <h3>Education and research</h3>
+            <p>Use explainable output for teaching, auditing, and reproducible experimentation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="split">
+          <article class="panel">
+            <h2 style="font-size: 2.4rem; letter-spacing: -0.04em;">Shipping on GitHub Pages</h2>
+            <p>
+              This microsite is designed to be deployed directly from the repository using GitHub
+              Pages, so the repo has a public documentation surface beyond the README.
+            </p>
+            <ul class="list">
+              <li>Normal HTML links on this page point to the main OpenFate product and package surfaces.</li>
+              <li>The site is lightweight, static, and easy to keep consistent with the README.</li>
+              <li>You can later replace this with a richer demo without changing the Pages URL.</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h2 style="font-size: 2.4rem; letter-spacing: -0.04em;">Next moves</h2>
+            <p>
+              If you want more than a landing page, the natural next step is an interactive browser
+              demo that runs the engine directly and publishes example charts.
+            </p>
+            <div class="actions" style="margin-top: 22px;">
+              <a class="button button-primary" href="https://openfate.ai">Visit OpenFate.ai</a>
+              <a class="button button-secondary" href="https://github.com/openfate-ai/bazi-engine/blob/main/README.md">Read the docs</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        <div class="panel foot-card">
+          <span>OpenFate Bazi Engine documentation site.</span>
+          <span>
+            Built for
+            <a href="https://github.com/openfate-ai/bazi-engine">openfate-ai/bazi-engine</a>
+            and connected to
+            <a href="https://openfate.ai/bazi">OpenFate AI</a>.
+          </span>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
