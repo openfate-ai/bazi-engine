@@ -3,8 +3,14 @@
 // ============================================================================
 
 import { Solar } from 'lunar-javascript';
-import { FourPillars, Pillar, DayBoundaryMode } from '../types';
-import { STEM_TO_ELEMENT, STEM_TO_POLARITY, STEM_TO_PINYIN, BRANCH_HIDDEN_STEMS } from '../constants';
+import { FourPillars, Pillar, DayBoundaryMode, FiveElement, Polarity, StemInfo } from '../types';
+import {
+    BRANCH_HIDDEN_STEMS,
+    BRANCH_TO_ELEMENT,
+    STEM_TO_ELEMENT,
+    STEM_TO_PINYIN,
+    STEM_TO_POLARITY,
+} from '../constants';
 
 /** Typed interface for the EightChar object returned by lunar-javascript */
 export interface LunarEightChar {
@@ -17,6 +23,30 @@ export interface LunarEightChar {
     getDayZhi(): string;
     getTimeGan(): string;
     getTimeZhi(): string;
+    getYearNaYin(): string;
+    getYearShiShenGan(): string;
+    getYearShiShenZhi(): string[];
+    getYearDiShi(): string;
+    getYearXun(): string;
+    getYearXunKong(): string;
+    getMonthNaYin(): string;
+    getMonthShiShenGan(): string;
+    getMonthShiShenZhi(): string[];
+    getMonthDiShi(): string;
+    getMonthXun(): string;
+    getMonthXunKong(): string;
+    getDayNaYin(): string;
+    getDayShiShenGan(): string;
+    getDayShiShenZhi(): string[];
+    getDayDiShi(): string;
+    getDayXun(): string;
+    getDayXunKong(): string;
+    getTimeNaYin(): string;
+    getTimeShiShenGan(): string;
+    getTimeShiShenZhi(): string[];
+    getTimeDiShi(): string;
+    getTimeXun(): string;
+    getTimeXunKong(): string;
     getYun(gender: number): LunarYun;
 }
 
@@ -26,7 +56,13 @@ export interface LunarYun {
     getStartYear(): number;
     getStartMonth(): number;
     getStartDay(): number;
+    getStartHour(): number;
+    getStartSolar(): LunarSolar;
     getDaYun(): LunarDaYun[];
+}
+
+export interface LunarSolar {
+    toYmdHms(): string;
 }
 
 /** Typed interface for a single Da Yun period */
@@ -34,14 +70,54 @@ export interface LunarDaYun {
     getGanZhi(): string;
     getStartYear(): number;
     getEndYear(): number;
+    getStartAge(): number;
+    getEndAge(): number;
 }
 
+interface PillarDetails {
+    stemTenGod: string;
+    hiddenStemTenGods: string[];
+    naYin: string;
+    xun: string;
+    voidBranches: string;
+    growthStage: string;
+}
 
-function buildPillar(stem: string, branch: string): Pillar {
+function getRequiredElement(value: string, mapping: Record<string, FiveElement>, label: string): FiveElement {
+    const result = mapping[value];
+    if (!result) throw new Error(`Unsupported ${label}: ${value}`);
+    return result;
+}
+
+function getRequiredPolarity(stem: string): Polarity {
+    const polarity = STEM_TO_POLARITY[stem];
+    if (!polarity) throw new Error(`Unsupported Heavenly Stem: ${stem}`);
+    return polarity;
+}
+
+function buildPillar(stem: string, branch: string, details: PillarDetails): Pillar {
+    const hiddenStemDefinitions = BRANCH_HIDDEN_STEMS[branch];
+    if (!hiddenStemDefinitions) throw new Error(`Unsupported Earthly Branch: ${branch}`);
+
     return {
         stem,
         branch,
-        element: STEM_TO_ELEMENT[stem] ?? 'earth',
+        element: getRequiredElement(stem, STEM_TO_ELEMENT, 'Heavenly Stem'),
+        ganZhi: `${stem}${branch}`,
+        stemPolarity: getRequiredPolarity(stem),
+        stemTenGod: details.stemTenGod,
+        branchElement: getRequiredElement(branch, BRANCH_TO_ELEMENT, 'Earthly Branch'),
+        hiddenStems: hiddenStemDefinitions.map((hiddenStem, index) => ({
+            stem: hiddenStem.stem,
+            element: getRequiredElement(hiddenStem.stem, STEM_TO_ELEMENT, 'Hidden Stem'),
+            polarity: getRequiredPolarity(hiddenStem.stem),
+            tenGod: details.hiddenStemTenGods[index],
+            isMain: Boolean(hiddenStem.isMain),
+        })),
+        naYin: details.naYin,
+        xun: details.xun,
+        voidBranches: details.voidBranches.split(''),
+        growthStage: details.growthStage,
     };
 }
 
@@ -96,10 +172,38 @@ export function generatePillarsFromSolar(
 
     return {
         pillars: {
-            year:  buildPillar(eightChar.getYearGan(), eightChar.getYearZhi()),
-            month: buildPillar(eightChar.getMonthGan(), eightChar.getMonthZhi()),
-            day:   buildPillar(dayStem, eightChar.getDayZhi()),
-            hour:  hasTime ? buildPillar(eightChar.getTimeGan(), eightChar.getTimeZhi()) : null,
+            year: buildPillar(eightChar.getYearGan(), eightChar.getYearZhi(), {
+                stemTenGod: eightChar.getYearShiShenGan(),
+                hiddenStemTenGods: eightChar.getYearShiShenZhi(),
+                naYin: eightChar.getYearNaYin(),
+                xun: eightChar.getYearXun(),
+                voidBranches: eightChar.getYearXunKong(),
+                growthStage: eightChar.getYearDiShi(),
+            }),
+            month: buildPillar(eightChar.getMonthGan(), eightChar.getMonthZhi(), {
+                stemTenGod: eightChar.getMonthShiShenGan(),
+                hiddenStemTenGods: eightChar.getMonthShiShenZhi(),
+                naYin: eightChar.getMonthNaYin(),
+                xun: eightChar.getMonthXun(),
+                voidBranches: eightChar.getMonthXunKong(),
+                growthStage: eightChar.getMonthDiShi(),
+            }),
+            day: buildPillar(dayStem, eightChar.getDayZhi(), {
+                stemTenGod: eightChar.getDayShiShenGan(),
+                hiddenStemTenGods: eightChar.getDayShiShenZhi(),
+                naYin: eightChar.getDayNaYin(),
+                xun: eightChar.getDayXun(),
+                voidBranches: eightChar.getDayXunKong(),
+                growthStage: eightChar.getDayDiShi(),
+            }),
+            hour: hasTime ? buildPillar(eightChar.getTimeGan(), eightChar.getTimeZhi(), {
+                stemTenGod: eightChar.getTimeShiShenGan(),
+                hiddenStemTenGods: eightChar.getTimeShiShenZhi(),
+                naYin: eightChar.getTimeNaYin(),
+                xun: eightChar.getTimeXun(),
+                voidBranches: eightChar.getTimeXunKong(),
+                growthStage: eightChar.getTimeDiShi(),
+            }) : null,
         },
         eightChar,
         dayStem,
@@ -118,11 +222,11 @@ export function getMainQi(branch: string): string {
 /**
  * getStemInfo - Returns enriched stem details
  */
-export function getStemInfo(stem: string) {
+export function getStemInfo(stem: string): StemInfo {
     return {
         char: stem,
-        pinyin: STEM_TO_PINYIN[stem] ?? '',
-        element: STEM_TO_ELEMENT[stem] ?? 'earth',
-        polarity: STEM_TO_POLARITY[stem] ?? 'yang',
+        pinyin: STEM_TO_PINYIN[stem],
+        element: getRequiredElement(stem, STEM_TO_ELEMENT, 'Heavenly Stem'),
+        polarity: getRequiredPolarity(stem),
     };
 }

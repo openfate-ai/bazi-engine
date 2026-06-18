@@ -3,10 +3,10 @@
 ![NPM Version](https://img.shields.io/npm/v/@openfate/bazi-engine)
 ![License](https://img.shields.io/npm/l/@openfate/bazi-engine)
 
-> **The accurate, production-ready Four Pillars (八字) engine for JavaScript & TypeScript.**
+> **A deterministic, production-oriented Four Pillars (八字) engine for JavaScript and TypeScript.**
 > Powered by [OpenFate.ai](https://openfate.ai) — the AI-native metaphysical analysis platform.
 
-Getting the Four Pillars right is hard. Solar Term boundaries (节气), True Solar Time correction (真太阳时), day-change boundaries, Lunar calendar conversion — one wrong edge case and every chart is off. **We've solved all of it.**
+Getting the Four Pillars right is hard. Solar Term boundaries (节气), True Solar Time correction (真太阳时), day-change boundaries, and lunar conversion all require explicit, testable policy. This package exposes those calculations and the metadata needed to audit them.
 
 ---
 
@@ -155,6 +155,10 @@ Main entry point. Returns a `BaziChart` with:
 - `daYun` — 9 Major Luck Cycles with start year/age
 - `interactions` — All detected branch interactions (7 types)
 - `solarTimeInfo` — True Solar Time details (or null if disabled)
+- `calendar` — Civil solar input, calculation solar time, converted lunar date, and zodiac
+- `metadata` — Applied True Solar Time, timezone, DST, and day-boundary policy
+
+Each pillar preserves the simple `stem`, `branch`, and `element` fields and also includes Ten Gods, hidden stems, Na Yin, Xun, void branches, and growth stage.
 
 ### `detectInteractions(natal, annualBranch?): BranchInteraction[]`
 Detect interactions in a natal chart, optionally against an annual branch (太岁).
@@ -166,13 +170,15 @@ Low-level pillar generator — use when you've already handled time correction y
 
 ## 🛡️ Testing & Reliability
 
-Bazi calculations are notoriously prone to edge-case bugs. We maintain a **comprehensive regression suite** of 100+ global edge cases, verified against astronomical standards:
+Bazi calculations are notoriously prone to edge-case bugs. We maintain a regression suite of 100+ calendrical cases plus focused public-contract tests:
 
 - **24 Solar Terms**: Minute-level precision for *Li Chun*, *Jing Zhe*, etc.
 - **Early/Late Zi Hour**: Handles the 23:00 day-rollover across month/year boundaries.
 - **Global Distortion**: Extreme longitudes (e.g., Xinjiang, Iceland) and fractional timezones (e.g., India UTC+5.5).
-- **Historical DST**: Automatic handling of Chinese DST (1986-1991), UK Double DST, and more.
-- **Century Boundaries**: Verified accuracy for dates across 1800, 1900, 2000, and 2100.
+- **Historical DST**: Explicit `dstOffset` input or IANA timezone rules; the engine does not guess historical policy.
+- **Century Boundaries**: Regression coverage for dates across 1800, 1900, 2000, and 2100.
+- **Da Yun**: Exact start date, elapsed-age convention, direction, and cycle boundaries.
+- **Factual Enrichment**: Ten Gods, hidden stems, Na Yin, Xun, void branches, and growth stages.
 
 Run the tests yourself:
 ```bash

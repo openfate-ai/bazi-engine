@@ -3,12 +3,13 @@
 // ============================================================================
 
 import { calculateTrueSolarTime } from '@openfate/true-solar-time';
-import { Lunar } from 'lunar-javascript';
+import { Lunar, Solar } from 'lunar-javascript';
 
 import { generatePillarsFromSolar, getStemInfo } from './core/pillars';
 import { calculateDaYun } from './core/cycles';
 import { detectInteractions } from './core/interactions';
-import { BaziChart, BaziInput, SolarTimeInfo } from './types';
+import { BaziInputError, validateBaziInput } from './core/validation';
+import { BaziChart, BaziInput, CalendarDateTime, LunarDateTime, SolarTimeInfo } from './types';
 
 // Re-export all public types and constants
 export * from './types';
@@ -16,6 +17,55 @@ export * from './constants';
 export { detectInteractions } from './core/interactions';
 export { generatePillarsFromSolar, getStemInfo, getMainQi } from './core/pillars';
 export { calculateDaYun } from './core/cycles';
+export { calculateTenGod } from './core/tenGods';
+export { BaziInputError, validateBaziInput } from './core/validation';
+
+function createDateTime(
+    year: number,
+    month: number,
+    day: number,
+    hour: number | undefined,
+    minute: number | undefined,
+    second: number | undefined,
+): CalendarDateTime {
+    const hasTime = hour !== undefined;
+    return {
+        year,
+        month,
+        day,
+        hour: hasTime ? hour : null,
+        minute: hasTime ? minute ?? 0 : null,
+        second: hasTime ? second ?? 0 : null,
+    };
+}
+
+function createLunarDateTime(solarDateTime: CalendarDateTime): { lunar: LunarDateTime; zodiac: string } {
+    const solar = solarDateTime.hour === null
+        ? Solar.fromYmd(solarDateTime.year, solarDateTime.month, solarDateTime.day)
+        : Solar.fromYmdHms(
+            solarDateTime.year,
+            solarDateTime.month,
+            solarDateTime.day,
+            solarDateTime.hour,
+            solarDateTime.minute,
+            solarDateTime.second,
+        );
+    const lunar = solar.getLunar();
+    const lunarMonth = lunar.getMonth();
+
+    return {
+        lunar: {
+            year: lunar.getYear(),
+            month: Math.abs(lunarMonth),
+            day: lunar.getDay(),
+            hour: solarDateTime.hour,
+            minute: solarDateTime.minute,
+            second: solarDateTime.second,
+            isLeapMonth: lunarMonth < 0,
+        },
+        zodiac: lunar.getYearShengXiao(),
+    };
+}
 
 /**
  * calculateBaziChart
@@ -38,6 +88,8 @@ export { calculateDaYun } from './core/cycles';
  * ```
  */
 export function calculateBaziChart(input: BaziInput): BaziChart {
+    validateBaziInput(input);
+
     let solarYear  = input.year;
     let solarMonth = input.month;
     let solarDay   = input.day;
@@ -45,6 +97,7 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
     let solarMinute = input.minute ?? 0;
     let solarSecond = 0;
     let solarTimeInfo: SolarTimeInfo | null = null;
+    const inputType = input.calendarType ?? 'solar';
 
     // ── 1. Lunar → Solar Calendar Conversion ────────────────────────────────
     if (input.calendarType === 'lunar') {
@@ -57,19 +110,40 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
         solarDay = solar.getDay();
     }
 
+    const civilSolar = createDateTime(
+        solarYear,
+        solarMonth,
+        solarDay,
+        input.hour,
+        input.hour === undefined ? undefined : solarMinute,
+        input.hour === undefined ? undefined : solarSecond,
+    );
+
     // ── 2. True Solar Time Correction ───────────────────────────────────────
     const enableTST = (input.enableTrueSolarTime ?? true) &&
         input.longitude !== undefined && input.longitude !== null &&
         input.hour !== undefined;
 
     if (enableTST) {
-        const detail = calculateTrueSolarTime({
-            year: solarYear, month: solarMonth, day: solarDay,
-            hour: solarHour!, minute: solarMinute,
-            timeZoneOffset: input.timezone,
-            dstOffset: input.dstOffset ?? 0,
-            timeZoneId: input.timezoneId,
-        }, {
+        const civilTimeInput = input.timezone !== undefined
+            ? {
+                year: solarYear,
+                month: solarMonth,
+                day: solarDay,
+                hour: solarHour!,
+                minute: solarMinute,
+                timeZoneOffset: input.timezone,
+                dstOffset: input.dstOffset ?? 0,
+            }
+            : {
+                year: solarYear,
+                month: solarMonth,
+                day: solarDay,
+                hour: solarHour!,
+                minute: solarMinute,
+                timeZoneId: input.timezoneId!,
+            };
+        const detail = calculateTrueSolarTime(civilTimeInput, {
             longitude: input.longitude!,
         });
 
@@ -88,6 +162,7 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
             trueSolarTime: detail.trueSolarTime.substring(0, 5),
             trueSolarDateTime: detail.trueSolarDateTime,
             solarDate: dateStr,
+            standardMeridian: detail.standardMeridian,
             longitudeCorrectionMinutes: detail.longitudeCorrectionMinutes,
             equationOfTimeMinutes: detail.equationOfTimeMinutes,
             algorithm: detail.algorithm,
@@ -115,5 +190,35 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
         hour:  pillars.hour?.branch ?? '',
     });
 
-    return { pillars, dayMaster, daYun, interactions, solarTimeInfo };
+    const calculationSolar = createDateTime(
+        solarYear,
+        solarMonth,
+        solarDay,
+        input.hour === undefined ? undefined : solarHour,
+        input.hour === undefined ? undefined : solarMinute,
+        input.hour === undefined ? undefined : solarSecond,
+    );
+    const lunarCalendar = createLunarDateTime(calculationSolar);
+
+    return {
+        pillars,
+        dayMaster,
+        daYun,
+        interactions,
+        solarTimeInfo,
+        calendar: {
+            inputType,
+            civilSolar,
+            calculationSolar,
+            lunar: lunarCalendar.lunar,
+            zodiac: lunarCalendar.zodiac,
+        },
+        metadata: {
+            trueSolarTimeApplied: enableTST,
+            dayBoundaryMode: input.dayBoundaryMode ?? 'MIDNIGHT_00',
+            longitude: input.longitude ?? null,
+            timezoneBasis: input.timezone ?? input.timezoneId ?? null,
+            dstOffset: input.dstOffset ?? 0,
+        },
+    };
 }

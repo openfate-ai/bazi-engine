@@ -1,6 +1,6 @@
 {
   "name": "@openfate/bazi-engine",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Accurate Four Pillars (八字) chart engine with True Solar Time correction, Da Yun cycles, and interaction detection. Extracted from the OpenFate.ai core engine.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "tsx --test tests/*.test.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
     "release": "npm version patch && git push --follow-tags",
     "prepublishOnly": "npm run build && npm run test"
   },

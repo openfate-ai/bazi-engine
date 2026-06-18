@@ -72,8 +72,17 @@ function hasBranch(branches: PillarBranch[], target: string): PillarBranch | und
 }
 
 function groupHas(branches: PillarBranch[], group: string[]): PillarBranch[] | null {
-    const found = group.map(b => hasBranch(branches, b)).filter(Boolean) as PillarBranch[];
-    return found.length === group.length ? found : null;
+    const remaining = [...branches];
+    const found: PillarBranch[] = [];
+
+    for (const target of group) {
+        const index = remaining.findIndex(item => item.branch === target);
+        if (index === -1) return null;
+        found.push(remaining[index]);
+        remaining.splice(index, 1);
+    }
+
+    return found;
 }
 
 // ── Main Detector ────────────────────────────────────────────────────────────

@@ -31,6 +31,23 @@ export interface Pillar {
     stem: string;           // e.g. '甲'
     branch: string;         // e.g. '子'
     element: FiveElement;   // Element of the stem
+    ganZhi: string;
+    stemPolarity: Polarity;
+    stemTenGod: string;
+    branchElement: FiveElement;
+    hiddenStems: HiddenStemInfo[];
+    naYin: string;
+    xun: string;
+    voidBranches: string[];
+    growthStage: string;
+}
+
+export interface HiddenStemInfo {
+    stem: string;
+    element: FiveElement;
+    polarity: Polarity;
+    tenGod: string;
+    isMain: boolean;
 }
 
 /** The Four Pillars (四柱) */
@@ -51,6 +68,10 @@ export interface DaYunCycle {
     ganZhi: string;         // Combined e.g. '甲午'
     startYear: number;      // Calendar year when cycle begins
     startAge: number;       // Age when cycle begins
+    endYear: number;
+    endAge: number;
+    stemTenGod: string;
+    branchTenGod: string;
 }
 
 /** Da Yun metadata */
@@ -59,6 +80,13 @@ export interface DaYunInfo {
     isForward: boolean;     // Yang male / Yin female = forward
     startYear: number;      // Year first cycle begins
     startAge: number;       // Age first cycle begins
+    startDate: string;
+    startOffset: {
+        years: number;
+        months: number;
+        days: number;
+        hours: number;
+    };
 }
 
 // ── Branch Interactions ─────────────────────────────────────────────────────
@@ -87,9 +115,39 @@ export interface SolarTimeInfo {
     trueSolarTime: string;              // e.g. '12:09'
     trueSolarDateTime: string;          // e.g. '1998-12-13 12:09:35'
     solarDate: string;                  // e.g. '1998-12-13'
+    standardMeridian: number;
     longitudeCorrectionMinutes: number;
     equationOfTimeMinutes: number;
     algorithm: string;                  // e.g. 'meeus'
+}
+
+export interface CalendarDateTime {
+    year: number;
+    month: number;
+    day: number;
+    hour: number | null;
+    minute: number | null;
+    second: number | null;
+}
+
+export interface LunarDateTime extends CalendarDateTime {
+    isLeapMonth: boolean;
+}
+
+export interface CalendarInfo {
+    inputType: 'solar' | 'lunar';
+    civilSolar: CalendarDateTime;
+    calculationSolar: CalendarDateTime;
+    lunar: LunarDateTime;
+    zodiac: string;
+}
+
+export interface CalculationMetadata {
+    trueSolarTimeApplied: boolean;
+    dayBoundaryMode: DayBoundaryMode;
+    longitude: number | null;
+    timezoneBasis: number | string | null;
+    dstOffset: number;
 }
 
 // ── Main Chart Result ────────────────────────────────────────────────────────
@@ -101,6 +159,8 @@ export interface BaziChart {
     daYun: DaYunInfo;
     interactions: BranchInteraction[];
     solarTimeInfo: SolarTimeInfo | null; // null when TST disabled
+    calendar: CalendarInfo;
+    metadata: CalculationMetadata;
 }
 
 // ── Input ────────────────────────────────────────────────────────────────────

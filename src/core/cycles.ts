@@ -3,7 +3,8 @@
 // ============================================================================
 
 import { DaYunCycle, DaYunInfo } from '../types';
-import { LunarEightChar, LunarDaYun } from './pillars';
+import { LunarEightChar, LunarDaYun, getMainQi } from './pillars';
+import { calculateTenGod } from './tenGods';
 
 /**
  * calculateDaYun
@@ -26,6 +27,7 @@ export function calculateDaYun(
 ): DaYunInfo {
     const genderInt = gender === 'male' ? 1 : 0;
     const yun = eightChar.getYun(genderInt);
+    const dayStem = eightChar.getDayGan();
 
     const rawCycles: LunarDaYun[] = yun.getDaYun();
     const cycles: DaYunCycle[] = [];
@@ -38,6 +40,7 @@ export function calculateDaYun(
         const stem = ganZhi.substring(0, 1);
         const branch = ganZhi.substring(1, 2);
         const startYear: number = dy.getStartYear();
+        const endYear: number = dy.getEndYear();
 
         cycles.push({
             index: i,
@@ -46,13 +49,27 @@ export function calculateDaYun(
             ganZhi,
             startYear,
             startAge: startYear - birthYear,
+            endYear,
+            endAge: endYear - birthYear,
+            stemTenGod: calculateTenGod(dayStem, stem),
+            branchTenGod: calculateTenGod(dayStem, getMainQi(branch)),
         });
     }
+
+    const firstCycle = cycles[0];
+    if (!firstCycle) throw new Error('Unable to calculate Da Yun cycles.');
 
     return {
         cycles,
         isForward: yun.isForward(),
-        startYear: yun.getStartYear(),
-        startAge: yun.getStartYear() - birthYear,
+        startYear: firstCycle.startYear,
+        startAge: firstCycle.startAge,
+        startDate: yun.getStartSolar().toYmdHms(),
+        startOffset: {
+            years: yun.getStartYear(),
+            months: yun.getStartMonth(),
+            days: yun.getStartDay(),
+            hours: yun.getStartHour(),
+        },
     };
 }
