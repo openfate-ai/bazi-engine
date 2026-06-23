@@ -53,7 +53,7 @@ export const BRANCH_HIDDEN_STEMS: Record<string, { stem: string; isMain?: boolea
     寅: [{ stem: '甲', isMain: true }, { stem: '丙' }, { stem: '戊' }],
     卯: [{ stem: '乙', isMain: true }],
     辰: [{ stem: '戊', isMain: true }, { stem: '乙' }, { stem: '癸' }],
-    巳: [{ stem: '丙', isMain: true }, { stem: '戊' }, { stem: '庚' }],
+    巳: [{ stem: '丙', isMain: true }, { stem: '庚' }, { stem: '戊' }],
     午: [{ stem: '丁', isMain: true }, { stem: '己' }],
     未: [{ stem: '己', isMain: true }, { stem: '丁' }, { stem: '乙' }],
     申: [{ stem: '庚', isMain: true }, { stem: '壬' }, { stem: '戊' }],
