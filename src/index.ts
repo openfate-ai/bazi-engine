@@ -167,6 +167,23 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
             equationOfTimeMinutes: detail.equationOfTimeMinutes,
             algorithm: detail.algorithm,
         };
+    } else if ((input.dstOffset ?? 0) !== 0 && input.hour !== undefined) {
+        // ── 2b. DST normalization without True Solar Time ────────────────────
+        // DST is a civil-clock correction, not a solar-time refinement: a birth
+        // recorded at 15:20 during a DST period (e.g. China 1986–1991 summer,
+        // Taiwan 1946–1961) actually occurred at 14:20 standard time. The TST
+        // path above already subtracts dstOffset inside calculateTrueSolarTime;
+        // when TST is disabled it must still be normalized out here, otherwise
+        // the pillars use the shifted clock hour — a wrong 时辰, and near
+        // midnight a wrong day pillar. Date-based math keeps day/month/year
+        // rollover safe (lunar input was already converted to solar above).
+        const shifted = new Date(Date.UTC(solarYear, solarMonth - 1, solarDay, solarHour!, solarMinute));
+        shifted.setUTCMinutes(shifted.getUTCMinutes() - Math.round((input.dstOffset ?? 0) * 60));
+        solarYear   = shifted.getUTCFullYear();
+        solarMonth  = shifted.getUTCMonth() + 1;
+        solarDay    = shifted.getUTCDate();
+        solarHour   = shifted.getUTCHours();
+        solarMinute = shifted.getUTCMinutes();
     }
 
     // ── 3. Generate Four Pillars ─────────────────────────────────────────────
