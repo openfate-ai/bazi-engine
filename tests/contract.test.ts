@@ -38,6 +38,53 @@ describe('public chart contract', () => {
         assert.equal(chart.metadata.dayBoundaryMode, 'ZI_HOUR_23');
     });
 
+    test('derives Si hidden-stem Ten Gods from each hidden stem', () => {
+        const cases = [
+            {
+                input: { year: 1893, month: 11, day: 4, hour: 3, minute: 30 },
+                expected: [
+                    { stem: '丙', tenGod: '伤官' },
+                    { stem: '戊', tenGod: '正财' },
+                    { stem: '庚', tenGod: '正官' },
+                ],
+            },
+            {
+                input: { year: 1985, month: 5, day: 20, hour: 10, minute: 0 },
+                expected: [
+                    { stem: '丙', tenGod: '正印' },
+                    { stem: '戊', tenGod: '劫财' },
+                    { stem: '庚', tenGod: '伤官' },
+                ],
+            },
+            {
+                input: { year: 1977, month: 5, day: 10, hour: 10, minute: 0 },
+                expected: [
+                    { stem: '丙', tenGod: '劫财' },
+                    { stem: '戊', tenGod: '伤官' },
+                    { stem: '庚', tenGod: '正财' },
+                ],
+            },
+        ];
+
+        for (const fixture of cases) {
+            const chart = calculateBaziChart({
+                ...fixture.input,
+                gender: 'male',
+                enableTrueSolarTime: false,
+            });
+            const siPillar = Object.values(chart.pillars).find(pillar => pillar?.branch === '巳');
+
+            assert.ok(
+                siPillar,
+                `Expected a Si pillar for ${fixture.input.year}-${fixture.input.month}-${fixture.input.day}`,
+            );
+            assert.deepEqual(
+                siPillar.hiddenStems.map(({ stem, tenGod }) => ({ stem, tenGod })),
+                fixture.expected,
+            );
+        }
+    });
+
     test('returns correct Da Yun calendar metadata and enriched cycles', () => {
         const daYun = calculateBaziChart(BEIJING_CHART_INPUT).daYun;
 
