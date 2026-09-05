@@ -7,6 +7,9 @@ import {
     detectInteractions,
 } from '../src/index';
 
+/* Types */
+import type { InteractionPillar, NatalBranches } from '../src/index';
+
 const BEIJING_CHART_INPUT = {
     year: 1998,
     month: 12,
@@ -208,6 +211,7 @@ describe('interaction coverage', () => {
     const cases = [
         { type: 'CLASH', branches: { year: '子', month: '午', day: '辰', hour: '酉' } },
         { type: 'COMBINATION_2', branches: { year: '子', month: '丑', day: '午', hour: '酉' } },
+        { type: 'COMBINATION_HALF', branches: { year: '申', month: '子', day: '午', hour: '酉' } },
         { type: 'TRINE', branches: { year: '申', month: '子', day: '辰', hour: '酉' } },
         { type: 'DIRECTIONAL', branches: { year: '寅', month: '卯', day: '辰', hour: '酉' } },
         { type: 'PUNISHMENT', branches: { year: '午', month: '午', day: '辰', hour: '酉' } },
@@ -226,5 +230,181 @@ describe('interaction coverage', () => {
         const interactions = detectInteractions({ year: '午', month: '子', day: '辰', hour: '酉' });
         const selfPunishment = interactions.find(interaction => interaction.type === 'PUNISHMENT');
         assert.equal(selfPunishment, undefined);
+    });
+
+    test('preserves every repeated clash occurrence around the month pillar', () => {
+        const fixtures = [
+            { natal: { year: '子', month: '寅', day: '申', hour: '子' }, pairs: [['month', 'day']] },
+            { natal: { year: '申', month: '寅', day: '申', hour: '子' }, pairs: [['year', 'month'], ['month', 'day']] },
+            { natal: { year: '申', month: '寅', day: '申', hour: '申' }, pairs: [['year', 'month'], ['month', 'day'], ['month', 'hour']] },
+        ];
+        for (const { natal, pairs } of fixtures) {
+            const clashes = detectInteractions(natal).filter(({ type }) => type === 'CLASH');
+            assert.deepEqual(clashes.map(({ pillars }) => pillars), pairs);
+        }
+    });
+
+    test('does not collapse repeated combinations or cancel coexisting clashes', () => {
+        const interactions = detectInteractions({ year: '子', month: '丑', day: '子', hour: '午' });
+        assert.deepEqual(
+            interactions.filter(({ type }) => type === 'COMBINATION_2').map(({ id }) => id),
+            ['COMBINATION_2:year:子|month:丑', 'COMBINATION_2:month:丑|day:子'],
+        );
+        assert.deepEqual(
+            interactions.filter(({ type }) => type === 'CLASH').map(({ pillars }) => pillars),
+            [['year', 'hour'], ['day', 'hour']],
+        );
+    });
+
+    test('enumerates all self-punishment pairs, including repeated dynamic branches', () => {
+        for (const branch of ['辰', '午', '酉', '亥']) {
+            const three = { year: branch, month: branch, day: branch };
+            const four = { ...three, hour: branch };
+            const count = (natal: NatalBranches, withContext = false): number => detectInteractions(
+                natal,
+                withContext ? { dayunBranch: branch, annualBranch: branch } : undefined,
+            ).filter(({ type }) => type === 'PUNISHMENT').length;
+            assert.equal(count(three), 3);
+            assert.equal(count(four), 6);
+            assert.equal(count(four, true), 15);
+        }
+    });
+
+    test('enumerates every distinct full-group embedding', () => {
+        const fixtures = [
+            { type: 'TRINE', natal: { year: '申', month: '子', day: '辰', hour: '申' } },
+            { type: 'DIRECTIONAL', natal: { year: '寅', month: '卯', day: '辰', hour: '寅' } },
+            { type: 'PUNISHMENT', natal: { year: '寅', month: '巳', day: '申', hour: '寅' } },
+            { type: 'PUNISHMENT', natal: { year: '丑', month: '戌', day: '未', hour: '丑' } },
+        ];
+        for (const { type, natal } of fixtures) {
+            assert.deepEqual(
+                detectInteractions(natal).filter(item => item.type === type).map(({ pillars }) => pillars),
+                [['year', 'month', 'day'], ['month', 'day', 'hour']],
+            );
+        }
+        const dynamic = detectInteractions(
+            { year: '申', month: '子', day: '辰' },
+            { dayunBranch: '辰', annualBranch: '子' },
+        ).filter(({ type }) => type === 'TRINE');
+        assert.deepEqual(dynamic.map(({ pillars }) => pillars), [
+            ['year', 'month', 'day'], ['year', 'month', 'dayun'],
+            ['year', 'day', 'annual'], ['year', 'dayun', 'annual'],
+        ]);
+    });
+
+    test('keeps the existing full punishment-family policy', () => {
+        for (const [year, month] of [['寅', '巳'], ['巳', '申'], ['寅', '申'], ['丑', '戌'], ['戌', '未'], ['丑', '未']]) {
+            assert.equal(
+                detectInteractions({ year, month, day: '' }).some(({ type }) => type === 'PUNISHMENT'),
+                false,
+            );
+        }
+    });
+
+    test('detects exactly the eight king-node half-trine pairs, never endpoint-only pairs', () => {
+        const halves = [
+            ['申', '子', 'water'], ['子', '辰', 'water'],
+            ['寅', '午', 'fire'], ['午', '戌', 'fire'],
+            ['亥', '卯', 'wood'], ['卯', '未', 'wood'],
+            ['巳', '酉', 'metal'], ['酉', '丑', 'metal'],
+        ];
+        for (const [year, month, target] of halves) {
+            for (const natal of [{ year, month, day: '' }, { year: month, month: year, day: '' }]) {
+                const half = detectInteractions(natal).filter(({ type }) => type === 'COMBINATION_HALF');
+                assert.equal(half.length, 1);
+                assert.equal(half[0].targetElement, target);
+                assert.equal(half[0].transformationStatus, 'NOT_EVALUATED');
+                assert.equal('resultElement' in half[0], false);
+            }
+        }
+        for (const [year, month] of [['申', '辰'], ['寅', '戌'], ['亥', '未'], ['巳', '丑']]) {
+            assert.equal(
+                detectInteractions({ year, month, day: '' }).some(({ type }) => type === 'COMBINATION_HALF'),
+                false,
+            );
+        }
+    });
+
+    test('retains both constituent halves alongside a full trine without claiming transformation', () => {
+        const interactions = detectInteractions({ year: '申', month: '子', day: '辰' });
+        const halves = interactions.filter(({ type }) => type === 'COMBINATION_HALF');
+        assert.deepEqual(halves.map(({ pillars }) => pillars), [['year', 'month'], ['month', 'day']]);
+        const full = interactions.filter(({ type }) => type === 'TRINE');
+        assert.equal(full.length, 1);
+        assert.equal(full[0].targetElement, 'water');
+        assert.equal(full[0].resultElement, 'water');
+        assert.equal(full[0].transformationStatus, 'NOT_EVALUATED');
+    });
+
+    test('keeps 六合 structural-only even when the same pair also has destruction', () => {
+        const interactions = detectInteractions({ year: '巳', month: '申', day: '' });
+        assert.deepEqual(interactions.map(({ type }) => type), ['COMBINATION_2', 'DESTRUCTION']);
+        const combination = interactions[0];
+        assert.equal(combination.transformationStatus, 'NOT_EVALUATED');
+        assert.equal('resultElement' in combination, false);
+        assert.equal('targetElement' in combination, false);
+        assert.equal(interactions[1].transformationStatus, 'NOT_APPLICABLE');
+    });
+
+    test('accepts legacy annual strings and distinct dayun/annual occurrences without inventing an hour', () => {
+        const natal = { year: '申', month: '寅', day: '申' };
+        assert.deepEqual(detectInteractions(natal, '申'), detectInteractions(natal, { annualBranch: '申' }));
+        assert.deepEqual(detectInteractions(natal), detectInteractions({ ...natal, hour: '' }));
+        assert.deepEqual(detectInteractions(natal), detectInteractions(natal, { dayunBranch: '', annualBranch: '' }));
+        const interactions = detectInteractions(natal, { dayunBranch: '申', annualBranch: '申' });
+        assert.deepEqual(
+            interactions.filter(({ type }) => type === 'CLASH').map(({ pillars }) => pillars),
+            [['year', 'month'], ['month', 'day'], ['month', 'dayun'], ['month', 'annual']],
+        );
+        assert.equal(interactions.some(({ pillars }) => pillars.includes('hour')), false);
+    });
+
+    test('keeps stable IDs, positional branch/pillar alignment, ordering and a score-free contract', () => {
+        const natal = { year: '申', month: '子', day: '辰', hour: '申' };
+        const context = { dayunBranch: '寅', annualBranch: '子' };
+        const expectedBranches: Record<InteractionPillar, string> = {
+            ...natal, dayun: context.dayunBranch, annual: context.annualBranch,
+        };
+        const interactions = detectInteractions(natal, context);
+        assert.deepEqual(
+            interactions,
+            detectInteractions({ hour: '申', day: '辰', month: '子', year: '申' }, { annualBranch: '子', dayunBranch: '寅' }),
+        );
+        assert.equal(new Set(interactions.map(({ id }) => id)).size, interactions.length);
+        for (const interaction of interactions) {
+            assert.equal(new Set(interaction.pillars).size, interaction.pillars.length);
+            assert.deepEqual(interaction.branches, interaction.pillars.map(pillar => expectedBranches[pillar]));
+            assert.equal(
+                interaction.id,
+                `${interaction.type}:${interaction.pillars.map((pillar, index) => `${pillar}:${interaction.branches[index]}`).join('|')}`,
+            );
+            for (const field of ['weight', 'score', 'status', 'effectiveWeight', 'energyDelta']) {
+                assert.equal(field in interaction, false);
+            }
+        }
+    });
+
+    test('rejects invalid non-empty branch values at every supported role', () => {
+        const natal = { year: '申', month: '子', day: '辰', hour: '午' };
+        for (const invalid of ['甲', '子午', ' ', 'toString']) {
+            for (const role of ['year', 'month', 'day', 'hour']) {
+                assert.throws(() => detectInteractions({ ...natal, [role]: invalid }), RangeError);
+            }
+            for (const role of ['dayunBranch', 'annualBranch']) {
+                assert.throws(() => detectInteractions(natal, { [role]: invalid }), RangeError);
+            }
+            assert.throws(() => detectInteractions(natal, invalid), RangeError);
+        }
+    });
+
+    test('calculateBaziChart uses the same occurrence-preserving detector', () => {
+        const chart = calculateBaziChart(BEIJING_CHART_INPUT);
+        assert.deepEqual(chart.interactions, detectInteractions({
+            year: chart.pillars.year.branch,
+            month: chart.pillars.month.branch,
+            day: chart.pillars.day.branch,
+            hour: chart.pillars.hour?.branch,
+        }));
     });
 });

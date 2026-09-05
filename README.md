@@ -18,7 +18,7 @@ Getting the Four Pillars right is hard. Solar Term boundaries (节气), True Sol
 | Solar Term boundaries | Easy to get LiChun wrong | Handles all 24 节气 precisely |
 | Zi Hour boundary (23:00) | Confusing, often skipped | Configurable `dayBoundaryMode` |
 | Lunar Calendar conversion | Requires separate library | Built-in, one function call |
-| Interaction detection | Implement 7 types yourself | All 7 types detected, zero effort |
+| Interaction detection | Track rules and repeated pillar positions yourself | Eight raw relationship types with occurrence identity |
 
 ---
 
@@ -153,15 +153,36 @@ Main entry point. Returns a `BaziChart` with:
 - `pillars` — Four Pillars (year, month, day, hour)
 - `dayMaster` — Day Master stem with element, polarity, pinyin
 - `daYun` — 9 Major Luck Cycles with start year/age
-- `interactions` — All detected branch interactions (7 types)
+- `interactions` — Raw branch relationships (8 types), preserving every pillar occurrence
 - `solarTimeInfo` — True Solar Time details (or null if disabled)
 - `calendar` — Civil solar input, calculation solar time, converted lunar date, and zodiac
 - `metadata` — Applied True Solar Time, timezone, DST, and day-boundary policy
 
 Each pillar preserves the simple `stem`, `branch`, and `element` fields and also includes Ten Gods, hidden stems, Na Yin, Xun, void branches, and growth stage.
 
-### `detectInteractions(natal, annualBranch?): BranchInteraction[]`
-Detect interactions in a natal chart, optionally against an annual branch (太岁).
+### `detectInteractions(natal, annualBranchOrContext?): BranchInteraction[]`
+
+Detect raw relationships in natal branches, optionally adding an annual branch (太岁), a Da Yun branch, or both. The original annual-string argument remains supported. Omit `hour` or pass an empty string when the time is unknown; no hour is invented. Empty branch slots are omitted; invalid non-empty values throw `RangeError`.
+
+```typescript
+const relationships = detectInteractions(
+  { year: '申', month: '寅', day: '申' },
+  { dayunBranch: '申', annualBranch: '子' },
+);
+// Three distinct 寅申 clashes: year/month, month/day, month/dayun.
+```
+
+- Every distinct pair and full-group embedding is retained. Three 午 occurrences produce three self-punishment pairs; four produce six. They are separate structural occurrences, **not** independent penalties to sum.
+- Types: `CLASH`, `COMBINATION_2`, `COMBINATION_HALF`, `TRINE`, `DIRECTIONAL`, `PUNISHMENT`, `DESTRUCTION`, `HARM`.
+- `COMBINATION_HALF` uses the eight king-node pairs: 申子、子辰、寅午、午戌、亥卯、卯未、巳酉、酉丑. Endpoint-only pairs such as 申辰 are not half trines in this profile. Half relationships remain present when the full trine also exists; consumers must not count both as independent energy effects.
+- The existing punishment policy is preserved: 寅巳申 and 丑戌未 require all three branches; 子卯 and the 辰、午、酉、亥 self-punishments use distinct pairs. This release does not add partial three-punishment school variants.
+- `branches[i]` always belongs to `pillars[i]`, ordered `year`, `month`, `day`, `hour`, `dayun`, `annual`. `id` is the type followed by those occurrence identities, for example `CLASH:year:申|month:寅`. Output order is deterministic: the type order listed above, then occurrence role order. Object property insertion order has no effect.
+- Combinations carry `transformationStatus: 'NOT_EVALUATED'`; other types carry `'NOT_APPLICABLE'`. Branch presence alone cannot establish transformation or resolve a competing clash. No weight, score, energy delta, strength, or pattern verdict is returned.
+- `targetElement` is only the affinity of half/full trines and directional groups, **not** proven transformation. Half trines and 六合 have no `resultElement`. Full trines/directional groups retain `resultElement` as a legacy affinity alias; it is not confirmation of transformation.
+
+Migration: review consumers that assumed one result per branch-name pair, fixed array order, exhaustive switches on seven types, or automatic 六合 transformation. Store by stable `id`, not just branch names. Keep raw relationships separate from any settled/scored chart model; adding more raw occurrences must not automatically multiply its weights. This package's branch detector does not decide whether a chart forms a classical pattern or predict life outcomes.
+
+**Pending major release:** this source changes the public contract: `id` and `transformationStatus` are required, `pillars` uses a role union, `InteractionType` has a new member, and 六合 no longer exposes `resultElement`. It is not a drop-in patch release. Do not use the current `npm run release` command, which automatically increments the patch version, for this migration. Coordinate a major engine release and compatible app/MCP consumers before publishing; the unchanged package version does not mean these source changes are already available on npm.
 
 ### `generatePillarsFromSolar(...): PillarResult`
 Low-level pillar generator — use when you've already handled time correction yourself.
@@ -179,6 +200,7 @@ Bazi calculations are notoriously prone to edge-case bugs. We maintain a regress
 - **Century Boundaries**: Regression coverage for dates across 1800, 1900, 2000, and 2100.
 - **Da Yun**: Exact start date, elapsed-age convention, direction, and cycle boundaries.
 - **Factual Enrichment**: Ten Gods, hidden stems, Na Yin, Xun, void branches, and growth stages.
+- **Interaction topology**: Repeated positions, full-group embeddings, eight half trines, missing hours, dynamic role identity, invalid branches, and the no-transformation/no-scoring contract.
 
 Run the tests yourself:
 ```bash
