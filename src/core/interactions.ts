@@ -1,216 +1,214 @@
 // ============================================================================
-// @openfate/bazi-engine — Branch Interaction Detector
-// Detects classical Clash, Combination, Punishment, Destruction, Harm.
-// Returns presence/type only — scoring and energy deltas are NOT included.
+// @openfate/bazi-engine — Raw Branch Interaction Detector
+// Enumerates occurrence relationships; settlement, scoring and energy stay private.
 // ============================================================================
 
-import { BranchInteraction, FiveElement } from '../types';
+/* Types */
+import type {
+    BranchInteraction,
+    FiveElement,
+    InteractionContext,
+    InteractionPillar,
+    InteractionType,
+    NatalBranches,
+} from '../types';
 
-// ── Classical Detection Tables ───────────────────────────────────────────────
+/* Constants */
+import { BRANCHES } from '../constants';
 
-/** Six Clashes (六冲) */
-const CLASHES: [string, string][] = [
+type PillarBranch = { branch: string; pillar: InteractionPillar };
+type BranchPair = readonly [string, string];
+type BranchTriple = readonly [string, string, string];
+
+interface InteractionRule {
+    type: InteractionType;
+    branches: BranchPair | BranchTriple;
+    description: string;
+    targetElement?: FiveElement;
+}
+
+const CLASHES: readonly BranchPair[] = [
     ['子', '午'], ['丑', '未'], ['寅', '申'],
     ['卯', '酉'], ['辰', '戌'], ['巳', '亥'],
 ];
 
-/** Six Combinations (六合 — 2-branch) */
-const COMBINATIONS_2: { pair: [string, string]; result: FiveElement }[] = [
-    { pair: ['子', '丑'], result: 'earth' },
-    { pair: ['寅', '亥'], result: 'wood'  },
-    { pair: ['卯', '戌'], result: 'fire'  },
-    { pair: ['辰', '酉'], result: 'metal' },
-    { pair: ['巳', '申'], result: 'water' },
-    { pair: ['午', '未'], result: 'fire'  },
+const COMBINATIONS_2: readonly BranchPair[] = [
+    ['子', '丑'], ['寅', '亥'], ['卯', '戌'],
+    ['辰', '酉'], ['巳', '申'], ['午', '未'],
 ];
 
-/** Trines (三合 — 3-branch) */
-const TRINES: { group: [string, string, string]; result: FiveElement }[] = [
-    { group: ['申', '子', '辰'], result: 'water' },
-    { group: ['亥', '卯', '未'], result: 'wood'  },
-    { group: ['寅', '午', '戌'], result: 'fire'  },
-    { group: ['巳', '酉', '丑'], result: 'metal' },
+const TRINES: readonly { group: BranchTriple; target: FiveElement }[] = [
+    { group: ['申', '子', '辰'], target: 'water' },
+    { group: ['亥', '卯', '未'], target: 'wood' },
+    { group: ['寅', '午', '戌'], target: 'fire' },
+    { group: ['巳', '酉', '丑'], target: 'metal' },
 ];
 
-/** Directional (三会 — Seasonal) */
-const DIRECTIONAL: { group: [string, string, string]; result: FiveElement }[] = [
-    { group: ['寅', '卯', '辰'], result: 'wood'  },
-    { group: ['巳', '午', '未'], result: 'fire'  },
-    { group: ['申', '酉', '戌'], result: 'metal' },
-    { group: ['亥', '子', '丑'], result: 'water' },
+const DIRECTIONAL: readonly { group: BranchTriple; target: FiveElement }[] = [
+    { group: ['寅', '卯', '辰'], target: 'wood' },
+    { group: ['巳', '午', '未'], target: 'fire' },
+    { group: ['申', '酉', '戌'], target: 'metal' },
+    { group: ['亥', '子', '丑'], target: 'water' },
 ];
 
-/** Punishments (刑) */
-const PUNISHMENTS: { branches: string[]; desc: string }[] = [
-    { branches: ['寅', '巳', '申'], desc: 'Ungrateful Punishment (无恩之刑)' },
-    { branches: ['丑', '戌', '未'], desc: 'Bullying Punishment (持势之刑)' },
-    { branches: ['子', '卯'],       desc: 'Uncivilized Punishment (无礼之刑)' },
-    { branches: ['辰', '辰'],       desc: 'Self-Punishment (自刑)' },
-    { branches: ['午', '午'],       desc: 'Self-Punishment (自刑)' },
-    { branches: ['酉', '酉'],       desc: 'Self-Punishment (自刑)' },
-    { branches: ['亥', '亥'],       desc: 'Self-Punishment (自刑)' },
+const PUNISHMENTS: readonly { branches: BranchPair | BranchTriple; description: string }[] = [
+    { branches: ['寅', '巳', '申'], description: 'Ungrateful Punishment (无恩之刑)' },
+    { branches: ['丑', '戌', '未'], description: 'Bullying Punishment (持势之刑)' },
+    { branches: ['子', '卯'], description: 'Uncivilized Punishment (无礼之刑)' },
+    { branches: ['辰', '辰'], description: 'Self-Punishment (自刑)' },
+    { branches: ['午', '午'], description: 'Self-Punishment (自刑)' },
+    { branches: ['酉', '酉'], description: 'Self-Punishment (自刑)' },
+    { branches: ['亥', '亥'], description: 'Self-Punishment (自刑)' },
 ];
 
-/** Destructions (破) */
-const DESTRUCTIONS: [string, string][] = [
+const DESTRUCTIONS: readonly BranchPair[] = [
     ['子', '酉'], ['丑', '辰'], ['寅', '亥'],
     ['卯', '午'], ['巳', '申'], ['未', '戌'],
 ];
 
-/** Harms (害) */
-const HARMS: [string, string][] = [
+const HARMS: readonly BranchPair[] = [
     ['子', '未'], ['丑', '午'], ['寅', '巳'],
     ['卯', '辰'], ['申', '亥'], ['酉', '戌'],
 ];
 
-// ── Helper ───────────────────────────────────────────────────────────────────
+const INTERACTION_ORDER: readonly InteractionType[] = [
+    'CLASH', 'COMBINATION_2', 'COMBINATION_HALF', 'TRINE',
+    'DIRECTIONAL', 'PUNISHMENT', 'DESTRUCTION', 'HARM',
+];
+const VALID_BRANCHES = new Set(BRANCHES.map(({ char }) => char));
 
-type PillarBranch = { branch: string; pillar: string };
-
-function hasBranch(branches: PillarBranch[], target: string): PillarBranch | undefined {
-    return branches.find(b => b.branch === target);
+/** Multiset key preserves repeated branches such as 午午. */
+function branchKey(branches: readonly string[]): string {
+    return [...branches].sort().join('');
 }
 
-function groupHas(branches: PillarBranch[], group: string[]): PillarBranch[] | null {
-    const remaining = [...branches];
-    const found: PillarBranch[] = [];
+/** Index rules once; detection itself visits all distinct occurrence pairs/triples. */
+function createRuleIndex(): ReadonlyMap<string, readonly InteractionRule[]> {
+    const rules: InteractionRule[] = [
+        ...CLASHES.map(branches => ({
+            type: 'CLASH' as const, branches, description: `Clash (${branches.join('')}相冲)`,
+        })),
+        ...COMBINATIONS_2.map(branches => ({
+            type: 'COMBINATION_2' as const, branches, description: `Combination (${branches.join('')}六合)`,
+        })),
+        ...TRINES.map(({ group, target }) => ({
+            type: 'TRINE' as const, branches: group, targetElement: target,
+            description: `Trine (${group.join('')}三合 — ${target})`,
+        })),
+        ...DIRECTIONAL.map(({ group, target }) => ({
+            type: 'DIRECTIONAL' as const, branches: group, targetElement: target,
+            description: `Directional (${group.join('')}三会 — ${target})`,
+        })),
+        ...PUNISHMENTS.map(({ branches, description }) => ({
+            type: 'PUNISHMENT' as const, branches, description: `${description} — ${branches.join('')}`,
+        })),
+        ...DESTRUCTIONS.map(branches => ({
+            type: 'DESTRUCTION' as const, branches, description: `Destruction (${branches.join('')}相破)`,
+        })),
+        ...HARMS.map(branches => ({
+            type: 'HARM' as const, branches, description: `Harm (${branches.join('')}相害)`,
+        })),
+    ];
 
-    for (const target of group) {
-        const index = remaining.findIndex(item => item.branch === target);
-        if (index === -1) return null;
-        found.push(remaining[index]);
-        remaining.splice(index, 1);
+    // The middle member is the cardinal/king branch. Endpoint-only pairs are not half trines.
+    for (const { group: [first, king, last], target } of TRINES) {
+        for (const branches of [[first, king], [king, last]] as const) {
+            rules.push({
+                type: 'COMBINATION_HALF', branches, targetElement: target,
+                description: `Half Trine (${branches.join('')}半合 — ${target})`,
+            });
+        }
     }
 
-    return found;
+    const index = new Map<string, InteractionRule[]>();
+    for (const rule of rules) {
+        const key = branchKey(rule.branches);
+        const existing = index.get(key);
+        if (existing) existing.push(rule);
+        else index.set(key, [rule]);
+    }
+    return index;
 }
 
-// ── Main Detector ────────────────────────────────────────────────────────────
+const RULE_INDEX = createRuleIndex();
+
+/** Preserve role identity and reject non-branch inputs instead of silently hiding them. */
+function collectBranches(natal: NatalBranches, context: InteractionContext): PillarBranch[] {
+    const candidates: { branch: string | undefined; pillar: InteractionPillar }[] = [
+        { branch: natal.year, pillar: 'year' },
+        { branch: natal.month, pillar: 'month' },
+        { branch: natal.day, pillar: 'day' },
+        { branch: natal.hour, pillar: 'hour' },
+        { branch: context.dayunBranch, pillar: 'dayun' },
+        { branch: context.annualBranch, pillar: 'annual' },
+    ];
+    const nodes: PillarBranch[] = [];
+    for (const { branch, pillar } of candidates) {
+        if (branch === undefined || branch === '') continue;
+        if (!VALID_BRANCHES.has(branch)) {
+            throw new RangeError(`Invalid Earthly Branch for ${pillar}`);
+        }
+        nodes.push({ branch, pillar });
+    }
+    return nodes;
+}
+
+/** Build an unweighted relationship, never a transformation or conflict-resolution verdict. */
+function createInteraction(rule: InteractionRule, nodes: readonly PillarBranch[]): BranchInteraction {
+    const isCombination = rule.type === 'COMBINATION_2' || rule.type === 'COMBINATION_HALF'
+        || rule.type === 'TRINE' || rule.type === 'DIRECTIONAL';
+    const interaction: BranchInteraction = {
+        id: `${rule.type}:${nodes.map(({ pillar, branch }) => `${pillar}:${branch}`).join('|')}`,
+        type: rule.type,
+        branches: nodes.map(({ branch }) => branch),
+        pillars: nodes.map(({ pillar }) => pillar),
+        transformationStatus: isCombination ? 'NOT_EVALUATED' : 'NOT_APPLICABLE',
+        description: rule.description,
+    };
+    if (rule.targetElement !== undefined) {
+        interaction.targetElement = rule.targetElement;
+        // Retained for existing full-group consumers only; affinity is not proven transformation.
+        if (rule.type === 'TRINE' || rule.type === 'DIRECTIONAL') {
+            interaction.resultElement = rule.targetElement;
+        }
+    }
+    return interaction;
+}
 
 /**
- * detectInteractions
- *
- * Scans the natal chart branches for all classical Ganzhi interactions.
- * An optional `annualBranch` can be passed to detect dynamic year interactions.
- *
- * @param natal       - The four natal chart branches { year, month, day, hour }
- * @param annualBranch - Optional: the Taisui (太岁) branch for the year being analyzed
+ * Enumerate every raw natal/dynamic relationship with pillar identity intact.
+ * Missing/empty hour is omitted. A legacy annual string or a dayun/annual context is accepted.
+ * Half trines coexist with full groups; competing relationships are not cancelled or scored.
  */
 export function detectInteractions(
-    natal: { year: string; month: string; day: string; hour: string },
-    annualBranch?: string
+    natal: NatalBranches,
+    annualBranchOrContext?: string | InteractionContext,
 ): BranchInteraction[] {
+    const context = typeof annualBranchOrContext === 'string'
+        ? { annualBranch: annualBranchOrContext }
+        : annualBranchOrContext ?? {};
+    const nodes = collectBranches(natal, context);
     const results: BranchInteraction[] = [];
 
-    const allBranches: PillarBranch[] = [
-        { branch: natal.year,  pillar: 'year'  },
-        { branch: natal.month, pillar: 'month' },
-        { branch: natal.day,   pillar: 'day'   },
-        { branch: natal.hour,  pillar: 'hour'  },
-    ].filter(b => b.branch !== '');
+    const appendMatching = (occurrences: readonly PillarBranch[]): void => {
+        const rules = RULE_INDEX.get(branchKey(occurrences.map(({ branch }) => branch)));
+        if (!rules) return;
+        for (const rule of rules) results.push(createInteraction(rule, occurrences));
+    };
 
-    if (annualBranch) {
-        allBranches.push({ branch: annualBranch, pillar: 'annual' });
-    }
-
-    // 1. Clashes
-    for (const [a, b] of CLASHES) {
-        const na = hasBranch(allBranches, a);
-        const nb = hasBranch(allBranches, b);
-        if (na && nb) {
-            results.push({
-                type: 'CLASH',
-                branches: [a, b],
-                pillars: [na.pillar, nb.pillar],
-                description: `Clash (${a}${b}相冲)`,
-            });
+    for (let first = 0; first < nodes.length; first++) {
+        for (let second = first + 1; second < nodes.length; second++) {
+            appendMatching([nodes[first], nodes[second]]);
+            for (let third = second + 1; third < nodes.length; third++) {
+                appendMatching([nodes[first], nodes[second], nodes[third]]);
+            }
         }
     }
 
-    // 2. Six Combinations (六合)
-    for (const combo of COMBINATIONS_2) {
-        const [a, b] = combo.pair;
-        const na = hasBranch(allBranches, a);
-        const nb = hasBranch(allBranches, b);
-        if (na && nb) {
-            results.push({
-                type: 'COMBINATION_2',
-                branches: [a, b],
-                pillars: [na.pillar, nb.pillar],
-                resultElement: combo.result,
-                description: `Combination (${a}${b}六合 — ${combo.result})`,
-            });
-        }
+    // Filtering preserves the fixed role-order traversal within each category.
+    const ordered: BranchInteraction[] = [];
+    for (const type of INTERACTION_ORDER) {
+        ordered.push(...results.filter(result => result.type === type));
     }
-
-    // 3. Trines (三合)
-    for (const trine of TRINES) {
-        const found = groupHas(allBranches, [...trine.group]);
-        if (found) {
-            results.push({
-                type: 'TRINE',
-                branches: [...trine.group],
-                pillars: found.map(n => n.pillar),
-                resultElement: trine.result,
-                description: `Trine (${trine.group.join('')}三合 — ${trine.result})`,
-            });
-        }
-    }
-
-    // 4. Directional (三会)
-    for (const dir of DIRECTIONAL) {
-        const found = groupHas(allBranches, [...dir.group]);
-        if (found) {
-            results.push({
-                type: 'DIRECTIONAL',
-                branches: [...dir.group],
-                pillars: found.map(n => n.pillar),
-                resultElement: dir.result,
-                description: `Directional (${dir.group.join('')}三会 — ${dir.result})`,
-            });
-        }
-    }
-
-    // 5. Punishments (刑)
-    for (const pun of PUNISHMENTS) {
-        const found = groupHas(allBranches, pun.branches);
-        if (found) {
-            results.push({
-                type: 'PUNISHMENT',
-                branches: [...pun.branches],
-                pillars: found.map(n => n.pillar),
-                description: `${pun.desc} — ${pun.branches.join('')}`,
-            });
-        }
-    }
-
-    // 6. Destructions (破)
-    for (const [a, b] of DESTRUCTIONS) {
-        const na = hasBranch(allBranches, a);
-        const nb = hasBranch(allBranches, b);
-        if (na && nb) {
-            results.push({
-                type: 'DESTRUCTION',
-                branches: [a, b],
-                pillars: [na.pillar, nb.pillar],
-                description: `Destruction (${a}${b}相破)`,
-            });
-        }
-    }
-
-    // 7. Harms (害)
-    for (const [a, b] of HARMS) {
-        const na = hasBranch(allBranches, a);
-        const nb = hasBranch(allBranches, b);
-        if (na && nb) {
-            results.push({
-                type: 'HARM',
-                branches: [a, b],
-                pillars: [na.pillar, nb.pillar],
-                description: `Harm (${a}${b}相害)`,
-            });
-        }
-    }
-
-    return results;
+    return ordered;
 }

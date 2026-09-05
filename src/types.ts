@@ -94,18 +94,39 @@ export interface DaYunInfo {
 export type InteractionType =
     | 'CLASH'           // 六冲
     | 'COMBINATION_2'   // 六合
+    | 'COMBINATION_HALF' // 半合 (requires 子、午、卯、酉)
     | 'TRINE'           // 三合
     | 'DIRECTIONAL'     // 三会
     | 'PUNISHMENT'      // 刑
     | 'DESTRUCTION'     // 破
     | 'HARM';           // 害
 
-/** A detected branch interaction */
+export type InteractionPillar = 'year' | 'month' | 'day' | 'hour' | 'dayun' | 'annual';
+
+/** Branch-only detection does not evaluate whether a combination transforms. */
+export type InteractionTransformationStatus = 'NOT_EVALUATED' | 'NOT_APPLICABLE';
+
+export interface NatalBranches {
+    year: string;
+    month: string;
+    day: string;
+    hour?: string; // Omitted or empty when birth time is unknown.
+}
+
+export interface InteractionContext {
+    annualBranch?: string;
+    dayunBranch?: string;
+}
+
+/** One raw relationship between distinct pillar occurrences, not a scored outcome. */
 export interface BranchInteraction {
+    id: string;                // Stable type + pillar:branch occurrence identities.
     type: InteractionType;
     branches: string[];         // e.g. ['子', '午']
-    pillars: string[];          // e.g. ['day', 'hour']
-    resultElement?: FiveElement; // For combinations that transform
+    pillars: InteractionPillar[]; // Same order as branches; never deduplicated by branch.
+    transformationStatus: InteractionTransformationStatus;
+    targetElement?: FiveElement; // Full/half trine or directional affinity, not transformation.
+    resultElement?: FiveElement; // Legacy full trine/directional affinity only; not proof of transformation.
     description: string;        // Human readable: e.g. '子午相冲'
 }
 
