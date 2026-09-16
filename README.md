@@ -142,9 +142,16 @@ calculateBaziChart({
   enableTrueSolarTime: true,        // default: true (requires longitude)
   dayBoundaryMode: 'MIDNIGHT_00',   // 'MIDNIGHT_00' (default) or 'ZI_HOUR_23' (traditional)
   calendarType: 'solar',            // 'solar' (default) or 'lunar'
-  dstOffset: 1,                     // For historical/DST dates (e.g. China pre-1992)
+  timezoneId: 'Asia/Shanghai',      // Preferred for historical civil-time rules
+  // Or provide the complete explicit pair: timezone: 8, dstOffset: 1
 });
 ```
+
+When `timezoneId` is present and either `timezone` or `dstOffset` is omitted, the
+IANA zone determines the historical standard offset and DST adjustment. An explicit
+numeric `timezone` + `dstOffset` pair remains authoritative. The resolved DST value is
+returned in `metadata.dstOffset` when an hour is supplied, including when True Solar
+Time is disabled.
 
 ## API Reference
 

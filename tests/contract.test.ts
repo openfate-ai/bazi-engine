@@ -168,6 +168,48 @@ describe('public chart contract', () => {
         assert.equal(rollover.calendar.calculationSolar.month, 12);
         assert.equal(rollover.calendar.calculationSolar.year, 1999);
     });
+
+    test('reports IANA-inferred historical DST in the calculation receipt', () => {
+        const inferred = calculateBaziChart({
+            year: 1988,
+            month: 7,
+            day: 15,
+            hour: 15,
+            minute: 20,
+            gender: 'male',
+            longitude: 116.4074,
+            timezoneId: 'Asia/Shanghai',
+        });
+        const explicit = calculateBaziChart({
+            year: 1988,
+            month: 7,
+            day: 15,
+            hour: 15,
+            minute: 20,
+            gender: 'male',
+            longitude: 116.4074,
+            timezone: 8,
+            dstOffset: 1,
+        });
+        const mixed = calculateBaziChart({
+            year: 1988,
+            month: 7,
+            day: 15,
+            hour: 15,
+            minute: 20,
+            gender: 'male',
+            longitude: 116.4074,
+            timezone: -5,
+            timezoneId: 'Asia/Shanghai',
+        });
+
+        assert.deepEqual(inferred.pillars, explicit.pillars);
+        assert.deepEqual(inferred.calendar, explicit.calendar);
+        assert.equal(inferred.solarTimeInfo?.trueSolarDateTime, explicit.solarTimeInfo?.trueSolarDateTime);
+        assert.equal(inferred.metadata.timezoneBasis, 'Asia/Shanghai');
+        assert.equal(inferred.metadata.dstOffset, 1);
+        assert.deepEqual(mixed, inferred);
+    });
 });
 
 describe('input validation', () => {

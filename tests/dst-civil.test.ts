@@ -76,4 +76,93 @@ describe('DST civil correction with True Solar Time disabled', () => {
         }));
         assert.equal(doubleDst, standard);
     });
+
+    test('IANA timezone infers historical DST without True Solar Time', () => {
+        const inferred = calculateBaziChart(base({
+            timezone: undefined,
+            timezoneId: 'Asia/Shanghai',
+            dstOffset: undefined,
+        }));
+        const explicit = calculateBaziChart(base({
+            timezone: 8,
+            timezoneId: undefined,
+            dstOffset: 1,
+        }));
+
+        assert.deepEqual(inferred.pillars, explicit.pillars);
+        assert.deepEqual(inferred.calendar.calculationSolar, explicit.calendar.calculationSolar);
+        assert.equal(inferred.metadata.timezoneBasis, 'Asia/Shanghai');
+        assert.equal(inferred.metadata.dstOffset, 1);
+    });
+
+    test('IANA timezone keeps winter civil time at standard time', () => {
+        const inferred = calculateBaziChart(base({
+            month: 12,
+            timezone: undefined,
+            timezoneId: 'Asia/Shanghai',
+            dstOffset: undefined,
+        }));
+        const explicit = calculateBaziChart(base({
+            month: 12,
+            timezone: 8,
+            timezoneId: undefined,
+            dstOffset: 0,
+        }));
+
+        assert.deepEqual(inferred.pillars, explicit.pillars);
+        assert.deepEqual(inferred.calendar.calculationSolar, explicit.calendar.calculationSolar);
+        assert.equal(inferred.metadata.timezoneBasis, 'Asia/Shanghai');
+        assert.equal(inferred.metadata.dstOffset, 0);
+    });
+
+    test('explicit numeric timezone and DST pair takes precedence over a supplied IANA zone', () => {
+        const explicit = calculateBaziChart(base({
+            timezone: 8,
+            timezoneId: 'America/New_York',
+            dstOffset: 1,
+        }));
+        const numericOnly = calculateBaziChart(base({
+            timezone: 8,
+            timezoneId: undefined,
+            dstOffset: 1,
+        }));
+
+        assert.deepEqual(explicit, numericOnly);
+        assert.equal(explicit.metadata.timezoneBasis, 8);
+        assert.equal(explicit.metadata.dstOffset, 1);
+    });
+
+    test('explicit dstOffset=0 remains an authoritative numeric standard-time override', () => {
+        const explicit = calculateBaziChart(base({
+            timezone: 8,
+            timezoneId: 'Asia/Shanghai',
+            dstOffset: 0,
+        }));
+        const numericOnly = calculateBaziChart(base({
+            timezone: 8,
+            timezoneId: undefined,
+            dstOffset: 0,
+        }));
+
+        assert.deepEqual(explicit, numericOnly);
+        assert.equal(explicit.metadata.timezoneBasis, 8);
+        assert.equal(explicit.metadata.dstOffset, 0);
+    });
+
+    test('a partial numeric hint does not override IANA historical DST', () => {
+        const partial = calculateBaziChart(base({
+            timezone: undefined,
+            timezoneId: 'Asia/Shanghai',
+            dstOffset: 0,
+        }));
+        const ianaOnly = calculateBaziChart(base({
+            timezone: undefined,
+            timezoneId: 'Asia/Shanghai',
+            dstOffset: undefined,
+        }));
+
+        assert.deepEqual(partial, ianaOnly);
+        assert.equal(partial.metadata.timezoneBasis, 'Asia/Shanghai');
+        assert.equal(partial.metadata.dstOffset, 1);
+    });
 });

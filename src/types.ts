@@ -177,7 +177,7 @@ export interface BaziInput {
     longitude?: number;   // Decimal degrees, e.g. 116.39 for Beijing
     timezone?: number;    // UTC offset in hours, e.g. 8 for CST
     timezoneId?: string;  // IANA timezone ID, e.g. 'Asia/Shanghai'
-    dstOffset?: number;   // DST offset in hours, default 0
+    dstOffset?: number;   // Explicit DST hours; inferred from timezoneId when the numeric pair is incomplete
 
     // Identity
     gender: 'male' | 'female';

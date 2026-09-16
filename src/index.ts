@@ -2,7 +2,7 @@
 // @openfate/bazi-engine — Public Entry Point
 // ============================================================================
 
-import { calculateTrueSolarTime } from '@openfate/true-solar-time';
+import { calculateTrueSolarTime, resolveCivilTime } from '@openfate/true-solar-time';
 import { Lunar, Solar } from 'lunar-javascript';
 
 import { generatePillarsFromSolar, getStemInfo } from './core/pillars';
@@ -97,6 +97,9 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
     let solarMinute = input.minute ?? 0;
     let solarSecond = 0;
     let solarTimeInfo: SolarTimeInfo | null = null;
+    let resolvedDstOffset = input.dstOffset ?? 0;
+    const useIanaTimezone = input.timezoneId !== undefined &&
+        (input.timezone === undefined || input.dstOffset === undefined);
     const inputType = input.calendarType ?? 'solar';
 
     // ── 1. Lunar → Solar Calendar Conversion ────────────────────────────────
@@ -125,15 +128,16 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
         input.hour !== undefined;
 
     if (enableTST) {
-        const civilTimeInput = input.timezone !== undefined
+        // An explicit numeric timezone + DST pair is authoritative. Otherwise
+        // the IANA zone supplies historical timezone and DST transitions.
+        const civilTimeInput = useIanaTimezone
             ? {
                 year: solarYear,
                 month: solarMonth,
                 day: solarDay,
                 hour: solarHour!,
                 minute: solarMinute,
-                timeZoneOffset: input.timezone,
-                dstOffset: input.dstOffset ?? 0,
+                timeZoneId: input.timezoneId!,
             }
             : {
                 year: solarYear,
@@ -141,11 +145,13 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
                 day: solarDay,
                 hour: solarHour!,
                 minute: solarMinute,
-                timeZoneId: input.timezoneId!,
+                timeZoneOffset: input.timezone!,
+                dstOffset: input.dstOffset ?? 0,
             };
         const detail = calculateTrueSolarTime(civilTimeInput, {
             longitude: input.longitude!,
         });
+        resolvedDstOffset = detail.dstOffsetMinutes / 60;
 
         const [dateStr, timeStr] = detail.trueSolarDateTime.split(' ');
         const [yS, mS, dS] = dateStr.split('-');
@@ -167,7 +173,7 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
             equationOfTimeMinutes: detail.equationOfTimeMinutes,
             algorithm: detail.algorithm,
         };
-    } else if ((input.dstOffset ?? 0) !== 0 && input.hour !== undefined) {
+    } else if (input.hour !== undefined) {
         // ── 2b. DST normalization without True Solar Time ────────────────────
         // DST is a civil-clock correction, not a solar-time refinement: a birth
         // recorded at 15:20 during a DST period (e.g. China 1986–1991 summer,
@@ -177,13 +183,27 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
         // the pillars use the shifted clock hour — a wrong 时辰, and near
         // midnight a wrong day pillar. Date-based math keeps day/month/year
         // rollover safe (lunar input was already converted to solar above).
-        const shifted = new Date(Date.UTC(solarYear, solarMonth - 1, solarDay, solarHour!, solarMinute));
-        shifted.setUTCMinutes(shifted.getUTCMinutes() - Math.round((input.dstOffset ?? 0) * 60));
-        solarYear   = shifted.getUTCFullYear();
-        solarMonth  = shifted.getUTCMonth() + 1;
-        solarDay    = shifted.getUTCDate();
-        solarHour   = shifted.getUTCHours();
-        solarMinute = shifted.getUTCMinutes();
+        if (useIanaTimezone) {
+            const resolvedCivilTime = resolveCivilTime({
+                year: solarYear,
+                month: solarMonth,
+                day: solarDay,
+                hour: solarHour!,
+                minute: solarMinute,
+                timeZoneId: input.timezoneId!,
+            });
+            resolvedDstOffset = resolvedCivilTime.dstOffsetMinutes / 60;
+        }
+
+        if (resolvedDstOffset !== 0) {
+            const shifted = new Date(Date.UTC(solarYear, solarMonth - 1, solarDay, solarHour!, solarMinute));
+            shifted.setUTCMinutes(shifted.getUTCMinutes() - Math.round(resolvedDstOffset * 60));
+            solarYear   = shifted.getUTCFullYear();
+            solarMonth  = shifted.getUTCMonth() + 1;
+            solarDay    = shifted.getUTCDate();
+            solarHour   = shifted.getUTCHours();
+            solarMinute = shifted.getUTCMinutes();
+        }
     }
 
     // ── 3. Generate Four Pillars ─────────────────────────────────────────────
@@ -234,8 +254,10 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
             trueSolarTimeApplied: enableTST,
             dayBoundaryMode: input.dayBoundaryMode ?? 'MIDNIGHT_00',
             longitude: input.longitude ?? null,
-            timezoneBasis: input.timezone ?? input.timezoneId ?? null,
-            dstOffset: input.dstOffset ?? 0,
+            timezoneBasis: useIanaTimezone
+                ? input.timezoneId!
+                : input.timezone ?? input.timezoneId ?? null,
+            dstOffset: resolvedDstOffset,
         },
     };
 }
