@@ -71,5 +71,11 @@ export function calculateDaYun(
             days: yun.getStartDay(),
             hours: yun.getStartHour(),
         },
+        timing: {
+            status: 'CALCULATED',
+            version: 'LEGACY_SHICHEN_V1',
+            provider: 'lunar-javascript',
+            providerVersion: '1.7.7',
+        },
     };
 }

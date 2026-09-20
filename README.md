@@ -18,6 +18,7 @@ Getting the Four Pillars right is hard. Solar Term boundaries (节气), True Sol
 | Solar Term boundaries | Easy to get LiChun wrong | Handles all 24 节气 precisely |
 | Zi Hour boundary (23:00) | Confusing, often skipped | Configurable `dayBoundaryMode` |
 | Lunar Calendar conversion | Requires separate library | Built-in, one function call |
+| Da Yun onset provenance | Rounded age with opaque assumptions | Optional second-resolved, versioned receipt |
 | Interaction detection | Track rules and repeated pillar positions yourself | Eight raw relationship types with occurrence identity |
 
 ---
@@ -144,6 +145,7 @@ calculateBaziChart({
   calendarType: 'solar',            // 'solar' (default) or 'lunar'
   timezoneId: 'Asia/Shanghai',      // Preferred for historical civil-time rules
   // Or provide the complete explicit pair: timezone: 8, dstOffset: 1
+  daYunTimingVersion: 'DAYUN_SECOND_V2', // opt in; legacy timing remains the default
 });
 ```
 
@@ -153,13 +155,40 @@ numeric `timezone` + `dstOffset` pair remains authoritative. The resolved DST va
 returned in `metadata.dstOffset` when an hour is supplied, including when True Solar
 Time is disabled.
 
+### Versioned Da Yun onset
+
+`LEGACY_SHICHEN_V1` remains the default, so upgrading does not silently move existing
+cycle dates. Set `daYunTimingVersion: 'DAYUN_SECOND_V2'` to measure the physical interval
+between the birth instant and the applicable Jie boundary, then apply the declared
+three-days-per-year conversion at second resolution.
+
+```typescript
+const chart = calculateBaziChart({
+  year: 2001, month: 7, day: 2, hour: 3, minute: 14,
+  gender: 'male', longitude: 112.6986, timezoneId: 'Asia/Shanghai',
+  dayBoundaryMode: 'ZI_HOUR_23',
+  daYunTimingVersion: 'DAYUN_SECOND_V2',
+});
+
+console.log(chart.daYun.startDate); // 2010-03-23 19:14:00
+console.log(chart.daYun.timing);    // birth/Jie UTC instants, interval, policy, rounding
+```
+
+V2 rejects ambiguous or nonexistent IANA wall times instead of choosing one silently.
+If the birth time, timezone, or Jie lookup is unavailable, the existing legacy scalar
+fields remain for compatibility and `daYun.timing` returns `status: 'UNAVAILABLE'`, a
+reason, and `fallbackVersion: 'LEGACY_SHICHEN_V1'`. Callers that require V2 must check
+the receipt before presenting an exact onset. IANA resolution is explicitly labeled
+`HOST_INTL`; pass a complete numeric `timezone` + `dstOffset` pair when a frozen offset
+is required.
+
 ## API Reference
 
 ### `calculateBaziChart(input: BaziInput): BaziChart`
 Main entry point. Returns a `BaziChart` with:
 - `pillars` — Four Pillars (year, month, day, hour)
 - `dayMaster` — Day Master stem with element, polarity, pinyin
-- `daYun` — 9 Major Luck Cycles with start year/age
+- `daYun` — 9 Major Luck Cycles with start year/age and versioned timing provenance
 - `interactions` — Raw branch relationships (8 types), preserving every pillar occurrence
 - `solarTimeInfo` — True Solar Time details (or null if disabled)
 - `calendar` — Civil solar input, calculation solar time, converted lunar date, and zodiac
@@ -206,6 +235,8 @@ Bazi calculations are notoriously prone to edge-case bugs. We maintain a regress
 - **Historical DST**: Explicit `dstOffset` input or IANA timezone rules; the engine does not guess historical policy.
 - **Century Boundaries**: Regression coverage for dates across 1800, 1900, 2000, and 2100.
 - **Da Yun**: Exact start date, elapsed-age convention, direction, and cycle boundaries.
+- **Da Yun V2**: Second propagation, numeric/IANA parity, DST gap/overlap rejection,
+  missing-input fallback, symbolic conversion, and nominal calendar clamping.
 - **Factual Enrichment**: Ten Gods, hidden stems, Na Yin, Xun, void branches, and growth stages.
 - **Interaction topology**: Repeated positions, full-group embeddings, eight half trines, missing hours, dynamic role identity, invalid branches, and the no-transformation/no-scoring contract.
 

@@ -58,14 +58,23 @@ export function validateBaziInput(input: BaziInput): void {
 
     if (input.hour !== undefined) assertIntegerInRange(input.hour, 0, 23, 'hour');
     if (input.minute !== undefined) assertIntegerInRange(input.minute, 0, 59, 'minute');
+    if (input.second !== undefined) assertIntegerInRange(input.second, 0, 59, 'second');
     if (input.minute !== undefined && input.hour === undefined) {
         throw new BaziInputError('hour is required when minute is supplied.');
+    }
+    if (input.second !== undefined && input.hour === undefined) {
+        throw new BaziInputError('hour is required when second is supplied.');
     }
     if (input.longitude !== undefined) assertNumberInRange(input.longitude, -180, 180, 'longitude');
     if (input.timezone !== undefined) assertNumberInRange(input.timezone, -14, 14, 'timezone');
     if (input.dstOffset !== undefined) assertNumberInRange(input.dstOffset, -2, 2, 'dstOffset');
     if (input.timezoneId !== undefined && input.timezoneId.trim().length === 0) {
         throw new BaziInputError('timezoneId cannot be empty.');
+    }
+    if (input.daYunTimingVersion !== undefined
+        && input.daYunTimingVersion !== 'LEGACY_SHICHEN_V1'
+        && input.daYunTimingVersion !== 'DAYUN_SECOND_V2') {
+        throw new BaziInputError('daYunTimingVersion is not supported.');
     }
 
     const trueSolarTimeRequested = (input.enableTrueSolarTime ?? true)

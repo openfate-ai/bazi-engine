@@ -7,6 +7,7 @@ import { Lunar, Solar } from 'lunar-javascript';
 
 import { generatePillarsFromSolar, getStemInfo } from './core/pillars';
 import { calculateDaYun } from './core/cycles';
+import { calculateSecondPrecisionDaYun, retainLegacyDaYun } from './core/dayun-timing';
 import { detectInteractions } from './core/interactions';
 import { BaziInputError, validateBaziInput } from './core/validation';
 import { BaziChart, BaziInput, CalendarDateTime, LunarDateTime, SolarTimeInfo } from './types';
@@ -17,6 +18,7 @@ export * from './constants';
 export { detectInteractions } from './core/interactions';
 export { generatePillarsFromSolar, getStemInfo, getMainQi } from './core/pillars';
 export { calculateDaYun } from './core/cycles';
+export { addDaYunOffset, calculateSecondPrecisionDaYun, getJieInterval, splitDaYunInterval } from './core/dayun-timing';
 export { calculateTenGod } from './core/tenGods';
 export { BaziInputError, validateBaziInput } from './core/validation';
 
@@ -95,12 +97,14 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
     let solarDay   = input.day;
     let solarHour  = input.hour;
     let solarMinute = input.minute ?? 0;
-    let solarSecond = 0;
+    let solarSecond = input.second ?? 0;
     let solarTimeInfo: SolarTimeInfo | null = null;
     let resolvedDstOffset = input.dstOffset ?? 0;
     const useIanaTimezone = input.timezoneId !== undefined &&
         (input.timezone === undefined || input.dstOffset === undefined);
+    const timezoneBasis = useIanaTimezone ? input.timezoneId! : input.timezone ?? null;
     const inputType = input.calendarType ?? 'solar';
+    const daYunTimingVersion = input.daYunTimingVersion ?? 'LEGACY_SHICHEN_V1';
 
     // ── 1. Lunar → Solar Calendar Conversion ────────────────────────────────
     if (input.calendarType === 'lunar') {
@@ -137,6 +141,7 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
                 day: solarDay,
                 hour: solarHour!,
                 minute: solarMinute,
+                second: solarSecond,
                 timeZoneId: input.timezoneId!,
             }
             : {
@@ -145,6 +150,7 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
                 day: solarDay,
                 hour: solarHour!,
                 minute: solarMinute,
+                second: solarSecond,
                 timeZoneOffset: input.timezone!,
                 dstOffset: input.dstOffset ?? 0,
             };
@@ -184,25 +190,34 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
         // midnight a wrong day pillar. Date-based math keeps day/month/year
         // rollover safe (lunar input was already converted to solar above).
         if (useIanaTimezone) {
-            const resolvedCivilTime = resolveCivilTime({
-                year: solarYear,
-                month: solarMonth,
-                day: solarDay,
-                hour: solarHour!,
-                minute: solarMinute,
-                timeZoneId: input.timezoneId!,
-            });
-            resolvedDstOffset = resolvedCivilTime.dstOffsetMinutes / 60;
+            try {
+                const resolvedCivilTime = resolveCivilTime({
+                    year: solarYear,
+                    month: solarMonth,
+                    day: solarDay,
+                    hour: solarHour!,
+                    minute: solarMinute,
+                    second: solarSecond,
+                    timeZoneId: input.timezoneId!,
+                });
+                resolvedDstOffset = resolvedCivilTime.dstOffsetMinutes / 60;
+            } catch (error) {
+                // V2 reports an unavailable timing receipt instead of manufacturing an
+                // instant. Preserve the legacy behavior (throw) for legacy callers.
+                if (daYunTimingVersion !== 'DAYUN_SECOND_V2') throw error;
+                resolvedDstOffset = 0;
+            }
         }
 
         if (resolvedDstOffset !== 0) {
-            const shifted = new Date(Date.UTC(solarYear, solarMonth - 1, solarDay, solarHour!, solarMinute));
+            const shifted = new Date(Date.UTC(solarYear, solarMonth - 1, solarDay, solarHour!, solarMinute, solarSecond));
             shifted.setUTCMinutes(shifted.getUTCMinutes() - Math.round(resolvedDstOffset * 60));
             solarYear   = shifted.getUTCFullYear();
             solarMonth  = shifted.getUTCMonth() + 1;
             solarDay    = shifted.getUTCDate();
             solarHour   = shifted.getUTCHours();
             solarMinute = shifted.getUTCMinutes();
+            solarSecond = shifted.getUTCSeconds();
         }
     }
 
@@ -217,7 +232,22 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
     const dayMaster = getStemInfo(dayStem);
 
     // ── 5. Da Yun Cycles ─────────────────────────────────────────────────────
-    const daYun = calculateDaYun(eightChar, input.gender, solarYear);
+    const legacyDaYun = calculateDaYun(eightChar, input.gender, solarYear);
+    const daYun = daYunTimingVersion === 'DAYUN_SECOND_V2'
+        ? input.hour === undefined
+            ? retainLegacyDaYun(legacyDaYun, 'UNKNOWN_BIRTH_TIME', timezoneBasis)
+            : calculateSecondPrecisionDaYun(legacyDaYun, {
+                year: civilSolar.year,
+                month: civilSolar.month,
+                day: civilSolar.day,
+                hour: civilSolar.hour!,
+                minute: civilSolar.minute!,
+                second: civilSolar.second!,
+            }, timezoneBasis, input.dstOffset ?? 0, {
+                year: pillars.year.ganZhi,
+                month: pillars.month.ganZhi,
+            })
+        : legacyDaYun;
 
     // ── 6. Branch Interactions ───────────────────────────────────────────────
     const interactions = detectInteractions({
@@ -254,10 +284,9 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
             trueSolarTimeApplied: enableTST,
             dayBoundaryMode: input.dayBoundaryMode ?? 'MIDNIGHT_00',
             longitude: input.longitude ?? null,
-            timezoneBasis: useIanaTimezone
-                ? input.timezoneId!
-                : input.timezone ?? input.timezoneId ?? null,
+            timezoneBasis,
             dstOffset: resolvedDstOffset,
+            daYunTimingVersion,
         },
     };
 }

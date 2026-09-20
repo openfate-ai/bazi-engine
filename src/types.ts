@@ -5,6 +5,7 @@
 export type FiveElement = 'wood' | 'fire' | 'earth' | 'metal' | 'water';
 export type Polarity = 'yang' | 'yin';
 export type DayBoundaryMode = 'MIDNIGHT_00' | 'ZI_HOUR_23';
+export type DaYunTimingVersion = 'LEGACY_SHICHEN_V1' | 'DAYUN_SECOND_V2';
 
 // ── Ganzhi Primitives ───────────────────────────────────────────────────────
 
@@ -74,6 +75,61 @@ export interface DaYunCycle {
     branchTenGod: string;
 }
 
+export type DaYunTimingUnavailableReason =
+    | 'UNKNOWN_BIRTH_TIME'
+    | 'MISSING_TIMEZONE'
+    | 'INVALID_TIMEZONE'
+    | 'NONEXISTENT_CIVIL_TIME'
+    | 'AMBIGUOUS_CIVIL_TIME'
+    | 'PILLAR_TERM_BOUNDARY_MISMATCH'
+    | 'TERM_LOOKUP_UNAVAILABLE';
+
+export interface LegacyDaYunTimingReceipt {
+    status: 'CALCULATED';
+    version: 'LEGACY_SHICHEN_V1';
+    provider: 'lunar-javascript';
+    providerVersion: '1.7.7';
+}
+
+export interface CalculatedDaYunTimingReceipt {
+    status: 'CALCULATED';
+    version: 'DAYUN_SECOND_V2';
+    intervalBasis: 'CIVIL_INSTANT';
+    conversionPolicy: 'THREE_DAYS_PER_YEAR';
+    termProvider: 'lunar-javascript';
+    termProviderVersion: '1.7.7';
+    termTimezone: 'UTC+08:00';
+    selectionPolicy: 'PREVIOUS_INCLUSIVE_NEXT_EXCLUSIVE';
+    rounding: 'WHOLE_SYMBOLIC_HOUR_FLOOR';
+    startDateBasis: 'NOMINAL_BIRTHPLACE_CIVIL';
+    timezoneSource: 'NUMERIC_OFFSET' | 'IANA';
+    timezoneBasis: number | string;
+    timezoneDatabase: 'HOST_INTL' | 'NOT_APPLICABLE';
+    disambiguation: 'REJECT';
+    resolvedOffsetSeconds: number;
+    birthUtc: string;
+    jieName: string;
+    jieUtc: string;
+    intervalSeconds: number;
+    sourceRemainderSeconds: number;
+}
+
+export interface UnavailableDaYunTimingReceipt {
+    status: 'UNAVAILABLE';
+    version: 'DAYUN_SECOND_V2';
+    reason: DaYunTimingUnavailableReason;
+    fallbackVersion: 'LEGACY_SHICHEN_V1';
+    timezoneSource: 'NUMERIC_OFFSET' | 'IANA' | 'MISSING';
+    timezoneBasis: number | string | null;
+    timezoneDatabase: 'HOST_INTL' | 'NOT_APPLICABLE';
+    disambiguation: 'REJECT';
+}
+
+export type DaYunTimingReceipt =
+    | LegacyDaYunTimingReceipt
+    | CalculatedDaYunTimingReceipt
+    | UnavailableDaYunTimingReceipt;
+
 /** Da Yun metadata */
 export interface DaYunInfo {
     cycles: DaYunCycle[];
@@ -87,6 +143,8 @@ export interface DaYunInfo {
         days: number;
         hours: number;
     };
+    /** Explicit timing provenance. Added without removing the legacy scalar fields. */
+    timing?: DaYunTimingReceipt;
 }
 
 // ── Branch Interactions ─────────────────────────────────────────────────────
@@ -169,6 +227,7 @@ export interface CalculationMetadata {
     longitude: number | null;
     timezoneBasis: number | string | null;
     dstOffset: number;
+    daYunTimingVersion?: DaYunTimingVersion;
 }
 
 // ── Main Chart Result ────────────────────────────────────────────────────────
@@ -193,6 +252,7 @@ export interface BaziInput {
     day: number;
     hour?: number;        // 0-23, omit if birth time unknown
     minute?: number;      // 0-59, defaults to 0
+    second?: number;      // 0-59, defaults to 0
 
     // Location (required for True Solar Time)
     longitude?: number;   // Decimal degrees, e.g. 116.39 for Beijing
@@ -210,4 +270,6 @@ export interface BaziInput {
     // Options
     enableTrueSolarTime?: boolean;    // default: true (requires longitude)
     dayBoundaryMode?: DayBoundaryMode; // default: 'MIDNIGHT_00'
+    /** Defaults to the legacy provider contract for backward compatibility. */
+    daYunTimingVersion?: DaYunTimingVersion;
 }

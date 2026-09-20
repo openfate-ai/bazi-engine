@@ -36,8 +36,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@openfate/true-solar-time": "^4.0.0",
-    "lunar-javascript": "^1.7.0"
+    "@openfate/true-solar-time": "4.0.2",
+    "lunar-javascript": "1.7.7"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
