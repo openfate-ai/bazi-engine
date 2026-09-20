@@ -218,7 +218,12 @@ const relationships = detectInteractions(
 
 Migration: review consumers that assumed one result per branch-name pair, fixed array order, exhaustive switches on seven types, or automatic 六合 transformation. Store by stable `id`, not just branch names. Keep raw relationships separate from any settled/scored chart model; adding more raw occurrences must not automatically multiply its weights. This package's branch detector does not decide whether a chart forms a classical pattern or predict life outcomes.
 
-**Pending major release:** this source changes the public contract: `id` and `transformationStatus` are required, `pillars` uses a role union, `InteractionType` has a new member, and 六合 no longer exposes `resultElement`. It is not a drop-in patch release. Do not use the current `npm run release` command, which automatically increments the patch version, for this migration. Coordinate a major engine release and compatible app/MCP consumers before publishing; the unchanged package version does not mean these source changes are already available on npm.
+**Version 2 migration:** version 2 changes the public contract: `id` and
+`transformationStatus` are required, `pillars` uses a role union, `InteractionType`
+has a new member, and 六合 no longer exposes `resultElement`. It is not a drop-in
+upgrade from version 1. Review interaction consumers before adopting version 2,
+store relationships by stable `id`, and keep raw occurrences separate from any
+settled or scored chart model.
 
 ### `generatePillarsFromSolar(...): PillarResult`
 Low-level pillar generator — use when you've already handled time correction yourself.
