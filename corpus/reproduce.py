@@ -34,14 +34,19 @@ def main():
         data, archive = output/'data',output/'archive'
         archive.mkdir(parents=True)
         facts = scratch/'facts'
+        (data/'books').mkdir(parents=True)
+        (data/'yearbooks').mkdir()
         def year(y):
             run(['node','generate.mjs','facts',str(y),str(facts)])
             run(['node','generate.mjs','readings',str(y),str(facts),str(data/'years')])
+            for kind in ('book','yearbook'):
+                run(['node','export-volume.mjs',kind,str(y),str(facts),str(data/(kind+'s'))])
         with concurrent.futures.ThreadPoolExecutor(max_workers=options.workers) as pool:
-            list(pool.map(year,range(1930,2027)))
+            list(pool.map(year,range(1900,2027)))
         run([sys.executable,'verify.py',str(data),'--record','--workers',str(options.workers)])
         cache = options.calendar_cache.resolve() if options.calendar_cache else scratch/'calendar'
         run([sys.executable,'calendar_reference.py',str(data),str(cache),'--fetch'])
+        run([sys.executable,'verify-edition.py',str(data),'--record','--workers',str(options.workers)])
         pack(data,archive)
         if dest.exists():
             raise FileExistsError(dest)

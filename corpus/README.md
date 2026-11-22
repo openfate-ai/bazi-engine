@@ -1,54 +1,59 @@
-# OpenFate 八字命盤庫 · 1930–2026
+# OpenFate 八字命盤庫
 
-850,296 組出生輸入，340,343 種四柱組合。每筆附四柱、十神、藏干、地支關係、標籤，以及 13 段繁體中文主題解讀。讀到一段文字，可以點開它引用的柱位、藏干或起運紀錄。資料依年份下載，也可整包離線使用。[下載 v1.0.0](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v1.0.0)
+**1900 年 1 月 1 日至 2026 年 11 月 22 日**，涵蓋 46,347 個公曆日期、1,112,328 組出生輸入。每筆附四柱、藏干、十神、合沖關係、13 章生活解讀及 65 個情境問題。可以先讀一張完整的樣稿，再決定要下載哪個年份。[1900 年首筆](examples/1900-01-01T00-30-female.md) · [1991 年工作與關係樣稿](examples/1991-10-18T08-30-female.md) · [下載 v2.0.0](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.0.0)
 
-**OpenFate Bazi Corpus** covers every Gregorian date from January 1, 1930 through December 31, 2026 at 12 representative civil times for each of two traditional luck-cycle inputs. Each record includes machine-readable facts, labels, and a Traditional Chinese reading with pointers back to the same chart. Original dataset and annotations are licensed under CC BY 4.0. Code is MIT.
+OpenFate Bazi Corpus contains 1,112,328 representative birth inputs through November 22, 2026. Each includes 13 full Traditional Chinese life chapters, with five conditional cases per chapter, plus 13 technical readings. Resolved luck cycles have 90 yearly observations. The offline reader works without an account. Original dataset and readings are CC BY 4.0. Code is MIT.
 
-## 打開第一張盤
+## 讀自己的出生年份
 
-直接在 GitHub 讀兩張完整樣稿：[辰酉合與辰戌沖共用時支](examples/1991-10-18T08-30-female.md) · [1932 年立春交節樣本](examples/1932-02-05T08-30-female.md)。
+1. 下載 Release 裡的 `reader.html`，用近期版本的瀏覽器開啟，可直接閱讀六張樣稿。
+2. 下載出生年份的排盤檔，例如 `1991.jsonl.gz`，在閱讀器選「從年度檔查盤」。輸入日期、代表時刻和排運性別。
+3. 「生活解讀」可選 13 章，展開章內問題就能讀到完整情境與盤面依據。「逐年對讀」可選大運範圍內的年份。「排盤與起運」保留技術解讀。
 
-- 先下載 `reader.html`，用瀏覽器開啟，就能閱讀內建樣稿。展開「從年度檔查盤」，選取下載的年度檔（例如 `1991.jsonl.gz`），即可查該年任一代表時刻。
-- 整包 `OpenFate-Bazi-Corpus-1930-2026-v1.0.0.tar` 解開後有 97 個年度檔。每一行都是一個可單獨使用的 JSON 物件，編碼為 UTF-8。
-- 使用 Python 查單筆可執行 `python3 lookup.py . 1991-10-18 08:30 female`。附上 `--json` 可查看原始欄位。命令從解開後的資料夾執行。
+## 資料檔如何搭配
 
-## 一張盤怎麼讀
+每組資料都用同一個 `id` 對讀。Release 提供逐年檔案，以及三個能解到同一資料夾的 TAR 檔。依需要下載。
 
-十個原局主題依序看日主與月柱、月令、與日干同字的藏干、印星、食傷、官殺、財星、比劫、日支，以及原局地支互動。後三段交代起運依據、首運與下一步大運。解讀由固定規則寫成，每次執行都能追查同一句話從哪個欄位而來。
-
-例如「官殺僅藏支」表示年、月、時干均未透正官或七殺，至少一個地支藏有其中一種。若年支與日支相沖，標籤會帶上兩個柱位與支字。在同一柱出現合與沖時，解讀列出相交的兩組關係。十神的文字說明採傳統取象，工作、合作與關係段落提供可在生活中檢視的問題。
-
-| 欄位 | 內容 |
+| 檔案 | 內容 |
 |---|---|
-| `id` | 固定偏移的民用出生時刻及排運性別 |
-| `fourPillars`、`dayMaster`、`pillars` | 年、月、日、時四柱，以及各柱干支、藏干、十神等 |
-| `trueSolarDateTime`、`lunar` | 真太陽時及引擎給出的農曆日期 |
-| `interactions` | 原局六合、半合、三合、三會、沖、刑、害、破。每筆保留涉及的柱位；合化狀態另列 |
-| `daYun`、`cycleRelations` | 起運計算依據、順逆、九步大運，另列前兩步運支與原局的關係 |
-| `labels` | 可直接篩選的標籤，如 `財星:僅藏支`、`起運:交節待定` |
-| `readings` | 13 個主題各含標題、正文和指向本筆資料的 JSON Pointer |
-| `manifest.json` | 逐年筆數、壓縮前後位元組數、SHA-256、標籤分布與全文去重計數 |
+| `core.tar`（檔名尾碼） | `years/YYYY.jsonl.gz`、出生與起運事實、標籤、13 段技術解讀、離線閱讀器、重現工具、清單 |
+| `books.tar` | `books/YYYY.book.jsonl.zst`，逐盤已寫好的 13 章生活正文、65 個問題和每段引用 |
+| `yearbooks.tar` | `yearbooks/YYYY.yearbook.jsonl.zst`，逐盤已寫好的年中觀察、週歲、歲運干支、對應關係及引用 |
+| `manifest.json`、`edition-manifest.json` | 排盤與成稿分開計數，含各年度筆數、檢查範圍、雜湊及抽樣篇幅 |
+| `calendar-reference.json` | 外部曆表的核對口徑、檔案雜湊與所有差異 |
 
-## 出生條件與適用範圍
+生活章節涵蓋性格、工作、金錢、親密關係、家庭、朋友、學習、表達、居住、轉換環境、休息、照顧晚輩與人生取捨。章內問題有共用的情境與追問。每盤依十神是否透干、日干同字根、月令本氣是否透出及地支實際牽連選取解讀。不同出生輸入可以共用四柱和原局正文。同一原局的男女輸入可有不同大運。
 
-35,429 天，每日取 00:30、02:30，依序到 22:30。每個時刻各跑女、男兩組排運輸入，合計 850,296 筆。固定東經 120 度、UTC+08:00、無夏令時間，開啟真太陽時，採子初 23:00 換日及 `DAYUN_SECOND_V2`。使用者若出生於不同經度、時區、夏令時間，或接近時辰、交節邊界，應以原始出生時間重新計算。這套網格包括 2026 全年。
+每個技術或解讀欄位所列的 `ref` 或 `evidence` 都指向同 ID 的排盤資料。生活例子用來討論選擇，沒有使用真人病歷、收入或家庭史。引擎未能確定起運的交節輸入保留完整原局，對應的逐年清單為空。[交節樣稿](examples/1932-02-05T08-30-female.md)
 
-全庫共有 822 個不同標籤、11,053,848 個主題欄位。以正文逐字去重，十個原局主題合計有 340,129 種組合，連同大運三段則有 850,223 種。
+## 排盤與年中觀察
 
-850,150 筆取得可追查的起運時間。另有 146 筆落在引擎標記的交節歧義附近。這些樣本保留原局，起運日和順逆留空，三個大運主題說明缺項原因。標籤是依規則產生的命理分類。資料沒有真人生平、專家逐筆批註或預測命中率。全文按同一套規則撰寫，重複使用取象與建議；其中的日期與柱位也會影響去重數。
+每天取固定 UTC+08:00、東經 120 度、無夏令時間下的 00:30、02:30，依序到 22:30，共 12 個民用代表時刻。每個時刻各排女、男兩組，採真太陽時、子初 23:00 換日與 `DAYUN_SECOND_V2`。這組固定設定也用於 1900 年，並未重建各地當年的法定時區。2026 年截至 11 月 22 日，最後一天含完整 12 個代表時刻。
 
-## 核對與重算
+逐年觀察取每步大運內十個 7 月 1 日中午，九步共 90 筆。第一個年中觀察點在起運以後。週歲依出生月日計算，歲支對四柱與運支逐一查六合、正沖與同支。每筆以該年中時點為準。出生樣本截止日只限制出生日期，推演的年份可超過 2026 年。[1991 樣本在 2026 年的對讀](examples/1991-midyear-2026.md)
 
-全量驗證檢查日期次序、雙性別網格、十神和藏干、五虎遁月干與五鼠遁時干、標籤、地支柱位、起運方向、運序及正文引用。另取每日中午 12:30 的一筆，與香港天文台的農曆年、月、日、閏月標記比對，35,429 天全部相符。可在 `calendar-reference.json` 查核對範圍與各原始曆表的 SHA-256。[香港天文台公曆與農曆日期對照表](https://www.hko.gov.hk/en/gts/time/conversion1_text.htm)
+## 查詢、驗證與重現
 
-從程式碼的 `corpus/` 目錄執行。本次封裝使用 Node.js 20.19.5（zlib 1.3.1-470d3a2）與 Python 3.9.6。壓縮函式庫版本若不同，請另外比較解壓後的內容。重算與驗證均在本機執行。
+解開三個 TAR 後，在資料根目錄執行下列指令。使用 Python 3.9+ 與 zstd 命令列工具。只看技術欄位可以只下載 core。
+
+```sh
+python3 lookup.py . 1900-01-01 00:30 female --kind technical --json
+python3 lookup.py . 1991-10-18 08:30 female --kind book
+python3 lookup.py . 1991-10-18 08:30 female --kind yearbook --year 2026
+shasum -a 256 -c SHA256SUMS
+```
+
+從原始碼的 `corpus/` 可單獨重算一年，或重現全庫。完整流程使用 Node.js 20.19.5、Python 3.9+、zstd、Poppler 的 `pdftotext`，並需要磁碟空間存放壓縮檔及工作檔。
 
 ```sh
 npm ci --ignore-scripts
-node generate.mjs facts 1932 /tmp/bazi-facts
-node generate.mjs readings 1932 /tmp/bazi-facts /tmp/bazi-data/years
+node generate.mjs facts 1900 /tmp/openfate-facts
+node generate.mjs readings 1900 /tmp/openfate-facts /tmp/openfate-data/years
+node export-volume.mjs book 1900 /tmp/openfate-facts /tmp/openfate-data/books
+node export-volume.mjs yearbook 1900 /tmp/openfate-facts /tmp/openfate-data/yearbooks
+python3 reproduce.py /path/to/new-directory --workers 3
 ```
 
-`python3 reproduce.py /path/to/new-directory --workers 4` 會從頭建立 97 年資料、驗證後寫入清單，並打包。它會下載香港天文台曆表供比對；若已有曆表，加上 `--calendar-cache /path/to/tables` 可重用。重建時建議預留 5 GB 的可用空間。驗證已解開的正式資料可直接執行 `python3 verify.py /path/to/extracted-data --workers 4`。檢查封裝內檔案可使用 `shasum -a 256 -c SHA256SUMS`。
+`verify.py` 核對代表時刻、四柱欄位、十神、藏干、標籤、地支關係及大運。`verify-edition.py` 開啟實際出版的壓縮檔，核對三種檔案的出生 ID、各章與條件分支、盤面引用、逐年歲運欄位及檔案雜湊。另以每天中午的一筆排盤核對農曆年、月、日及閏月。1900 年參照紫金山天文台編製的曆表，並核對該年的紀日干支；1901 年起參照香港天文台的公曆農曆對照表。[紫金山天文台曆表](https://pmo.cas.cn/xwdt2019/kpdt2019/202203/P020250414456381274062.pdf) · [香港天文台曆表](https://www.hko.gov.hk/en/gts/time/conversion1_text.htm)
 
-引擎鎖定 `@openfate/bazi-engine@2.0.0`、`@openfate/true-solar-time@4.0.2`、`lunar-javascript@1.7.7`。引擎輸出的原始術語保留原字形，標籤與解讀使用繁體中文。程式採 MIT，資料及原創解讀採 CC BY 4.0，可商用，須署名並說明修改。[資料授權](DATASET-LICENSE.md)
+排盤依賴鎖定 `@openfate/bazi-engine@2.0.0`、`@openfate/true-solar-time@4.0.2`、`lunar-javascript@1.7.7`。資料與原創解讀可商用，須署名並標示修改。[資料授權](DATASET-LICENSE.md)

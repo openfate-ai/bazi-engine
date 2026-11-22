@@ -8,9 +8,9 @@
 
 Getting the Four Pillars right is hard. Solar Term boundaries (节气), True Solar Time correction (真太阳时), day-change boundaries, and lunar conversion all require explicit, testable policy. This package exposes those calculations and the metadata needed to audit them.
 
-## OpenFate Bazi Corpus · 1930–2026
+## OpenFate Bazi Corpus · 1900–2026
 
-Download **850,296 chart samples** across 97 years, with searchable labels and 13 Traditional Chinese reading sections per sample. Each section references the chart facts supporting it. The release includes an offline reader and yearly JSONL files under CC BY 4.0. [Read the dataset guide](corpus/README.md) · [Download the corpus](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v1.0.0)
+Explore **1,112,328 birth inputs**, January 1, 1900 through November 22, 2026. Each chart has 13 Traditional Chinese life chapters, 65 conditional decision cases, and 13 technical readings with fact pointers. Charts with resolved luck timing also have 90 annual observations. Browse the offline reader or download prewritten JSONL by birth year. [Read the 1900 example](corpus/examples/1900-01-01T00-30-female.md) · [Dataset guide](corpus/README.md) · [Download v2.0.0](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.0.0)
 
 ---
 

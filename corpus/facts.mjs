@@ -8,9 +8,12 @@ export const policy = Object.freeze({
 export const pillarOrder = ['year', 'month', 'day', 'hour'];
 export const genders = ['female', 'male'];
 
+export const firstDay = year => Date.UTC(year, 0, 1);
+export const afterLastDay = year => Math.min(Date.UTC(year + 1, 0, 1), Date.UTC(2026, 10, 23));
+
 export function* inputs(year) {
-  const date = new Date(Date.UTC(year, 0, 1));
-  while (date.getUTCFullYear() === year) {
+  const date = new Date(firstDay(year));
+  while (date.getTime() < afterLastDay(year)) {
     for (let hour = 0; hour < 24; hour += 2) {
       for (const gender of genders) {
         yield { year, month: date.getUTCMonth() + 1, day: date.getUTCDate(), hour, minute: 30, second: 0, gender };

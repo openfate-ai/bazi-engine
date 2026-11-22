@@ -10,6 +10,7 @@ import time
 import urllib.request
 from datetime import date
 from pathlib import Path
+from pmo1900 import SOURCE,read_pmo
 
 URL = 'https://www.hko.gov.hk/en/gts/time/calendar/text/files/T{}e.txt'
 INDEX = 'https://www.hko.gov.hk/en/gts/time/conversion1_text.htm'
@@ -38,10 +39,11 @@ def fetch(args):
 
 
 def expected(cache):
-    values, hashes = {}, {}
-    month = lunar_year = None
-    leap = False
-    for year in range(1929, 2027):
+    pdf=cache/'pmo-1900-2025.pdf'
+    values, days=read_pmo(pdf)
+    hashes={'pmo-1900-2025.pdf':hashlib.sha256(pdf.read_bytes()).hexdigest()}
+    lunar_year,month,_,leap=values['1900-12-31']
+    for year in range(1901, 2027):
         body = (cache / f'T{year}e.txt').read_bytes()
         hashes[str(year)] = hashlib.sha256(body).hexdigest()
         found = set()
@@ -60,13 +62,13 @@ def expected(cache):
                 if month == 1 and not leap:
                     lunar_year = y
                 number = 1
-            if year >= 1930:
+            if day <= date(2026,11,22):
                 if not lunar_year or not month:
                     raise ValueError(f'Missing month or year at {day}')
                 values[day.isoformat()] = [lunar_year, month, number, leap]
         if len(found) != 365 + calendar.isleap(year):
             raise ValueError(f'Incomplete HKO table for {year}: {len(found)} dates')
-    return values, hashes
+    return values, hashes, days
 
 
 def main():
@@ -77,11 +79,15 @@ def main():
     args = cli.parse_args()
     if args.fetch:
         args.cache.mkdir(parents=True, exist_ok=True)
+        pdf=args.cache/'pmo-1900-2025.pdf'
+        if not pdf.exists():
+            with urllib.request.urlopen(SOURCE,timeout=45) as source: body=source.read()
+            temp=pdf.with_suffix('.part');temp.write_bytes(body);temp.replace(pdf)
         with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
-            list(pool.map(fetch, ((y, args.cache) for y in range(1929, 2027))))
-    reference, hashes = expected(args.cache)
+            list(pool.map(fetch, ((y, args.cache) for y in range(1901, 2027))))
+    reference, hashes, day_stems = expected(args.cache)
     differences = []
-    for year in range(1930, 2027):
+    for year in range(1900, 2027):
         with gzip.open(args.directory/'years'/f'{year}.jsonl.gz', 'rb') as source:
             for offset, line in enumerate(source):
                 if offset % 24 != 12:  # 12:30 female is the 13th record of each day
@@ -93,15 +99,17 @@ def main():
                 lunar = row['lunar']
                 actual = [lunar[k] for k in ('year', 'month', 'day', 'isLeapMonth')]
                 official = reference.pop(key)
+                if key in day_stems and row['pillars']['day']['ganZhi']!=day_stems[key]:
+                    raise ValueError('PMO sexagenary day mismatch '+key)
                 if actual != official:
                     differences.append({'date': key, 'engine': actual, 'hko': official})
     if reference:
         raise ValueError('Missing engine dates')
-    report = {'source': INDEX, 'referenceFiles': URL, 'checks': ['year','month','day','isLeapMonth'],
-              'sampleTime': '12:30:00+08:00/female', 'dates': 35429, 'matched': 35429-len(differences),
+    report = {'source1900':SOURCE,'source1901Onward':INDEX,'pmoSexagenaryDaysChecked':365, 'referenceFiles': URL, 'checks': ['year','month','day','isLeapMonth'],
+              'sampleTime': '12:30:00+08:00/female', 'dates': 46347, 'matched': 46347-len(differences),
               'differences': differences, 'referenceFileSha256': hashes}
     (args.directory/'calendar-reference.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf8')
-    print('HKO noon calendar:', report['matched'], 'of', report['dates'], 'matched')
+    print('PMO/HKO noon calendar:', report['matched'], 'of', report['dates'], 'matched')
 
 
 if __name__ == '__main__':

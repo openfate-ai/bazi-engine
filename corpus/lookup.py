@@ -13,8 +13,8 @@ HOURS = tuple(f'{hour:02}:30' for hour in range(0,24,2))
 
 
 def find_row(root, day, hour, gender):
-    if not 1930 <= day.year <= 2026 or hour not in HOURS or gender not in ('female','male'):
-        raise ValueError('Choose a listed representative time and a date in 1930–2026.')
+    if not date(1900,1,1) <= day <= date(2026,11,22) or hour not in HOURS or gender not in ('female','male'):
+        raise ValueError('Choose a listed representative time and a date in 1900-01-01 to 2026-11-22.')
     path = root/'years'/f'{day.year}.jsonl.gz'
     index = (day - date(day.year,1,1)).days*24 + HOURS.index(hour)*2 + (gender == 'male')
     with gzip.open(path,'rb') as rows:
@@ -44,9 +44,20 @@ if __name__ == '__main__':
     cli.add_argument('time', choices=HOURS)
     cli.add_argument('gender', choices=('female','male'))
     cli.add_argument('--json', action='store_true')
+    cli.add_argument('--kind', choices=('book','yearbook','technical'),default='book')
+    cli.add_argument('--year',type=int,help='select one July observation in yearbook mode')
     args = cli.parse_args()
     try:
         row = find_row(args.directory, args.date, args.time, args.gender)
-        print(json.dumps(row, ensure_ascii=False, indent=2) if args.json else markdown(row))
+        if args.year is not None and args.kind!='yearbook':cli.error('--year requires --kind yearbook')
+        if args.kind=='technical':
+            data=row
+            rendered=markdown(row)
+        else:
+            from volume_lookup import stored,book_text,year_text
+            data=stored(args.directory,row,args.kind)
+            rendered=book_text(row,data) if args.kind=='book' else year_text(row,data,args.year)
+            if args.year is not None:data={**data,'years':[e for e in data['years'] if e['year']==args.year]}
+        print(json.dumps(data,ensure_ascii=False,indent=2) if args.json else rendered)
     except (ValueError, OSError) as exc:
         cli.exit(1, str(exc) + '\n')

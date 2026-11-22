@@ -16,7 +16,8 @@ import tempfile
 
 from rule_check import verify_rules
 
-FIRST, LAST = 1930, 2026
+FIRST, LAST = 1900, 2026
+START, END = date(FIRST,1,1), date(LAST,11,22)
 ROLES = ('year', 'month', 'day', 'hour')
 TOPICS = ('overview', 'season', 'roots', 'learning', 'expression', 'work', 'wealth',
           'peers', 'relationship', 'interactions', 'onset', 'firstCycle', 'nextCycle')
@@ -101,6 +102,8 @@ def fingerprint(parts):
 def expected_ids(year):
     for offset in range(365 + calendar.isleap(year)):
         day = date(year,1,1) + timedelta(days=offset)
+        if not START <= day <= END:
+            continue
         for hour in range(0,24,2):
             for gender in ('female','male'):
                 yield f'{day}T{hour:02}:30:00+08:00/{gender}', hour, gender
@@ -221,11 +224,11 @@ def main():
                 if info['year'] % 10 == 0: print('Verified through',info['year'],flush=True)
         unique={k:unique_count(scratch,k) for k in METRICS}
     n=sum(r['records'] for r in result)
-    require(n == 850296,'total coverage')
+    require(n == 1112328,'total coverage')
     timing=collections.Counter()
     for r in result: timing.update(r['timing'])
-    manifest={'dataset':'OpenFate Bazi Corpus','version':'1.0.0','engine':'@openfate/bazi-engine@2.0.0',
-              'range':[FIRST,LAST],'language':'zh-Hant','records':n,'sections':n*len(TOPICS),
+    manifest={'dataset':'OpenFate Bazi Corpus','version':'2.0.0','sectionsDefinition':'technical readings','readerEditionManifest':'edition-manifest.json','engine':'@openfate/bazi-engine@2.0.0',
+              'range':[FIRST,LAST],'firstDate':START.isoformat(),'lastDate':END.isoformat(),'language':'zh-Hant','records':n,'sections':n*len(TOPICS),
               'topics':TOPICS,'distinct':unique,'timing':dict(timing),'labelCounts':dict(sorted(tags.items())),
               'sourceLockSha256':sha_file(Path(__file__).with_name('package-lock.json')),
               'years':result}
