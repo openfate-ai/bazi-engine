@@ -18,9 +18,9 @@ def stored(root, row, kind):
                 return doc
         raise ValueError('Missing record in '+str(path))
     finally:
-        proc.stdout.close()
         if proc.poll() is None:proc.terminate()
         proc.wait()
+        proc.stdout.close()
 
 def book_text(row, doc):
     lines=['# '+row['fourPillars'],'',row['id'],'','真太陽時 '+row['trueSolarDateTime'],'']
