@@ -23,6 +23,12 @@ test('the same morning changes the career advice, the relationship advice and th
     assert.match(early.love.parts[0].text, /日支酉與時支卯相沖/);
     assert.match(late.love.parts[0].text, /日支酉與時支辰六合/);
     assert.match(late.love.parts[0].text, /月支戌與時支辰相沖/);
+    const next = lifeBook(natal(10));
+    assert.match(next.work.parts[0].text, /時干癸為食神/);
+    assert.match(next.work.parts[0].name, /成品離開你手上/);
+    // The salary question needs any visible output star, so it retains its branch.
+    const salary = (book: typeof late) => book.work.parts.find((part: {name: string}) => part.name.includes('想談加薪'));
+    assert.equal(salary(late).side, salary(next).side);
     const sample = late.work.parts.find((part: { caseSignal?: string }) => part.caseSignal);
     const exercise = chapterPractice('work').cases[sample.name];
     assert.ok(exercise.situation && exercise.follow);

@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 import { createInterface } from 'node:readline';
 import { readGzipLines } from './io.mjs';
 import { inputs, rowId } from './facts.mjs';
-import { themes, temperament, dayReadings } from './chapter-openings.mjs';
+import { themes, temperament, dayReadings, workHourReadings } from './chapter-openings.mjs';
 
 const [root,yearText,output]=process.argv.slice(2), year=Number(yearText);
 const file=(folder,suffix)=>join(root,folder,year+suffix);
@@ -59,6 +59,14 @@ function expectedOpening(topic, row, hits, present) {
       return externalClash?dayReadings.linkedClash:dayReadings.joined;
     }
     return linked.length?dayReadings.other:dayReadings.none;
+  }
+  if(topic==='work'){
+    const god=trad(row.pillars.hour.stemTenGod);
+    const counterpart=family[1].includes(god)?'duty':family[3].includes(god)?'output':null;
+    if(counterpart){
+      const state=hits[counterpart]?'open':present.has(counterpart)?'hidden':'absent';
+      return workHourReadings[god][state];
+    }
   }
   const t=themes[topic],[first, second]=t.pair;
   if(!present.has(first) && !present.has(second))return t.neither;

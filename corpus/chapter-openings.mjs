@@ -1,6 +1,6 @@
 // The first family names the resource or action at issue. The second supplies its condition.
 // Only compare positions in the natal chart. A hidden or absent family says nothing about ability.
-import { roles, kinds } from './language.mjs';
+import { roles, kinds, godName } from './language.mjs';
 
 export const themes = {
   work: {
@@ -105,6 +105,31 @@ export const themes = {
     neither:'把兩個選項各寫成一個平常的星期三。｜挑一個你也願意真的過那種日子的方向，先安排一次實地體驗。'},
 };
 
+// If the hour stem itself supplies the kind of work under discussion, read its named ten god.
+// The other family determines whether a decision maker or deliverable also has a chart basis.
+export const workHourReadings = {
+  食神: {
+    open:'先問做好的東西要交給誰驗收。｜請主管拿一份已獲採用的成品，指出哪一處非得保留、哪一處容許用自己的手法。聽過實例，再估自己需要多少製作時間。',
+    hidden:'選工作時，看看成品離開你手上以後誰會用。｜請團隊讓你看一份真的有人接著使用的交付。若每次都得原作者在旁解釋，再問交接的時間算不算在工期裡。',
+    absent:'先試交一份別人接得走的東西。｜挑一個小任務，讓未來一起工作的人照著成品做下一步。從他在哪裡卡住，比從職稱更容易知道這份工作需要什麼本事。',
+  },
+  傷官: {
+    open:'改做法以前，先把不能動的驗收條件圈出來。｜帶著同一件退回的工作，請主管分清楚哪一項是客戶堅持的、哪一項只是團隊做慣了。只挑後者試一版。',
+    hidden:themes.work.first,
+    absent:'流程出了問題，你的改法要交給誰試？｜找一位真正用這套流程的人，問他能不能讓你在一個案子裡改一步。確認他採不採用，再答應較大的調整。',
+  },
+  正官: {
+    open:'想換工作方法，先確認哪一條標準不能變。｜問主管能否用同一份驗收單比較新舊兩版。達到同一個要求，就有根據談下一次能讓你自己決定什麼。',
+    hidden:'接下職位前，問清楚誰能簽下「做到這裡就算完成」。｜請主管從最近一次驗收講起。知道最後一位簽字的人看什麼，再估要為這份承諾留多少時間。',
+    absent:'看一次正式交接，再判斷這份責任能不能接。｜問清楚驗收未過時工作會回到誰手上。要由你重做，退回的理由就應該讓你看得到。',
+  },
+  七殺: {
+    open:'急件插進來時，你可以先改哪一步救交期？｜請主管說一次趕件的經過，哪個調整當場就能做，哪個要等他點頭。拿這個答案衡量交期能不能答應。',
+    hidden:'接急件以前，先問資源不夠時誰准你停一件事。｜用上一次人手突然不足的例子談。若所有工作都得照舊完成，先協調優先順序再承諾。',
+    absent:'遇到兩件同時到期的工作，讓派工的人排一次先後。｜問主管如果只能先救一件，他會保哪件。聽見他的取捨，你才知道臨時接手時能依什麼做決定。',
+  },
+};
+
 function opening(copy, evidence, refs) {
   const [name, advice] = copy.split('｜');
   return {name, text: advice + '\n\n' + evidence, ref: [...new Set(refs)]};
@@ -153,5 +178,14 @@ export function chapterOpening(topic, row, signals) {
   }
   const theme=themes[topic];
   const [first,second]=theme.pair.map(key=>signals[key]);
-  return opening(theme[condition(first,second)],first.text+second.text,[...first.refs,...second.refs]);
+  let copy=theme[condition(first,second)];
+  if (topic==='work') {
+    const hour=godName(row.pillars.hour.stemTenGod);
+    const variants=workHourReadings[hour];
+    if (variants) {
+      const counterpart=(hour==='食神'||hour==='傷官')?signals.duty:signals.output;
+      copy=variants[counterpart.state];
+    }
+  }
+  return opening(copy,first.text+second.text,[...first.refs,...second.refs]);
 }
