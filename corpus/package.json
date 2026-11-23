@@ -1,0 +1,13 @@
+{
+  "name": "openfate-bazi-corpus",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "verify": "python3 verify.py"
+  },
+  "dependencies": {
+    "@openfate/bazi-engine": "2.0.0"
+  }
+}
