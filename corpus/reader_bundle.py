@@ -5,7 +5,7 @@ from pathlib import Path
 
 HERE=Path(__file__).resolve().parent
 RUNTIME=('language','chapters','decisions','cases-work','cases-people','cases-life','cases-choices',
-         'case-signals','chart-logic','book','yearbook')
+         'case-signals','chart-logic','chapter-openings','book','yearbook')
 IMPORT=re.compile(r"^import \{([^}]+)\} from '\./([a-z-]+)\.mjs';",re.M)
 EXPORT=re.compile(r'\bexport (?:const|function\*?) (\w+)')
 

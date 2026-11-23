@@ -56,8 +56,8 @@ def compare(edition, external):
     if len(pairs)!=len(known) or len(set(p['id'] for p in pairs))!=len(known):raise ValueError('sample coverage')
     return {'scope':'13 life chapters of each corpus; headings, receipts, OpenFate technical readings and annual yearbooks excluded',
             'sampling':'Four deterministic calendar dates and alternating sex per shared year, plus one named example. Exclude dates after 2026-11-22.',
-            'metric':'Count Han characters U+3400–4DBF and U+4E00–9FFF. Includes shared editorial scenarios.',
-            'openfate':'corpus-v2.0.0','competitor':'Renhuai123/ziwei-doushu interpretation dataset v4.0',
+            'metric':'Count Han characters U+3400–4DBF and U+4E00–9FFF. Repeated wording is counted everywhere it occurs.',
+            'openfate':'corpus-v'+edition['version'],'competitor':'Renhuai123/ziwei-doushu interpretation dataset v4.0',
             'samples':len(pairs),'medianOpenFate':statistics.median(p['bodyHan'] for p in pairs),
             'medianZiwei':statistics.median(p['ziweiHan'] for p in pairs),
             'openfateLonger':sum(p['bodyHan']>p['ziweiHan'] for p in pairs),'pairs':pairs}

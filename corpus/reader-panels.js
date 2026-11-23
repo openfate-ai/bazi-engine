@@ -14,14 +14,21 @@ function lineSection(title,body,refs){
 function renderPanel(){
   const mode=get('mode').value,index=Number(get('chapter').value), fragment=document.createDocumentFragment();
   if(mode==='book'){
-    const chapter=Object.values(compiled)[index];
+    const topic=Object.keys(compiled)[index], chapter=compiled[topic];
+    const practice=corpusRules.book.chapterPractice(topic);
     const head=node('h2',chapter.title);fragment.append(head);
     for(const part of chapter.parts){
       if(part.caseSignal){
         const d=document.createElement('details');d.className='case';
-        d.append(node('summary',part.name),node('p',part.text),proof(current,part.ref));fragment.append(d);
+        const exercise=practice.cases[part.name];
+        const prompt=document.createElement('details');
+        prompt.append(node('summary','展開共用練習'),node('p',exercise.situation),node('p',exercise.follow));
+        d.append(node('summary',part.name),node('p',part.text),proof(current,part.ref),prompt);fragment.append(d);
       }else{fragment.append(lineSection(part.name,part.text,part.ref));}
     }
+    const exercise=document.createElement('details');
+    exercise.append(node('summary','本章共用討論題'),node('p',practice.scene),node('p',practice.question));
+    fragment.append(exercise);
   }else if(mode==='yearbook'){
     if(!annual.length){
       fragment.append(node('h2','交節附近，起運待定'),node('p','這筆出生條件的精確起運未定，保留原局解讀。'),proof(current,['/daYun/timing']));

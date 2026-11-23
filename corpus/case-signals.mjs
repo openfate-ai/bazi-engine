@@ -10,7 +10,7 @@ export function caseSignals(row, all) {
     const hits=all.filter(v=>families[i].includes(v.god));
     const open=hits.filter(v=>v.place==='透干'), hidden=hits.filter(v=>v.place!=='透干');
     const lead=open[0]??hidden[0];
-    out[key]={yes:!!open.length,refs:open.length?open.map(v=>v.ref):entire,
+    out[key]={state:open.length?'open':hidden.length?'hidden':'absent',yes:!!open.length,refs:open.length?open.map(v=>v.ref):entire,
       text:open.length?open.map(v=>v.name+'為'+v.god).join('、')+'，'+titles[i]+'有明干可以直接指認。':
       hidden.length?hidden[0].name+'為'+hidden[0].god+'，'+titles[i]+'只在支中有據，年、月、時干沒有透出。':'四柱的明干與藏干均未見'+titles[i]+'。'};
     if(lead && !open.length)out[key].refs=[...entire,lead.ref];

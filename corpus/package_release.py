@@ -15,14 +15,15 @@ from reader_bundle import RUNTIME,bundle
 from volume_lookup import stored, book_text, year_text
 
 HERE = Path(__file__).resolve().parent
-NAME = 'OpenFate-Bazi-Corpus-1900-2026-11-22-v2.0.0'
+NAME = 'OpenFate-Bazi-Corpus-1900-2026-11-22-v2.1.0'
 CODE = ('facts.mjs','generate.mjs','io.mjs','language.mjs','readings.mjs','rule_check.py','verify.py',
         'calendar_reference.py','lookup.py','reader.template.html','package.json','package-lock.json',
         'package_release.py','reproduce.py','README.md','DATASET-LICENSE.md','pmo1900.py',
-        'export-volume.mjs','audit-volume.mjs','verify-edition.py','compare_editions.py','reader-panels.js',
+        'compare_openings.py','export-volume.mjs','audit-volume.mjs','verify-edition.py','compare_editions.py','reader-panels.js',
         'reader_bundle.py','volume_lookup.py') + tuple(m+'.mjs' for m in RUNTIME if m!='language')
 EXAMPLES = (
     ('1991 · 看同一柱的合與沖','1991-10-18','08:30','female'),
+    ('1991 · 卯時，與辰時對讀','1991-10-18','06:30','female'),
     ('1991 · 同時出生，改用男性排運','1991-10-18','08:30','male'),
     ('1900 · 資料起點','1900-01-01','00:30','female'),
     ('1932 · 立春交節，起運待定','1932-02-05','08:30','female'),
@@ -44,7 +45,7 @@ def write_readers(root):
         row = s['row']
         name = row['id'][:16].replace(':','-')+'-'+row['id'].split('/')[1]+'.md'
         (example/name).write_text(book_text(row,stored(root,row,'book')),encoding='utf8')
-        if name.startswith('1991-10-18') and name.endswith('female.md'):
+        if name == '1991-10-18T08-30-female.md':
             timed=stored(root,row,'yearbook')
             (example/'1991-midyear-2026.md').write_text(year_text(row,timed,2026),encoding='utf8')
     embedded = json.dumps(samples, ensure_ascii=False, separators=(',',':')).replace('<','\\u003c')
@@ -59,7 +60,7 @@ def copy_code(root):
     for name in CODE:
         shutil.copyfile(HERE/name,tools/name)
     (tools/'examples').mkdir(exist_ok=True)
-    for name in ('1932-02-05T08-30-female.md','1991-10-18T08-30-female.md','1900-01-01T00-30-female.md','1991-midyear-2026.md'):
+    for name in ('1991-10-18T06-30-female.md','1932-02-05T08-30-female.md','1991-10-18T08-30-female.md','1900-01-01T00-30-female.md','1991-midyear-2026.md'):
         shutil.copyfile(root/'examples'/name,tools/'examples'/name)
     license_path = HERE.parent/'LICENSE'
     shutil.copyfile(license_path,root/'LICENSE')

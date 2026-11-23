@@ -16,7 +16,7 @@ def merge(root, scratch, record):
     base=json.loads((root/'manifest.json').read_text())
     if base['records']!=sums['charts'] or base['timing']['CALCULATED']*90!=sums['annualEntries']:
         raise ValueError('Base and edition manifest disagree')
-    output={'version':'2.0.0','firstDate':'1900-01-01','lastDate':'2026-11-22','language':'zh-Hant',
+    output={'version':'2.1.0','factsVersion':'2.0.0','firstDate':'1900-01-01','lastDate':'2026-11-22','language':'zh-Hant',
             'dates':46347,**sums,'matchedSampleLengths':[s for r in rows for s in r['samples']],'years':[{k:v for k,v in r.items() if k!='samples'} for r in rows]}
     data=(json.dumps(output,ensure_ascii=False,indent=2)+'\n').encode()
     path=root/'edition-manifest.json'

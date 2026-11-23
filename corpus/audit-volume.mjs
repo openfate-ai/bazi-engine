@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto';
 import { createInterface } from 'node:readline';
 import { readGzipLines } from './io.mjs';
 import { inputs, rowId } from './facts.mjs';
+import { themes, temperament, dayReadings } from './chapter-openings.mjs';
 
 const [root,yearText,output]=process.argv.slice(2), year=Number(yearText);
 const file=(folder,suffix)=>join(root,folder,year+suffix);
@@ -45,6 +46,33 @@ if(year>=1950){
   }
   if(year===1991)wanted.add('1991-10-18T08:30:00+08:00/female');
 }
+// Compute the expected opening from the serialized facts independently of the writing rules.
+const joins=new Set(['COMBINATION_2','TRINE','COMBINATION_HALF','DIRECTIONAL']);
+function expectedOpening(topic, row, hits, present) {
+  if(topic==='temperament')return temperament[(hits.monthRoot?2:0)+(hits.roots?1:0)];
+  if(topic==='love'){
+    const linked=row.interactions.filter(r=>r.pillars.includes('day'));
+    if(linked.some(r=>r.type==='CLASH'))return dayReadings.clash;
+    const join=linked.find(r=>joins.has(r.type));
+    if(join){
+      const externalClash=row.interactions.some(r=>r.type==='CLASH' && join.pillars.some(p=>r.pillars.includes(p)));
+      return externalClash?dayReadings.linkedClash:dayReadings.joined;
+    }
+    return linked.length?dayReadings.other:dayReadings.none;
+  }
+  const t=themes[topic],[first, second]=t.pair;
+  if(!present.has(first) && !present.has(second))return t.neither;
+  if(!present.has(first))return t.noFirst;
+  if(!present.has(second))return t.noSecond;
+  if(hits[first] && hits[second])return t.both;
+  if(hits[first])return t.first;
+  return hits[second]?t.second:t.inside;
+}
+const checkedOpenings=new Map();
+function openingParts(copy) {
+  if(!checkedOpenings.has(copy))checkedOpenings.set(copy,copy.split('｜'));
+  return checkedOpenings.get(copy);
+}
 const books=zlines(file('books','.book.jsonl.zst')), years=zlines(file('yearbooks','.yearbook.jsonl.zst'));
 const grid=inputs(year);
 const cachedGod=Object.fromEntries([...stem].map((m,ix)=>[m,[...stem].map((s,j)=>family[((j>>1)-(ix>>1)+5)%5][(ix+j)%2])]));
@@ -56,28 +84,35 @@ try {
   const expected=grid.next();
   ensure(!expected.done&&rowId(expected.value)===active&&book.id===active&&al.id===active,'grid/edition join');
   const hits={};const mapped=positional.map(k=>row.pillars[k]);
+  const present=new Set();
+  const listedGods=new Set(mapped.flatMap((p,i)=>[...(i===2?[]:[trad(p.stemTenGod)]),...p.hiddenStems.map(h=>trad(h.tenGod))]));
+  for(const [i,k] of options.entries())if(family[i].some(god=>listedGods.has(god)))present.add(k);
   for(const [i,k] of options.entries())hits[k]=mapped.some((p,j)=>j!==2&&family[i].includes(trad(p.stemTenGod)));
   for(const [i,k] of positional.entries())hits[k+'Link']=row.interactions.some(r=>r.pillars.includes(k));
   hits.clash=row.interactions.some(r=>r.type==='CLASH');
   hits.roots=mapped.some(p=>p.hiddenStems.some(h=>h.stem===row.dayMaster));
   hits.monthRoot=mapped.some((p,j)=>j!==2&&p.stem===mapped[1].hiddenStems.find(h=>h.isMain).stem);
   ensure(Object.keys(book.chapters).join(' ')==mainTopics.join(' '),'topic order');
-  const referenced=new Set();const sample=wanted.has(active);let bodyHan=0,commonCaseHan=0,conditionalCaseHan=0;
-  for(const item of Object.values(book.chapters)){
+  const referenced=new Set();const sample=wanted.has(active);let bodyHan=0,caseAdviceHan=0,caseEvidenceHan=0;
+  for(const [topic,item] of Object.entries(book.chapters)){
+    const [name,advice]=openingParts(expectedOpening(topic,row,hits,present));
+    const lead=item.parts[0];
+    ensure(lead.name===name && lead.text.startsWith(advice+'\n\n') && lead.text.length>advice.length+2,'opening action or basis: '+topic);
+    ensure(Array.isArray(item.evidence) && lead.ref.every(path=>item.evidence.includes(path)),'opening receipt: '+topic);
     let cases=0;ensure(item.title && item.parts.length>=10,'missing chapter');
     for(const bit of item.parts){
       ensure(bit.name && bit.text && bit.ref.length,'empty chapter part');for(const ref of bit.ref)referenced.add(ref);
       if(bit.caseSignal){
         ensure(Object.hasOwn(hits,bit.caseSignal)&&hits[bit.caseSignal]===bit.side,'wrong natal case branch');
         cases++;
-        if(sample){const para=bit.text.split('\n\n');ensure(para.length===3,'case paragraphs');commonCaseHan+=han(para[0])+han(para[2]);conditionalCaseHan+=han(para[1]);}
+        if(sample){const para=bit.text.split('\n\n');ensure(para.length===2,'case paragraphs');caseAdviceHan+=han(para[0]);caseEvidenceHan+=han(para[1]);}
       }
       if(sample)bodyHan+=han(bit.text);
     }
     ensure(cases===5,'five decision cases');stats.cases+=cases;stats.chapters++;
   }
   for(const ref of referenced)resolve(row,ref);
-  if(sample)stats.samples.push({id:active,bodyHan,commonCaseHan,conditionalCaseHan});
+  if(sample)stats.samples.push({id:active,bodyHan,caseAdviceHan,caseEvidenceHan});
   const dated=row.daYun.timing.status==='CALCULATED', entries=al.years;
   ensure(entries.length===(dated?90:0),'annual coverage');
   if(!dated)stats.withheld++;

@@ -1,12 +1,12 @@
 # OpenFate 八字命盤庫
 
-**1900 年 1 月 1 日至 2026 年 11 月 22 日**，涵蓋 46,347 個公曆日期、1,112,328 組出生輸入。每筆附四柱、藏干、十神、合沖關係、13 章生活解讀及 65 個情境問題。可以先讀一張完整的樣稿，再決定要下載哪個年份。[1900 年首筆](examples/1900-01-01T00-30-female.md) · [1991 年工作與關係樣稿](examples/1991-10-18T08-30-female.md) · [下載 v2.0.0](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.0.0)
+**1900 年 1 月 1 日至 2026 年 11 月 22 日**，涵蓋 46,347 個公曆日期、1,112,328 組出生輸入。每筆附四柱、藏干、十神、合沖關係、13 章生活解讀及 65 個情境問題。可以先讀一張完整的樣稿，再決定要下載哪個年份。[1900 年首筆](examples/1900-01-01T00-30-female.md) · [1991 年工作與關係樣稿](examples/1991-10-18T08-30-female.md) · [下載 2.1 版](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0)
 
 OpenFate Bazi Corpus contains 1,112,328 representative birth inputs through November 22, 2026. Each includes 13 full Traditional Chinese life chapters, with five conditional cases per chapter, plus 13 technical readings. Resolved luck cycles have 90 yearly observations. The offline reader works without an account. Original dataset and readings are CC BY 4.0. Code is MIT.
 
 ## 讀自己的出生年份
 
-1. 下載 Release 裡的 `reader.html`，用近期版本的瀏覽器開啟，可直接閱讀六張樣稿。
+1. 下載 Release 裡的 `reader.html`，用近期版本的瀏覽器開啟，可直接閱讀七張樣稿。
 2. 下載出生年份的排盤檔，例如 `1991.jsonl.gz`，在閱讀器選「從年度檔查盤」。輸入日期、代表時刻和排運性別。
 3. 「生活解讀」可選 13 章，展開章內問題就能讀到完整情境與盤面依據。「逐年對讀」可選大運範圍內的年份。「排盤與起運」保留技術解讀。
 
@@ -22,7 +22,11 @@ OpenFate Bazi Corpus contains 1,112,328 representative birth inputs through Nove
 | `manifest.json`、`edition-manifest.json` | 排盤與成稿分開計數，含各年度筆數、檢查範圍、雜湊及抽樣篇幅 |
 | `calendar-reference.json` | 外部曆表的核對口徑、檔案雜湊與所有差異 |
 
-生活章節涵蓋性格、工作、金錢、親密關係、家庭、朋友、學習、表達、居住、轉換環境、休息、照顧晚輩與人生取捨。章內問題有共用的情境與追問。每盤依十神是否透干、日干同字根、月令本氣是否透出及地支實際牽連選取解讀。不同出生輸入可以共用四柱和原局正文。同一原局的男女輸入可有不同大運。
+生活章節涵蓋性格、工作、金錢、親密關係、家庭、朋友、學習、表達、居住、轉換環境、休息、照顧晚輩與人生取捨。2.1 版每章先給一個能用在現實選擇上的建議，下一段列出採用的盤面條件。離線閱讀器另附共用練習，想多讀一個例子才需展開。每盤依十神是否透干、日干同字根、月令本氣是否透出及地支實際牽連選取解讀。不同出生輸入可以共用四柱和原局正文。同一原局的男女輸入可有不同大運。
+
+以 1991 年 10 月 18 日為例，卯時的職涯章建議從一件能獨立負責的工作開始問；辰時有壬水傷官透干，先問的是改流程需要誰授權。[06:30 女盤](examples/1991-10-18T06-30-female.md) · [08:30 女盤](examples/1991-10-18T08-30-female.md)
+
+判斷十神有沒有透干，取年、月、時干與日干相比。日干本身是比較的基準。
 
 每個技術或解讀欄位所列的 `ref` 或 `evidence` 都指向同 ID 的排盤資料。生活例子用來討論選擇，沒有使用真人病歷、收入或家庭史。引擎未能確定起運的交節輸入保留完整原局，對應的逐年清單為空。[交節樣稿](examples/1932-02-05T08-30-female.md)
 

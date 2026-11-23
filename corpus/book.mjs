@@ -1,3 +1,4 @@
+import { chapterOpening } from './chapter-openings.mjs';
 import { caseSignals } from './case-signals.mjs';
 import { finalCases } from './cases-choices.mjs';
 import { workCases } from './cases-work.mjs';
@@ -62,25 +63,35 @@ function resolvePair(map, a, b) {
   return [x,alt];
 }
 
+function questions(topic) {
+  return [...cases[topic], finalCases[topic]];
+}
+
+// These exercises are common to every chart and live outside the published chapter body.
+export function chapterPractice(topic) {
+  const spec = chapters[topic];
+  return {scene: spec.scene, question: spec.question,
+    cases: Object.fromEntries(questions(topic).map(([name,,situation,,,follow]) => [name,{situation,follow}]))};
+}
+
 export function lifeBook(row) {
   const {all,map} = positions(row), result = {};
   const logic=chartLogic(row,all), signals=caseSignals(row,all), used=new Set();
   for (const [topic, spec] of Object.entries(chapters)) {
     const [x,y] = resolvePair(map,...spec.pair), f=familyOf(x.god), g=familyOf(y.god);
-    const [headline, lead] = spec.choices[f].split('｜');
+    const lead = chapterOpening(topic,row,signals);
     const use = priorities[topic], base = row.pillars[use], ref='/pillars/'+use;
     const links = row.interactions.map((r,i)=>({r,ref:'/interactions/'+i})).filter(({r})=>r.pillars.includes(use));
     const near = links.find(l=>l.r.type==='CLASH') ?? links[0];
     const other = near && links.find(l=>l!==near && l.r.type!==near.r.type);
-    const evidence = [x.ref,y.ref,ref];
+    const evidence = [...lead.ref,x.ref,y.ref,ref];
     const pairKey=f+','+g;
     const contrast=used.has(pairKey)?'':dialogue[f][g];
     used.add(pairKey);
     const parts = [
-      cue(headline,[x.ref,y.ref],lead),
+      lead,
       cue(spec.lens,[x.ref,y.ref],x.name+'為'+x.god+'，先看「'+voices[x.god]+'」。'+spec.other+'，'+y.name+'的'+y.god+'也要一起讀。'+contrast),
       logic[topic],
-      cue('一個可以拿來對照的情境',[x.ref,y.ref],spec.scene),
     ];
     if (near) {
       const refs=[near.ref], names = [branchText(near.r)];
@@ -95,13 +106,12 @@ export function lifeBook(row) {
     }
     parts.push(cue('下一次可以怎麼談',[y.ref],decisions[topic][g]));
     evidence.push(...logic[topic].ref);
-    for (const [name,key,situation,yes,no,follow] of [...cases[topic],finalCases[topic]]) {
+    for (const [name,key,,yes,no] of questions(topic)) {
       const signal=signals[key];
       parts.push({name,ref:signal.refs,caseSignal:key,side:signal.yes,
-        text:situation+'\n\n'+signal.text+(signal.yes?yes:no)+'\n\n'+follow});
+        text:(signal.yes?yes:no)+'\n\n'+signal.text});
       evidence.push(...signal.refs);
     }
-    parts.push(cue('留給自己的一個問題',[x.ref,y.ref],spec.question));
     result[topic]={title:spec.title,parts,evidence:[...new Set(evidence)]};
   }
   return result;
