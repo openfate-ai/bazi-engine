@@ -1,0 +1,505 @@
+{
+  "release": "https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.0.0",
+  "files": {
+    "years/1900.jsonl.gz": {
+      "sha256": "9a26154acdcb0f8a85e67e3b801348fb9bac5e9ce4113ffe6e94d34e8d846fd4",
+      "records": {
+        "1900-01-01T00:30:00+08:00/female": {
+          "/fourPillars": "己亥 丙子 甲戌 甲子",
+          "/dayMaster": "甲",
+          "/pillars/year/hiddenStems/0/stem": "壬",
+          "/pillars/year/hiddenStems/1/stem": "甲",
+          "/pillars/month/hiddenStems/0/stem": "癸",
+          "/pillars/day/hiddenStems/0/stem": "戊",
+          "/pillars/day/hiddenStems/1/stem": "辛",
+          "/pillars/day/hiddenStems/2/stem": "丁",
+          "/pillars/hour/hiddenStems/0/stem": "癸",
+          "/pillars/hour/stemTenGod": "比肩",
+          "/readings/roots/title": "日干甲也藏在年支",
+          "/readings/interactions/title": "原局四支未見所列合沖刑害等關係"
+        },
+        "1900-01-01T02:30:00+08:00/female": {
+          "/fourPillars": "己亥 丙子 甲戌 乙丑",
+          "/dayMaster": "甲",
+          "/pillars/year/hiddenStems/0/stem": "壬",
+          "/pillars/year/hiddenStems/1/stem": "甲",
+          "/pillars/month/hiddenStems/0/stem": "癸",
+          "/pillars/day/hiddenStems/0/stem": "戊",
+          "/pillars/day/hiddenStems/1/stem": "辛",
+          "/pillars/day/hiddenStems/2/stem": "丁",
+          "/pillars/hour/hiddenStems/0/stem": "己",
+          "/pillars/hour/hiddenStems/1/stem": "癸",
+          "/pillars/hour/hiddenStems/2/stem": "辛",
+          "/pillars/hour/stemTenGod": "劫财",
+          "/readings/roots/title": "日干甲也藏在年支",
+          "/interactions/0/type": "COMBINATION_2",
+          "/interactions/0/pillars": [
+            "month",
+            "hour"
+          ],
+          "/interactions/0/branches": [
+            "子",
+            "丑"
+          ],
+          "/interactions/1/type": "DIRECTIONAL",
+          "/interactions/1/pillars": [
+            "year",
+            "month",
+            "hour"
+          ],
+          "/interactions/1/branches": [
+            "亥",
+            "子",
+            "丑"
+          ],
+          "/readings/interactions/title": "年支亥與月支子與時支丑三會"
+        }
+      }
+    },
+    "years/1932.jsonl.gz": {
+      "sha256": "746a884dd334c365e8e3d08d4d78d1345e93621707186d8a1ce4d560312faea3",
+      "records": {
+        "1932-02-05T06:30:00+08:00/female": {
+          "/fourPillars": "辛未 辛丑 丙申 辛卯",
+          "/dayMaster": "丙",
+          "/trueSolarDateTime": "1932-02-05 06:15:57",
+          "/daYun/timing/status": "CALCULATED",
+          "/daYun/isForward": true,
+          "/daYun/startDate": "1932-02-15 04:30:00",
+          "/daYun/timing/jieName": "立春",
+          "/daYun/timing/jieUtc": "1932-02-05T00:29:20Z",
+          "/daYun/cycles/0/ganZhi": "壬寅",
+          "/daYun/timing/intervalSeconds": 7160
+        },
+        "1932-02-05T08:30:00+08:00/female": {
+          "/fourPillars": "辛未 辛丑 丙申 壬辰",
+          "/dayMaster": "丙",
+          "/trueSolarDateTime": "1932-02-05 08:15:56",
+          "/daYun/timing/status": "UNAVAILABLE",
+          "/daYun/isForward": null,
+          "/daYun/startDate": null,
+          "/daYun/timing/reason": "PILLAR_TERM_BOUNDARY_MISMATCH",
+          "/daYun/cycles": [],
+          "/readings/onset/title": "交節附近，起運時間待定"
+        },
+        "1932-02-05T10:30:00+08:00/female": {
+          "/fourPillars": "壬申 壬寅 丙申 癸巳",
+          "/dayMaster": "丙",
+          "/trueSolarDateTime": "1932-02-05 10:15:56",
+          "/daYun/timing/status": "CALCULATED",
+          "/daYun/isForward": false,
+          "/daYun/startDate": "1932-02-15 11:30:00",
+          "/daYun/timing/jieName": "立春",
+          "/daYun/timing/jieUtc": "1932-02-05T00:29:20Z",
+          "/daYun/cycles/0/ganZhi": "辛丑",
+          "/daYun/timing/intervalSeconds": 7240
+        },
+        "1932-02-06T08:30:00+08:00/male": {
+          "/fourPillars": "壬申 壬寅 丁酉 甲辰",
+          "/dayMaster": "丁",
+          "/trueSolarDateTime": "1932-02-06 08:15:51",
+          "/daYun/timing/status": "CALCULATED",
+          "/daYun/isForward": true,
+          "/daYun/startDate": "1941-09-07 22:30:00",
+          "/daYun/timing/jieName": "惊蛰",
+          "/daYun/timing/jieUtc": "1932-03-05T18:49:19Z",
+          "/daYun/cycles/0/ganZhi": "癸卯",
+          "/daYun/timing/intervalSeconds": 2485159
+        }
+      }
+    },
+    "yearbooks/1932.yearbook.jsonl.zst": {
+      "sha256": "f20b1d6739216f80f356c42fdb150e9d62de285fcf31cde1bd4ccef771394174",
+      "records": {
+        "1932-02-05T08:30:00+08:00/female": {
+          "/years": []
+        }
+      }
+    },
+    "years/1991.jsonl.gz": {
+      "sha256": "49c691c1bb14f5a8815952d2e10e11f3b45eb0865b7bc87c0d4d99f4c4418cbc",
+      "records": {
+        "1991-10-18T06:30:00+08:00/female": {
+          "/fourPillars": "辛未 戊戌 辛酉 辛卯",
+          "/dayMaster": "辛",
+          "/interactions/0/type": "CLASH",
+          "/interactions/0/pillars": [
+            "day",
+            "hour"
+          ],
+          "/interactions/0/branches": [
+            "酉",
+            "卯"
+          ],
+          "/interactions/1/type": "COMBINATION_2",
+          "/interactions/1/pillars": [
+            "month",
+            "hour"
+          ],
+          "/interactions/1/branches": [
+            "戌",
+            "卯"
+          ],
+          "/interactions/2/type": "COMBINATION_HALF",
+          "/interactions/2/pillars": [
+            "year",
+            "hour"
+          ],
+          "/interactions/2/branches": [
+            "未",
+            "卯"
+          ],
+          "/interactions/3/type": "DESTRUCTION",
+          "/interactions/3/pillars": [
+            "year",
+            "month"
+          ],
+          "/interactions/3/branches": [
+            "未",
+            "戌"
+          ],
+          "/interactions/4/type": "HARM",
+          "/interactions/4/pillars": [
+            "month",
+            "day"
+          ],
+          "/interactions/4/branches": [
+            "戌",
+            "酉"
+          ],
+          "/readings/interactions/title": "時支卯同時參與合與沖"
+        },
+        "1991-10-18T08:30:00+08:00/female": {
+          "/fourPillars": "辛未 戊戌 辛酉 壬辰",
+          "/dayMaster": "辛",
+          "/pillars/year/hiddenStems/0/stem": "己",
+          "/pillars/year/hiddenStems/1/stem": "丁",
+          "/pillars/year/hiddenStems/2/stem": "乙",
+          "/pillars/month/hiddenStems/0/stem": "戊",
+          "/pillars/month/hiddenStems/1/stem": "辛",
+          "/pillars/month/hiddenStems/2/stem": "丁",
+          "/pillars/day/hiddenStems/0/stem": "辛",
+          "/pillars/hour/hiddenStems/0/stem": "戊",
+          "/pillars/hour/hiddenStems/1/stem": "乙",
+          "/pillars/hour/hiddenStems/2/stem": "癸",
+          "/pillars/hour/stemTenGod": "伤官",
+          "/readings/roots/title": "日干辛也藏在月支、日支",
+          "/interactions/0/type": "CLASH",
+          "/interactions/0/pillars": [
+            "month",
+            "hour"
+          ],
+          "/interactions/0/branches": [
+            "戌",
+            "辰"
+          ],
+          "/interactions/1/type": "COMBINATION_2",
+          "/interactions/1/pillars": [
+            "day",
+            "hour"
+          ],
+          "/interactions/1/branches": [
+            "酉",
+            "辰"
+          ],
+          "/interactions/2/type": "DESTRUCTION",
+          "/interactions/2/pillars": [
+            "year",
+            "month"
+          ],
+          "/interactions/2/branches": [
+            "未",
+            "戌"
+          ],
+          "/interactions/3/type": "HARM",
+          "/interactions/3/pillars": [
+            "month",
+            "day"
+          ],
+          "/interactions/3/branches": [
+            "戌",
+            "酉"
+          ],
+          "/readings/interactions/title": "時支辰同時參與合與沖",
+          "/trueSolarDateTime": "1991-10-18 08:44:40",
+          "/daYun/timing/status": "CALCULATED",
+          "/daYun/isForward": true,
+          "/daYun/startDate": "1998-10-06 11:30:00",
+          "/daYun/timing/jieName": "立冬",
+          "/daYun/timing/jieUtc": "1991-11-07T22:07:50Z",
+          "/daYun/cycles/0/ganZhi": "己亥",
+          "/daYun/timing/intervalSeconds": 1805870,
+          "/daYun/cycles/2/ganZhi": "辛丑",
+          "/daYun/cycles/3/ganZhi": "壬寅"
+        },
+        "1991-10-18T08:30:00+08:00/male": {
+          "/fourPillars": "辛未 戊戌 辛酉 壬辰",
+          "/dayMaster": "辛",
+          "/trueSolarDateTime": "1991-10-18 08:44:40",
+          "/daYun/timing/status": "CALCULATED",
+          "/daYun/isForward": false,
+          "/daYun/startDate": "1994-11-14 17:30:00",
+          "/daYun/timing/jieName": "寒露",
+          "/daYun/timing/jieUtc": "1991-10-08T19:01:07Z",
+          "/daYun/cycles/0/ganZhi": "丁酉",
+          "/daYun/timing/intervalSeconds": 797333,
+          "/daYun/cycles/2/ganZhi": "乙未",
+          "/daYun/cycles/3/ganZhi": "甲午"
+        },
+        "1991-10-18T10:30:00+08:00/female": {
+          "/fourPillars": "辛未 戊戌 辛酉 癸巳",
+          "/dayMaster": "辛",
+          "/pillars/year/hiddenStems/0/stem": "己",
+          "/pillars/year/hiddenStems/1/stem": "丁",
+          "/pillars/year/hiddenStems/2/stem": "乙",
+          "/pillars/month/hiddenStems/0/stem": "戊",
+          "/pillars/month/hiddenStems/1/stem": "辛",
+          "/pillars/month/hiddenStems/2/stem": "丁",
+          "/pillars/day/hiddenStems/0/stem": "辛",
+          "/pillars/hour/hiddenStems/0/stem": "丙",
+          "/pillars/hour/hiddenStems/1/stem": "戊",
+          "/pillars/hour/hiddenStems/2/stem": "庚",
+          "/pillars/hour/stemTenGod": "食神",
+          "/readings/roots/title": "日干辛也藏在月支、日支"
+        },
+        "1991-10-18T12:30:00+08:00/female": {
+          "/fourPillars": "辛未 戊戌 辛酉 甲午",
+          "/dayMaster": "辛",
+          "/pillars/year/hiddenStems/0/stem": "己",
+          "/pillars/year/hiddenStems/1/stem": "丁",
+          "/pillars/year/hiddenStems/2/stem": "乙",
+          "/pillars/month/hiddenStems/0/stem": "戊",
+          "/pillars/month/hiddenStems/1/stem": "辛",
+          "/pillars/month/hiddenStems/2/stem": "丁",
+          "/pillars/day/hiddenStems/0/stem": "辛",
+          "/pillars/hour/hiddenStems/0/stem": "丁",
+          "/pillars/hour/hiddenStems/1/stem": "己",
+          "/pillars/hour/stemTenGod": "正财",
+          "/readings/roots/title": "日干辛也藏在月支、日支"
+        },
+        "1991-10-18T16:30:00+08:00/female": {
+          "/fourPillars": "辛未 戊戌 辛酉 丙申",
+          "/dayMaster": "辛",
+          "/pillars/year/hiddenStems/0/stem": "己",
+          "/pillars/year/hiddenStems/1/stem": "丁",
+          "/pillars/year/hiddenStems/2/stem": "乙",
+          "/pillars/month/hiddenStems/0/stem": "戊",
+          "/pillars/month/hiddenStems/1/stem": "辛",
+          "/pillars/month/hiddenStems/2/stem": "丁",
+          "/pillars/day/hiddenStems/0/stem": "辛",
+          "/pillars/hour/hiddenStems/0/stem": "庚",
+          "/pillars/hour/hiddenStems/1/stem": "壬",
+          "/pillars/hour/hiddenStems/2/stem": "戊",
+          "/pillars/hour/stemTenGod": "正官",
+          "/readings/roots/title": "日干辛也藏在月支、日支"
+        },
+        "1991-10-19T08:30:00+08:00/female": {
+          "/fourPillars": "辛未 戊戌 壬戌 甲辰",
+          "/dayMaster": "壬",
+          "/pillars/year/hiddenStems/0/stem": "己",
+          "/pillars/year/hiddenStems/1/stem": "丁",
+          "/pillars/year/hiddenStems/2/stem": "乙",
+          "/pillars/month/hiddenStems/0/stem": "戊",
+          "/pillars/month/hiddenStems/1/stem": "辛",
+          "/pillars/month/hiddenStems/2/stem": "丁",
+          "/pillars/day/hiddenStems/0/stem": "戊",
+          "/pillars/day/hiddenStems/1/stem": "辛",
+          "/pillars/day/hiddenStems/2/stem": "丁",
+          "/pillars/hour/hiddenStems/0/stem": "戊",
+          "/pillars/hour/hiddenStems/1/stem": "乙",
+          "/pillars/hour/hiddenStems/2/stem": "癸",
+          "/pillars/hour/stemTenGod": "食神",
+          "/readings/roots/title": "四支未藏與日干相同的字",
+          "/interactions/0/type": "CLASH",
+          "/interactions/0/pillars": [
+            "month",
+            "hour"
+          ],
+          "/interactions/0/branches": [
+            "戌",
+            "辰"
+          ],
+          "/interactions/1/type": "CLASH",
+          "/interactions/1/pillars": [
+            "day",
+            "hour"
+          ],
+          "/interactions/1/branches": [
+            "戌",
+            "辰"
+          ],
+          "/interactions/2/type": "DESTRUCTION",
+          "/interactions/2/pillars": [
+            "year",
+            "month"
+          ],
+          "/interactions/2/branches": [
+            "未",
+            "戌"
+          ],
+          "/interactions/3/type": "DESTRUCTION",
+          "/interactions/3/pillars": [
+            "year",
+            "day"
+          ],
+          "/interactions/3/branches": [
+            "未",
+            "戌"
+          ],
+          "/readings/interactions/title": "月支戌與時支辰相沖",
+          "/trueSolarDateTime": "1991-10-19 08:44:51",
+          "/daYun/timing/status": "CALCULATED",
+          "/daYun/isForward": true,
+          "/daYun/startDate": "1998-06-06 11:30:00",
+          "/daYun/timing/jieName": "立冬",
+          "/daYun/timing/jieUtc": "1991-11-07T22:07:50Z",
+          "/daYun/cycles/0/ganZhi": "己亥",
+          "/daYun/timing/intervalSeconds": 1719470,
+          "/daYun/cycles/2/ganZhi": "辛丑",
+          "/daYun/cycles/3/ganZhi": "壬寅"
+        }
+      }
+    },
+    "books/1991.book.jsonl.zst": {
+      "sha256": "9d689a118d01665258a3cfeec725b3ee73226dcc8c48f7a28a9f006641db622c",
+      "records": {
+        "1991-10-18T08:30:00+08:00/female": {
+          "/chapters/work/parts/7/name": "想談加薪，手上要拿什麼？",
+          "/chapters/work/parts/7/caseSignal": "output",
+          "/chapters/work/parts/7/side": true,
+          "/chapters/work/parts/7/text": "比起說自己今年非常忙，挑一件原本容易出錯、經你處理後別人也能順利接手的事。把前後差異寫清楚，連同哪些部分是同事幫忙的也交代好。如此談的是你為團隊留下了什麼，對方比較難把話題只帶到工作時數。\n\n時干壬為傷官，食傷有明干可以直接指認。食傷透干，可把能交付的成果放到談話中央。帶上大家真的用過的版本，問主管若要升到下一級，這樣的成果還需要做到什麼規模。若他說得出差距，你便有下一次回來談的依據。\n\n離開會議前，確認下一次談的日期和對方願意看的證據。如果只有「之後再看看」，原本的討論還沒有落到能執行的地方。"
+        },
+        "1991-10-18T10:30:00+08:00/female": {
+          "/chapters/work/parts/7/name": "想談加薪，手上要拿什麼？",
+          "/chapters/work/parts/7/caseSignal": "output",
+          "/chapters/work/parts/7/side": true,
+          "/chapters/work/parts/7/text": "比起說自己今年非常忙，挑一件原本容易出錯、經你處理後別人也能順利接手的事。把前後差異寫清楚，連同哪些部分是同事幫忙的也交代好。如此談的是你為團隊留下了什麼，對方比較難把話題只帶到工作時數。\n\n時干癸為食神，食傷有明干可以直接指認。食傷透干，可把能交付的成果放到談話中央。帶上大家真的用過的版本，問主管若要升到下一級，這樣的成果還需要做到什麼規模。若他說得出差距，你便有下一次回來談的依據。\n\n離開會議前，確認下一次談的日期和對方願意看的證據。如果只有「之後再看看」，原本的討論還沒有落到能執行的地方。"
+        },
+        "1991-10-18T12:30:00+08:00/female": {
+          "/chapters/work/parts/7/name": "想談加薪，手上要拿什麼？",
+          "/chapters/work/parts/7/caseSignal": "output",
+          "/chapters/work/parts/7/side": false,
+          "/chapters/work/parts/7/text": "比起說自己今年非常忙，挑一件原本容易出錯、經你處理後別人也能順利接手的事。把前後差異寫清楚，連同哪些部分是同事幫忙的也交代好。如此談的是你為團隊留下了什麼，對方比較難把話題只帶到工作時數。\n\n四柱的明干與藏干均未見食傷。食傷未透干。若你的價值多在預防錯誤或默默補位，先挑一次你提早發現問題的工作，讓用得到的人說說少走了哪一段路。這類貢獻需要證人與紀錄，光等別人自行看見往往太慢。\n\n離開會議前，確認下一次談的日期和對方願意看的證據。如果只有「之後再看看」，原本的討論還沒有落到能執行的地方。"
+        },
+        "1991-10-18T16:30:00+08:00/female": {
+          "/chapters/work/parts/7/name": "想談加薪，手上要拿什麼？",
+          "/chapters/work/parts/7/caseSignal": "output",
+          "/chapters/work/parts/7/side": false,
+          "/chapters/work/parts/7/text": "比起說自己今年非常忙，挑一件原本容易出錯、經你處理後別人也能順利接手的事。把前後差異寫清楚，連同哪些部分是同事幫忙的也交代好。如此談的是你為團隊留下了什麼，對方比較難把話題只帶到工作時數。\n\n時支申所藏的壬為傷官，食傷只在支中有據，年、月、時干沒有透出。食傷未透干。若你的價值多在預防錯誤或默默補位，先挑一次你提早發現問題的工作，讓用得到的人說說少走了哪一段路。這類貢獻需要證人與紀錄，光等別人自行看見往往太慢。\n\n離開會議前，確認下一次談的日期和對方願意看的證據。如果只有「之後再看看」，原本的討論還沒有落到能執行的地方。"
+        }
+      }
+    },
+    "yearbooks/1991.yearbook.jsonl.zst": {
+      "sha256": "df966fed861a002ff8ac57ef6cf5f1e28c8210f6bd50360befb5f870a4da790e",
+      "records": {
+        "1991-10-18T08:30:00+08:00/female": {
+          "/years/26/year": 2025,
+          "/years/26/cycleIndex": 2,
+          "/years/26/ganzhi": "乙巳",
+          "/years/26/age": 33,
+          "/years/26/tenGod": "偏財",
+          "/years/26/contacts": [],
+          "/years/27/year": 2026,
+          "/years/27/cycleIndex": 2,
+          "/years/27/ganzhi": "丙午",
+          "/years/27/age": 34,
+          "/years/27/tenGod": "正官",
+          "/years/27/contacts": [
+            "年支未六合"
+          ]
+        },
+        "1991-10-18T08:30:00+08:00/male": {
+          "/years/30/year": 2025,
+          "/years/30/cycleIndex": 3,
+          "/years/30/ganzhi": "乙巳",
+          "/years/30/age": 33,
+          "/years/30/tenGod": "偏財",
+          "/years/30/contacts": [],
+          "/years/31/year": 2026,
+          "/years/31/cycleIndex": 3,
+          "/years/31/ganzhi": "丙午",
+          "/years/31/age": 34,
+          "/years/31/tenGod": "正官",
+          "/years/31/contacts": [
+            "年支未六合",
+            "運支午同支"
+          ]
+        }
+      }
+    },
+    "years/2000.jsonl.gz": {
+      "sha256": "a39ffedda6f4aa36dbe02a3ac935bfb1590fbc6f716a53a82982f838903453e7",
+      "records": {
+        "2000-02-29T10:30:00+08:00/female": {
+          "/fourPillars": "庚辰 戊寅 丁巳 乙巳",
+          "/dayMaster": "丁",
+          "/pillars/year/hiddenStems/0/stem": "戊",
+          "/pillars/year/hiddenStems/1/stem": "乙",
+          "/pillars/year/hiddenStems/2/stem": "癸",
+          "/pillars/month/hiddenStems/0/stem": "甲",
+          "/pillars/month/hiddenStems/1/stem": "丙",
+          "/pillars/month/hiddenStems/2/stem": "戊",
+          "/pillars/day/hiddenStems/0/stem": "丙",
+          "/pillars/day/hiddenStems/1/stem": "戊",
+          "/pillars/day/hiddenStems/2/stem": "庚",
+          "/pillars/hour/hiddenStems/0/stem": "丙",
+          "/pillars/hour/hiddenStems/1/stem": "戊",
+          "/pillars/hour/hiddenStems/2/stem": "庚",
+          "/pillars/hour/stemTenGod": "偏印",
+          "/readings/roots/title": "四支未藏與日干相同的字"
+        },
+        "2000-02-29T12:30:00+08:00/female": {
+          "/fourPillars": "庚辰 戊寅 丁巳 丙午",
+          "/dayMaster": "丁",
+          "/pillars/year/hiddenStems/0/stem": "戊",
+          "/pillars/year/hiddenStems/1/stem": "乙",
+          "/pillars/year/hiddenStems/2/stem": "癸",
+          "/pillars/month/hiddenStems/0/stem": "甲",
+          "/pillars/month/hiddenStems/1/stem": "丙",
+          "/pillars/month/hiddenStems/2/stem": "戊",
+          "/pillars/day/hiddenStems/0/stem": "丙",
+          "/pillars/day/hiddenStems/1/stem": "戊",
+          "/pillars/day/hiddenStems/2/stem": "庚",
+          "/pillars/hour/hiddenStems/0/stem": "丁",
+          "/pillars/hour/hiddenStems/1/stem": "己",
+          "/pillars/hour/stemTenGod": "劫财",
+          "/readings/roots/title": "日干丁也藏在時支"
+        },
+        "2000-02-29T14:30:00+08:00/female": {
+          "/fourPillars": "庚辰 戊寅 丁巳 丁未",
+          "/dayMaster": "丁",
+          "/pillars/year/hiddenStems/0/stem": "戊",
+          "/pillars/year/hiddenStems/1/stem": "乙",
+          "/pillars/year/hiddenStems/2/stem": "癸",
+          "/pillars/month/hiddenStems/0/stem": "甲",
+          "/pillars/month/hiddenStems/1/stem": "丙",
+          "/pillars/month/hiddenStems/2/stem": "戊",
+          "/pillars/day/hiddenStems/0/stem": "丙",
+          "/pillars/day/hiddenStems/1/stem": "戊",
+          "/pillars/day/hiddenStems/2/stem": "庚",
+          "/pillars/hour/hiddenStems/0/stem": "己",
+          "/pillars/hour/hiddenStems/1/stem": "丁",
+          "/pillars/hour/hiddenStems/2/stem": "乙",
+          "/pillars/hour/stemTenGod": "比肩",
+          "/readings/roots/title": "日干丁也藏在時支"
+        },
+        "2000-03-01T12:30:00+08:00/female": {
+          "/fourPillars": "庚辰 戊寅 戊午 戊午",
+          "/dayMaster": "戊",
+          "/pillars/year/hiddenStems/0/stem": "戊",
+          "/pillars/year/hiddenStems/1/stem": "乙",
+          "/pillars/year/hiddenStems/2/stem": "癸",
+          "/pillars/month/hiddenStems/0/stem": "甲",
+          "/pillars/month/hiddenStems/1/stem": "丙",
+          "/pillars/month/hiddenStems/2/stem": "戊",
+          "/pillars/day/hiddenStems/0/stem": "丁",
+          "/pillars/day/hiddenStems/1/stem": "己",
+          "/pillars/hour/hiddenStems/0/stem": "丁",
+          "/pillars/hour/hiddenStems/1/stem": "己",
+          "/pillars/hour/stemTenGod": "比肩",
+          "/readings/roots/title": "日干戊也藏在年支、月支"
+        }
+      }
+    }
+  }
+}
