@@ -6,6 +6,15 @@ The open corpus spans 1900 to 2026 and covers **402,736 distinct Four Pillars co
 
 **[Compare two birth times](https://openfate-ai.github.io/bazi-engine/compare/)** · [Traditional Chinese](README.md) · [English field guide](learn/en.md) · [Download the corpus](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0)
 
+| What would you like to do? | Start here |
+| --- | --- |
+| Build a charting app | [Run the JavaScript example below](#reproduce-the-example). The SDK calculates charts locally. |
+| Build a searchable reading library | [Download one birth year](#download-one-year) and join the records by birth ID. |
+| Connect an AI client | [Install the MCP server](https://github.com/openfate-ai/openfate-mcp#install). Its seven tools include chart calculation and reverse lookup. |
+| Learn how the interpretation works | [Compare two charts in the browser](https://openfate-ai.github.io/bazi-engine/compare/) and follow each rule back to its source. |
+
+To run the comparison page locally, clone this repository, run `npm ci` and `npm run build:pages` in its root, then run `python3 -m http.server 8000 --bind 127.0.0.1 --directory docs`. Open `http://127.0.0.1:8000/compare/` in your browser.
+
 ## Reproduce the example
 
 ```sh
@@ -33,11 +42,56 @@ At 08:30 the hour pillar is 戊辰. The day and hour branches form 丑辰相破,
 
 The field guide starts with hidden stems and uses diagrams to show how the same hour branch can combine with the month and clash with the day. Work through seven lessons, compare the classical sources, then try three unseen charts. [English field guide](learn/en.md) · [Classical sources](learn/sources.md) · [Practice charts](learn/practice.md)
 
+### One set of pillars, two different luck cycles
+
+For October 18, 1991 at 08:30, the archive gives 辛未、戊戌、辛酉、壬辰 for both sex inputs used by the traditional direction rule. The female input moves forward from the birth instant to the Start of Winter (立冬). Its first cycle is 己亥, starting October 6, 1998. The male input looks back to Cold Dew (寒露). Its first cycle is 丁酉, starting November 14, 1994. Keep the birth ID when joining records so you can tell the timelines apart. [Worked timings](learn/luck-direction.md) · [2026 annual comparison](learn/annual-reading.md)
+
+[![At 06:30 and 08:30 the month and day branches swap their clash and combination with the hour branch.](learn/relationship-map.png)](learn/interactions.md)
+
+The source index identifies the relevant scans or chapters in three classics. *Zi Ping Zhen Quan* provides examples for reading roots and competing branch relations. *Qiong Tong Bao Jian* includes two cases that differ only in their hour pillar. *San Ming Tong Hui* supplies examples for Ten Gods and the direction of luck cycles. The course places those readings beside modern worked charts. [Editions and page references](learn/sources.md) · [Classical and modern cases side by side](learn/schools.md)
+
 ## Offline corpus
 
 The frozen v2.1 corpus covers January 1, 1900 through November 22, 2026. Its 1,112,328 representative birth inputs contain **14,460,264 life chapters** in total, with five scenario questions per chapter. Inputs with the same four pillars can share natal reading text. Each input with a resolved luck-cycle onset has 90 midyear observations, for a total of **100,092,240 annual projections**. [Counts and checksums by year](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/edition-manifest.json)
 
 Download the offline reader and a single year to explore a chart, or download the compressed volumes and reproduce the edition. The live SDK provides one relationship chapter. [Dataset guide](corpus/README.md) · [Offline reader](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/reader.html) · [Year files](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0)
+
+### Download one year
+
+The offline reader (242 KB) and the 1991 chart file (4.57 MB) are enough to open the example. In the reader, load the compressed year file and select October 18, 08:30, female. All sizes here use decimal units.
+
+```sh
+gh release download corpus-v2.1.0 --repo openfate-ai/bazi-engine \
+  --pattern reader.html --pattern 1991.jsonl.gz --dir openfate-1991
+```
+
+For machine-readable full text, the same year's [life chapters](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/1991.book.jsonl.zst) are 4.80 MB and its [annual observations](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/1991.yearbook.jsonl.zst) are 8.87 MB. The all-year archives are [590 MB for core chart data](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/OpenFate-Bazi-Corpus-1900-2026-11-22-v2.1.0-core.tar), [616 MB for books](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/OpenFate-Bazi-Corpus-1900-2026-11-22-v2.1.0-books.tar) and [1.12 GB for yearbooks](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/OpenFate-Bazi-Corpus-1900-2026-11-22-v2.1.0-yearbooks.tar).
+
+Run this from the folder containing `1991.jsonl.gz` with Python 3. You can join the result to the book or yearbook JSON Lines record using the same ID.
+
+```python
+import gzip
+import json
+
+birth_id = "1991-10-18T08:30:00+08:00/female"
+with gzip.open("1991.jsonl.gz", "rt", encoding="utf-8") as rows:
+    chart = next(row for row in map(json.loads, rows) if row["id"] == birth_id)
+
+print(chart["fourPillars"])         # 辛未 戊戌 辛酉 壬辰
+print(chart["daYun"]["startDate"])  # 1998-10-06 11:30:00
+print(chart["readings"]["work"]["evidence"])
+```
+
+### What the release verifies
+
+| Measure | Result |
+| --- | --- |
+| Text length | Across 308 sampled records, the 13 life chapters had a median of 10,834 Han characters per record, with a range of 10,098 to 11,377. [Sample IDs and counts](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/edition-manifest.json) |
+| Calendar conversion | On all 46,347 dates, the 12:30 sample matched the reference lunar year, month, day and leap-month flag. [Calendar audit](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/calendar-reference.json) |
+| Timing boundaries | For 192 inputs, the birth instant and the solar-time chart disagree at a term boundary. The edition keeps their natal chapters and leaves the annual list empty. [A 1932 example](learn/solar-term.md) |
+| Hour-sensitive text | Among 132 adjacent-hour pairs in the published comparison, 74 pairs selected different career opening advice in edition 2.1.0. [Comparison data](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/opening-comparison.json) |
+
+The corpus freezes its chart dependency at SDK 2.0.0. Use the tagged edition to reproduce the published readings. For a new app, SDK 2.1.0 also offers a live relationship chapter with its own rules version. Its [selection rules](src/readings/relationship.ts), the [published chapter openings](corpus/chapter-openings.mjs) and the [annual generator](corpus/yearbook.mjs) can each be inspected separately.
 
 ## Lunar Calendar Input
 
