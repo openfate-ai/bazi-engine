@@ -14,7 +14,9 @@ Why can one hour branch combine with the month and clash with the day? Follow se
 
 [![同一天的卯時、辰時命盤，月支與日支所參與的合沖對調。At 06:30 and 08:30, the month and day branches exchange their roles in a combination and a clash.](learn/relationship-map.png)](learn/interactions.md)
 
-OpenFate Bazi Corpus v2 covers **1,112,328 representative birth inputs** from January 1, 1900 through November 22, 2026, with 402,736 distinct Four Pillars combinations. Each birth input has 13 Traditional Chinese life chapters. Explore one chart before downloading a year. [Read a complete example](https://github.com/openfate-ai/bazi-engine/blob/corpus-v2.0.0/corpus/examples/1991-10-18T08-30-female.md) · [Offline reader](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.0.0/reader.html) · [Download by year](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.0.0) · [Generator source](https://github.com/openfate-ai/bazi-engine/tree/corpus-v2.0.0/corpus)
+The career reading changes with the birth hour. At 06:30 the sample asks which task a new hire can own. At 08:30 it asks who can authorize a change in procedure. Read both complete chapters in Traditional Chinese. [06:30 example](corpus/examples/1991-10-18T06-30-female.md#工作與職涯選擇) · [08:30 example](corpus/examples/1991-10-18T08-30-female.md#工作與職涯選擇) · [Read the side-by-side explanation](learn/career-readings.md)
+
+OpenFate Bazi Corpus covers **1,112,328 representative birth inputs** from January 1, 1900 through November 22, 2026, with 402,736 distinct Four Pillars combinations. Each input has 13 Traditional Chinese life chapters. [Dataset guide](corpus/README.md) · [Offline reader](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/reader.html) · [Download by year](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0)
 
 ---
 
