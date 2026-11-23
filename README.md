@@ -8,6 +8,26 @@
 
 Getting the Four Pillars right is hard. Solar Term boundaries (节气), True Solar Time correction (真太阳时), day-change boundaries, and lunar conversion all require explicit, testable policy. This package exposes those calculations and the metadata needed to audit them.
 
+## Read a relationship chapter locally
+
+Compare two birth times in the browser, or use the same rules in Node. The chapter is written in Traditional Chinese. No account, API key or corpus download is required. [Compare two charts](https://openfate-ai.github.io/bazi-engine/compare/) · [Reading rules](src/readings/relationship.ts)
+
+```js
+const { calculateBaziChart, readBaziRelationship } = require('@openfate/bazi-engine');
+const chart = calculateBaziChart({
+  year: 1997, month: 8, day: 15, hour: 8, minute: 30, gender: 'female',
+  timezone: 8, dstOffset: 0, longitude: 120, dayBoundaryMode: 'ZI_HOUR_23',
+  daYunTimingVersion: 'DAYUN_SECOND_V2'
+});
+const reading = readBaziRelationship(chart);
+console.log(reading.title, reading.body, reading.practice);
+console.log(reading.ruleId, reading.rulesVersion, reading.evidence);
+```
+
+At 08:30 this example selects `day-hour-destruction`. At 12:30 it selects `day-hour-harm`. Each evidence entry contains a JSON Pointer into the supplied chart and the value at that pointer. Other simultaneous day–hour relations are listed separately. Run `npm run build:pages` from a source checkout to bundle the same SDK into `docs/compare/`. Omit the birth hour and the chapter returns `unknown-hour`. The relationship examples are editorial illustrations. The v2.1 corpus remains available as a frozen edition.
+
+To contribute a rule, change its condition or passage in `src/readings/relationship.ts`, add one chart that should select it and one that should keep its previous advice in `tests/relationship-reading.test.ts`, and bump the reading rules version for changed behavior. The regression fixtures cover previously published examples, other birth dates, overlapping relations and an unknown hour.
+
 ## Learn to read a chart · 跟著命例學八字
 
 Why can one hour branch combine with the month and clash with the day? Follow seven worked lessons from classical texts to the actual chart fields and the rules that generated each reading. [English field guide](learn/en.md) · [繁體中文教材](learn/README.md) · [Try three unseen charts](learn/practice.md)

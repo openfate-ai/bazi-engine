@@ -415,6 +415,7 @@
           }
         }
       }
+      #comparison-frame { width: 100%; height: 950px; border: 0; display: block; }
     </style>
   </head>
   <body>
@@ -431,7 +432,8 @@
                 Da Yun cycles, and branch interaction detection in one package.
               </p>
               <div class="actions">
-                <a class="button button-primary" href="https://openfate.ai/bazi">Try OpenFate AI</a>
+                <a class="button button-primary" href="#compare" lang="zh-Hant">比較兩張八字命盤</a>
+                <a class="button button-secondary" href="https://openfate.ai/bazi">Try OpenFate AI</a>
                 <a class="button button-secondary" href="https://github.com/openfate-ai/bazi-engine">View Repository</a>
                 <a class="button button-secondary" href="https://www.npmjs.com/package/@openfate/bazi-engine">Install from npm</a>
               </div>
@@ -492,6 +494,11 @@ const chart = calculateBaziChart({
             </aside>
           </div>
         </div>
+      </section>
+
+      <section id="compare" lang="zh-Hant" aria-label="雙盤感情解讀">
+        <iframe id="comparison-frame" src="./compare/?embed" title="比較兩張八字命盤的感情解讀" loading="lazy"></iframe>
+        <a href="./compare/">單獨開啟雙盤對照</a>
       </section>
 
       <section>
@@ -600,5 +607,15 @@ const chart = calculateBaziChart({
         </div>
       </footer>
     </main>
+    <script>
+      const comparisonFrame = document.getElementById('comparison-frame');
+      comparisonFrame.addEventListener('load', () => {
+        const main = comparisonFrame.contentDocument?.querySelector('main');
+        if (!main) return;
+        const resize = () => { comparisonFrame.style.height = Math.ceil(main.getBoundingClientRect().height) + 4 + 'px'; };
+        new ResizeObserver(resize).observe(main);
+        resize();
+      });
+    </script>
   </body>
 </html>
