@@ -8,6 +8,14 @@
 
 Getting the Four Pillars right is hard. Solar Term boundaries (节气), True Solar Time correction (真太阳时), day-change boundaries, and lunar conversion all require explicit, testable policy. This package exposes those calculations and the metadata needed to audit them.
 
+## Learn to read a chart · 跟著命例學八字
+
+Why can one hour branch combine with the month and clash with the day? Follow seven worked lessons from classical texts to the actual chart fields and the rules that generated each reading. [English field guide](learn/en.md) · [繁體中文教材](learn/README.md) · [Try three unseen charts](learn/practice.md)
+
+[![同一天的卯時、辰時命盤，月支與日支所參與的合沖對調。At 06:30 and 08:30, the month and day branches exchange their roles in a combination and a clash.](learn/relationship-map.png)](learn/interactions.md)
+
+OpenFate Bazi Corpus v2 covers **1,112,328 representative birth inputs** from January 1, 1900 through November 22, 2026, with 402,736 distinct Four Pillars combinations. Each birth input has 13 Traditional Chinese life chapters. Explore one chart before downloading a year. [Read a complete example](https://github.com/openfate-ai/bazi-engine/blob/corpus-v2.0.0/corpus/examples/1991-10-18T08-30-female.md) · [Offline reader](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.0.0/reader.html) · [Download by year](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.0.0) · [Generator source](https://github.com/openfate-ai/bazi-engine/tree/corpus-v2.0.0/corpus)
+
 ---
 
 ## Why use this?

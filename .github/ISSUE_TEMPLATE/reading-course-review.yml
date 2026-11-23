@@ -1,0 +1,35 @@
+name: 八字教材審讀 / Bazi lesson review
+description: 核對原典、回報盤面差異，或記錄一次陌生盤試讀。
+title: "[教材] "
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 審讀類別 / Review type
+      options:
+        - 古籍及流派 / Source and school
+        - 盤面或成稿 / Chart or reading
+        - 初學者試讀 / Learner walkthrough
+    validations:
+      required: true
+  - type: input
+    id: lesson
+    attributes:
+      label: 課名與段落 / Lesson and passage
+      description: 連到章節，或貼出該段開頭。Link the lesson and identify the passage.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 你怎麼核對 / Evidence or attempt
+      description: 古籍請列版本與頁碼。重查出刊檔請列教材出生 ID 和欄位。試讀請先寫自己的答案及理由，並指出卡在哪裡。請使用公開教學盤。
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: 核對結果 / Finding
+      description: 哪句成立，哪個條件要補，或哪一步需要更清楚的解釋？What held up or needs correction?
+    validations:
+      required: true
