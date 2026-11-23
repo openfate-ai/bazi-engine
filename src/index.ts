@@ -14,6 +14,7 @@ import { BaziChart, BaziInput, CalendarDateTime, LunarDateTime, SolarTimeInfo } 
 
 // Re-export all public types and constants
 export * from './types';
+export * from './readings/relationship';
 export * from './constants';
 export { detectInteractions } from './core/interactions';
 export { generatePillarsFromSolar, getStemInfo, getMainQi } from './core/pillars';
@@ -69,6 +70,14 @@ function createLunarDateTime(solarDateTime: CalendarDateTime): { lunar: LunarDat
     };
 }
 
+/** A numeric timezone and an explicit DST offset override IANA; a partial pair does not. */
+export function resolveBaziTimezoneBasis(input: Pick<BaziInput, 'timezoneId' | 'timezone' | 'dstOffset'>): number | string | null {
+    if (input.timezoneId !== undefined && (input.timezone === undefined || input.dstOffset === undefined)) {
+        return input.timezoneId;
+    }
+    return input.timezone ?? null;
+}
+
 /**
  * calculateBaziChart
  *
@@ -100,9 +109,8 @@ export function calculateBaziChart(input: BaziInput): BaziChart {
     let solarSecond = input.second ?? 0;
     let solarTimeInfo: SolarTimeInfo | null = null;
     let resolvedDstOffset = input.dstOffset ?? 0;
-    const useIanaTimezone = input.timezoneId !== undefined &&
-        (input.timezone === undefined || input.dstOffset === undefined);
-    const timezoneBasis = useIanaTimezone ? input.timezoneId! : input.timezone ?? null;
+    const timezoneBasis = resolveBaziTimezoneBasis(input);
+    const useIanaTimezone = typeof timezoneBasis === 'string';
     const inputType = input.calendarType ?? 'solar';
     const daYunTimingVersion = input.daYunTimingVersion ?? 'LEGACY_SHICHEN_V1';
 

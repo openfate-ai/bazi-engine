@@ -34,6 +34,9 @@ jobs:
       - name: Build package
         run: npm run build
 
+      - name: Build the public comparison page
+        run: npm run build:pages
+
       - name: Verify package contents
         run: npm publish --dry-run
 

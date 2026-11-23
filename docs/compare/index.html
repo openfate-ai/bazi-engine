@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#faf8f2">
+  <title>兩張八字命盤的感情解讀 · OpenFate</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+<main>
+  <nav aria-label="導覽"><a href="../">OpenFate / Bazi Engine</a><a href="https://github.com/openfate-ai/bazi-engine">GitHub ↗</a></nav>
+  <h1>換個時辰，感情解讀會怎麼變？</h1>
+  <p>先讀同一天的兩張盤，再換個時刻，或比較子時換日與午夜換日。頁面直接在你的瀏覽器裡排盤。</p>
+  <form id="controls">
+    <label>出生日期<input id="date" type="date" min="1800-01-01" max="2100-12-31" value="1997-08-15" required></label>
+    <fieldset><legend>甲盤</legend>
+      <label>出生時刻<input id="time-a" type="time" value="08:30" required></label>
+      <label>換日口徑<select id="mode-a"><option value="ZI_HOUR_23">子時（23:00）</option><option value="MIDNIGHT_00">午夜（00:00）</option></select></label>
+    </fieldset>
+    <fieldset><legend>乙盤</legend>
+      <label>出生時刻<input id="time-b" type="time" value="12:30" required></label>
+      <label>換日口徑<select id="mode-b"><option value="ZI_HOUR_23">子時（23:00）</option><option value="MIDNIGHT_00">午夜（00:00）</option></select></label>
+    </fieldset>
+    <button type="submit">比較兩張盤</button>
+  </form>
+  <p class="note">兩盤均採陽曆、女盤、東經 120°、UTC+08:00，開啟真太陽時校正。換日口徑作用於校正後的時間。</p>
+  <p id="status" role="status"></p>
+  <div id="results" class="results"></div>
+  <noscript>請開啟 JavaScript 以在本機排盤。</noscript>
+  <footer><a href="https://github.com/openfate-ai/bazi-engine/blob/main/src/readings/relationship.ts">查閱感情篇規則原始碼 ↗</a></footer>
+</main>
+</body>
+</html>

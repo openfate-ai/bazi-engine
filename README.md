@@ -1,309 +1,93 @@
-# @openfate/bazi-engine
+# OpenFate 八字引擎
 
-![NPM Version](https://img.shields.io/npm/v/@openfate/bazi-engine)
-![License](https://img.shields.io/npm/l/@openfate/bazi-engine)
+同一天出生，早上八點半和中午十二點半，為什麼會讀出兩種不同的感情建議？你可以把兩張盤並排，讀完原文，點進選出這段文字的程式碼。也可以在自己的電腦上改一條規則，重排同一張盤。
 
-> **A deterministic, production-oriented Four Pillars (八字) engine for JavaScript and TypeScript.**
-> Powered by [OpenFate.ai](https://openfate.ai) — the AI-native metaphysical analysis platform.
+**[打開雙盤對照](https://openfate-ai.github.io/bazi-engine/compare/)** · [跟著命例學八字](learn/README.md) · [下載八字命盤庫](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [English / API reference](README.en.md)
 
-Getting the Four Pillars right is hard. Solar Term boundaries (节气), True Solar Time correction (真太阳时), day-change boundaries, and lunar conversion all require explicit, testable policy. This package exposes those calculations and the metadata needed to audit them.
+[![npm 版本](https://img.shields.io/npm/v/@openfate/bazi-engine)](https://www.npmjs.com/package/@openfate/bazi-engine) [![SDK 測試與建置](https://github.com/openfate-ai/bazi-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/openfate-ai/bazi-engine/actions/workflows/ci.yml)
 
-## Learn to read a chart · 跟著命例學八字
+## 看一張盤怎麼變成一段解讀
 
-Why can one hour branch combine with the month and clash with the day? Follow seven worked lessons from classical texts to the actual chart fields and the rules that generated each reading. [English field guide](learn/en.md) · [繁體中文教材](learn/README.md) · [Try three unseen charts](learn/practice.md)
+1997 年 8 月 15 日，女命，東經 120°、UTC+8。兩張盤都採真太陽時、子初換日，年、月、日三柱都是 **丁丑、戊申、己丑**。換了出生時刻，日支「丑」遇到的時支就不同了。
 
-[![同一天的卯時、辰時命盤，月支與日支所參與的合沖對調。At 06:30 and 08:30, the month and day branches exchange their roles in a combination and a clash.](learn/relationship-map.png)](learn/interactions.md)
+| 出生時刻 | 時柱 | 日支與時支 | 感情章問的第一個問題 |
+| --- | --- | --- | --- |
+| 08:30 | 戊辰 | 丑、辰相破 | 約好了還是落空，交接在哪一步斷掉？ |
+| 12:30 | 庚午 | 丑、午相害 | 你幫上的忙，有沒有動到對方想自己決定的事？ |
 
-The career reading changes with the birth hour. At 06:30 the sample asks which task a new hire can own. At 08:30 it asks who can authorize a change in procedure. Read both complete chapters in Traditional Chinese. [06:30 example](corpus/examples/1991-10-18T06-30-female.md#工作與職涯選擇) · [08:30 example](corpus/examples/1991-10-18T08-30-female.md#工作與職涯選擇) · [Read the side-by-side explanation](learn/career-readings.md)
+第一篇寫兩個人約好輪流買菜，到了週末，冰箱卻還是空的。第二篇裡，菜已經買好了，問題出在有人順便答應朋友來家裡吃飯。這些是編寫的生活情境。打開範例後，可以從每篇下方的「這段依據」查到日支、時支，以及引擎選用的關係。[互動範例](https://openfate-ai.github.io/bazi-engine/compare/) · [感情章規則](src/readings/relationship.ts)
 
-OpenFate Bazi Corpus covers **1,112,328 representative birth inputs** from January 1, 1900 through November 22, 2026, with 402,736 distinct Four Pillars combinations. Each input has 13 Traditional Chinese life chapters. [Dataset guide](corpus/README.md) · [Offline reader](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/reader.html) · [Download by year](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0)
+[![雙盤實際畫面。左側是辰時的交接問題，右側是午時的決定權問題。點圖可更換時間重新排盤。](learn/relationship-comparison.webp)](https://openfate-ai.github.io/bazi-engine/compare/)
 
----
+## 跟著命例學八字
 
-## Why use this?
+| 你想弄懂的問題 | 從這裡開始 |
+| --- | --- |
+| 四個天干都沒有辛，為什麼這張甲日盤還讀得到正官？ | [在 1900 年元旦的盤上找藏干](learn/reading-pillars.md) |
+| 同一個時支，怎麼可以一邊合、一邊沖？ | [看兩張關係圖，把每一條線接回它所在的柱](learn/interactions.md) |
+| 《子平真詮》和《窮通寶鑑》看同一張盤，各自先問什麼？ | [對讀原書命式與現代命例](learn/schools.md) · [查卷次、篇名與影印頁](learn/sources.md) |
+| 換一個時辰，職涯建議會具體改在哪裡？ | [讀卯時與辰時的完整職涯章](learn/career-readings.md) |
+| 換一張沒見過的盤，我還看得出來嗎？ | [先做三題，再展開答案](learn/practice.md) |
 
-| Problem | Without this package | With `@openfate/bazi-engine` |
-|---|---|---|
-| True Solar Time | Complex astronomy, most ignore it | Built-in via `@openfate/true-solar-time` |
-| Solar Term boundaries | Easy to get LiChun wrong | Handles all 24 节气 precisely |
-| Zi Hour boundary (23:00) | Confusing, often skipped | Configurable `dayBoundaryMode` |
-| Lunar Calendar conversion | Requires separate library | Built-in, one function call |
-| Da Yun onset provenance | Rounded age with opaque assumptions | Optional second-resolved, versioned receipt |
-| Interaction detection | Track rules and repeated pillar positions yourself | Eight raw relationship types with occurrence identity |
+[七堂入門課](learn/README.md) · [六對同日異時的完整試讀稿](learn/reader-pilot/readings.md) · [圖解與練習](learn/reader-pilot/lessons.md) · [讀者回饋與試讀方法](learn/reader-pilot/README.md)
 
----
+## 下載 1900–2026 八字命盤庫
 
-## Use Cases
+**1,112,328 組代表出生輸入，對應 402,736 種不同四柱。** 收錄範圍從 1900 年 1 月 1 日到 2026 年 11 月 22 日，共 46,347 天。每天取 12 個代表時刻，每個時刻各排女、男兩組。整庫採固定 UTC+8、東經 120°、無夏令時間。同一組四柱可以出現在多筆資料中。[資料規格與產生方式](corpus/README.md)
 
-### 1. 🔮 Bazi Consulting Software / CRM
-Professional Fengshui consultants manage hundreds of clients. Build a dashboard that generates accurate charts on-demand:
-```typescript
-const chart = calculateBaziChart({ year: 1985, month: 3, day: 12, hour: 9,
-  gender: 'male', longitude: 121.47, timezone: 8 });
-// Render chart.pillars in your UI, show chart.daYun timeline
-```
-No more relying on unreliable online tools or expensive licensed software — own your calculation stack.
+| 想做的事 | 要打開的檔案 |
+| --- | --- |
+| 先讀一張完整的盤 | [1991 年 10 月 18 日樣稿](corpus/examples/1991-10-18T08-30-female.md)，可以直接在 GitHub 閱讀。 |
+| 離線查自己的出生年份 | 下載 [reader.html](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/reader.html) 和[所需年份的排盤檔](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0)，用瀏覽器開啟即可。 |
+| 分析或重製整庫 | `core` 收排盤、標籤與技術解讀，`books` 收每筆 13 章生活解讀與 65 個情境問題，`yearbooks` 收起運可確定的逐年觀察。三類檔案以出生輸入 ID 對讀。[查詢指令與檔案校驗](corpus/README.md) |
 
-### 2. 💌 Matchmaking & Dating Apps
-Check compatibility by comparing two users' charts:
-```typescript
-const userA = calculateBaziChart({ ... });
-const userB = calculateBaziChart({ ... });
+發行版附外部曆表核對紀錄。1900 年使用紫金山天文台曆表，1901 年起使用香港天文台對照表，逐日比對中午的農曆日期與閏月。生活章節另外核對引用的盤面欄位。讀者對文字的評價收在試讀教材裡。[曆表核對紀錄](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/calendar-reference.json) · [成稿核對清單](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/edition-manifest.json)
 
-// Do their Day Masters combine? (六合)
-const combined = detectInteractions(
-  { year: userA.pillars.year.branch, month: userA.pillars.month.branch,
-    day: userA.pillars.day.branch,   hour: userA.pillars.hour?.branch ?? '' },
-  userB.pillars.day.branch  // Check against UserB's Day Branch
-);
-const compatible = combined.some(i => i.type === 'COMBINATION_2');
+## 用 JavaScript 重現首頁的兩張盤
+
+```sh
+npm install @openfate/bazi-engine@^2.1.0
 ```
 
-### 3. 📅 Daily Horoscope / Almanac Push Notifications
-Calculate today's pillar and send personalized notifications:
-```typescript
-const today = new Date();
-const todayChart = calculateBaziChart({
-  year: today.getFullYear(), month: today.getMonth()+1, day: today.getDate(),
-  hour: 12, gender: 'male'
-});
+```js
+const { calculateBaziChart, readBaziRelationship } = require('@openfate/bazi-engine');
 
-// If today's Day Branch clashes with user's Day Branch → alert!
-const todayBranch = todayChart.pillars.day.branch;
+for (const hour of [8, 12]) {
+  const chart = calculateBaziChart({
+    year: 1997, month: 8, day: 15, hour, minute: 30, gender: 'female',
+    timezone: 8, dstOffset: 0, longitude: 120,
+    dayBoundaryMode: 'ZI_HOUR_23', daYunTimingVersion: 'DAYUN_SECOND_V2'
+  });
+  const reading = readBaziRelationship(chart);
+  console.log(reading.ruleId, reading.title);
+  console.log(reading.evidence);
+}
 ```
 
-### 4. 🤖 AI Metaphysics Agents / Discord Bots
-Feed the structured JSON into your own AI agent:
-```typescript
-const chart = calculateBaziChart({ ... });
+兩次依序得到 `day-hour-destruction`、`day-hour-harm`。第一張盤的 `/interactions/1/id` 指向 `DESTRUCTION:day:丑|hour:辰`。省略出生時辰時，感情章回傳 `status: 'unknown-hour'`，時柱留白。這個 API 在本機產生繁體中文感情章，無需金鑰。命盤庫的 13 章成稿可以從上方的資料發行版下載。
 
-// Pass to OpenAI / Claude with your own prompts
-const prompt = `Analyze this Bazi chart: ${JSON.stringify(chart.pillars)}
-  Major cycles: ${chart.daYun.cycles.map(c => c.ganZhi).join(', ')}
-  Key interactions: ${chart.interactions.map(i => i.description).join(', ')}`;
-```
-You get the data layer right with this package, then apply your own interpretation model on top.
+| 引擎功能 | 可查閱的結果 |
+| --- | --- |
+| 國曆、農曆與真太陽時 | 四柱、校正後時間、採用的時區與夏令時間。支援 IANA 時區或明訂數值偏移。 |
+| 換日與起運 | 可選子初或午夜換日。第二版起運算法保留出生瞬間、交節瞬間、時間差與取整方式。 |
+| 地支關係 | 八種關係保留每個地支所在的柱。多組合沖可並存，合化與強弱須另行判讀。 |
+| MCP 工具 | 在支援 MCP 的客戶端排盤，也能取得同一套感情章、規則編號與盤面依據。[安裝 OpenFate MCP](https://github.com/openfate-ai/openfate-mcp) |
 
-### 5. 🏫 Education & Research
-Teach traditional metaphysics with accurate, verifiable data. All outputs are explainable — `solarTimeInfo` shows exactly how True Solar Time was calculated.
+SDK 預設午夜換日及舊版起運算法。要重現上例，請保留程式碼中的兩個選項。[完整 API、時區優先順序與 v2 遷移說明](README.en.md#api-reference)
 
----
+## 改規則，再跑一次
 
-## Installation
+感情章的選用順序、內文與練習都在同一份[規則檔](src/readings/relationship.ts)。修改條件或段落後，請更新解讀規則版本，並在[回歸命例](tests/relationship-reading.test.ts)放入兩張盤：一張應該選到新規則，另一張應該保留原來的建議。從專案根目錄執行：
 
-```bash
-npm install @openfate/bazi-engine
-```
-
-## Quick Start
-
-```typescript
-import { calculateBaziChart } from '@openfate/bazi-engine';
-
-const chart = calculateBaziChart({
-  year: 1998, month: 12, day: 13,
-  hour: 12, minute: 0,
-  gender: 'female',
-  
-  // Location — enables True Solar Time correction
-  longitude: 116.39,  // Beijing
-  timezone: 8,        // UTC+8
-});
-
-// Four Pillars
-console.log(chart.pillars.year.stem + chart.pillars.year.branch);   // 戊寅
-console.log(chart.pillars.month.stem + chart.pillars.month.branch);  // 甲子
-console.log(chart.pillars.day.stem + chart.pillars.day.branch);      // 甲午
-console.log(chart.pillars.hour!.stem + chart.pillars.hour!.branch);  // 庚午
-
-// Day Master
-console.log(chart.dayMaster.pinyin);   // 'jia'
-console.log(chart.dayMaster.element);  // 'wood'
-
-// Major Luck Cycles (大运)
-chart.daYun.cycles.forEach(cycle => {
-  console.log(`Age ${cycle.startAge}: ${cycle.ganZhi}`);
-});
-
-// Branch Interactions
-chart.interactions.forEach(i => {
-  console.log(`${i.type}: ${i.description}`);
-});
-
-// True Solar Time details
-console.log(chart.solarTimeInfo?.trueSolarTime); // '12:09'
-```
-
-## Lunar Calendar Input
-
-```typescript
-const chart = calculateBaziChart({
-  year: 1998, month: 10, day: 25,  // Lunar date
-  calendarType: 'lunar',
-  hour: 12, gender: 'male', longitude: 116.39, timezone: 8,
-});
-// Automatically converts to Solar 1998-12-13 before calculating
-```
-
-## Configuration
-
-```typescript
-calculateBaziChart({
-  // ...
-  enableTrueSolarTime: true,        // default: true (requires longitude)
-  dayBoundaryMode: 'MIDNIGHT_00',   // 'MIDNIGHT_00' (default) or 'ZI_HOUR_23' (traditional)
-  calendarType: 'solar',            // 'solar' (default) or 'lunar'
-  timezoneId: 'Asia/Shanghai',      // Preferred for historical civil-time rules
-  // Or provide the complete explicit pair: timezone: 8, dstOffset: 1
-  daYunTimingVersion: 'DAYUN_SECOND_V2', // opt in; legacy timing remains the default
-});
-```
-
-When `timezoneId` is present and either `timezone` or `dstOffset` is omitted, the
-IANA zone determines the historical standard offset and DST adjustment. An explicit
-numeric `timezone` + `dstOffset` pair remains authoritative. The resolved DST value is
-returned in `metadata.dstOffset` when an hour is supplied, including when True Solar
-Time is disabled.
-
-### Versioned Da Yun onset
-
-`LEGACY_SHICHEN_V1` remains the default, so upgrading does not silently move existing
-cycle dates. Set `daYunTimingVersion: 'DAYUN_SECOND_V2'` to measure the physical interval
-between the birth instant and the applicable Jie boundary, then apply the declared
-three-days-per-year conversion at second resolution.
-
-```typescript
-const chart = calculateBaziChart({
-  year: 2001, month: 7, day: 2, hour: 3, minute: 14,
-  gender: 'male', longitude: 112.6986, timezoneId: 'Asia/Shanghai',
-  dayBoundaryMode: 'ZI_HOUR_23',
-  daYunTimingVersion: 'DAYUN_SECOND_V2',
-});
-
-console.log(chart.daYun.startDate); // 2010-03-23 19:14:00
-console.log(chart.daYun.timing);    // birth/Jie UTC instants, interval, policy, rounding
-```
-
-V2 rejects ambiguous or nonexistent IANA wall times instead of choosing one silently.
-If the birth time, timezone, or Jie lookup is unavailable, the existing legacy scalar
-fields remain for compatibility and `daYun.timing` returns `status: 'UNAVAILABLE'`, a
-reason, and `fallbackVersion: 'LEGACY_SHICHEN_V1'`. Callers that require V2 must check
-the receipt before presenting an exact onset. IANA resolution is explicitly labeled
-`HOST_INTL`; pass a complete numeric `timezone` + `dstOffset` pair when a frozen offset
-is required.
-
-## API Reference
-
-### `calculateBaziChart(input: BaziInput): BaziChart`
-Main entry point. Returns a `BaziChart` with:
-- `pillars` — Four Pillars (year, month, day, hour)
-- `dayMaster` — Day Master stem with element, polarity, pinyin
-- `daYun` — 9 Major Luck Cycles with start year/age and versioned timing provenance
-- `interactions` — Raw branch relationships (8 types), preserving every pillar occurrence
-- `solarTimeInfo` — True Solar Time details (or null if disabled)
-- `calendar` — Civil solar input, calculation solar time, converted lunar date, and zodiac
-- `metadata` — Applied True Solar Time, timezone, DST, and day-boundary policy
-
-Each pillar preserves the simple `stem`, `branch`, and `element` fields and also includes Ten Gods, hidden stems, Na Yin, Xun, void branches, and growth stage.
-
-### `detectInteractions(natal, annualBranchOrContext?): BranchInteraction[]`
-
-Detect raw relationships in natal branches, optionally adding an annual branch (太岁), a Da Yun branch, or both. The original annual-string argument remains supported. Omit `hour` or pass an empty string when the time is unknown; no hour is invented. Empty branch slots are omitted; invalid non-empty values throw `RangeError`.
-
-```typescript
-const relationships = detectInteractions(
-  { year: '申', month: '寅', day: '申' },
-  { dayunBranch: '申', annualBranch: '子' },
-);
-// Three distinct 寅申 clashes: year/month, month/day, month/dayun.
-```
-
-- Every distinct pair and full-group embedding is retained. Three 午 occurrences produce three self-punishment pairs; four produce six. They are separate structural occurrences, **not** independent penalties to sum.
-- Types: `CLASH`, `COMBINATION_2`, `COMBINATION_HALF`, `TRINE`, `DIRECTIONAL`, `PUNISHMENT`, `DESTRUCTION`, `HARM`.
-- `COMBINATION_HALF` uses the eight king-node pairs: 申子、子辰、寅午、午戌、亥卯、卯未、巳酉、酉丑. Endpoint-only pairs such as 申辰 are not half trines in this profile. Half relationships remain present when the full trine also exists; consumers must not count both as independent energy effects.
-- The existing punishment policy is preserved: 寅巳申 and 丑戌未 require all three branches; 子卯 and the 辰、午、酉、亥 self-punishments use distinct pairs. This release does not add partial three-punishment school variants.
-- `branches[i]` always belongs to `pillars[i]`, ordered `year`, `month`, `day`, `hour`, `dayun`, `annual`. `id` is the type followed by those occurrence identities, for example `CLASH:year:申|month:寅`. Output order is deterministic: the type order listed above, then occurrence role order. Object property insertion order has no effect.
-- Combinations carry `transformationStatus: 'NOT_EVALUATED'`; other types carry `'NOT_APPLICABLE'`. Branch presence alone cannot establish transformation or resolve a competing clash. No weight, score, energy delta, strength, or pattern verdict is returned.
-- `targetElement` is only the affinity of half/full trines and directional groups, **not** proven transformation. Half trines and 六合 have no `resultElement`. Full trines/directional groups retain `resultElement` as a legacy affinity alias; it is not confirmation of transformation.
-
-Migration: review consumers that assumed one result per branch-name pair, fixed array order, exhaustive switches on seven types, or automatic 六合 transformation. Store by stable `id`, not just branch names. Keep raw relationships separate from any settled/scored chart model; adding more raw occurrences must not automatically multiply its weights. This package's branch detector does not decide whether a chart forms a classical pattern or predict life outcomes.
-
-**Version 2 migration:** version 2 changes the public contract: `id` and
-`transformationStatus` are required, `pillars` uses a role union, `InteractionType`
-has a new member, and 六合 no longer exposes `resultElement`. It is not a drop-in
-upgrade from version 1. Review interaction consumers before adopting version 2,
-store relationships by stable `id`, and keep raw occurrences separate from any
-settled or scored chart model.
-
-### `generatePillarsFromSolar(...): PillarResult`
-Low-level pillar generator — use when you've already handled time correction yourself.
-
----
-
-## 🛡️ Testing & Reliability
-
-Bazi calculations are notoriously prone to edge-case bugs. We maintain a regression suite of 100+ calendrical cases plus focused public-contract tests:
-
-- **24 Solar Terms**: Minute-level precision for *Li Chun*, *Jing Zhe*, etc.
-- **Early/Late Zi Hour**: Handles the 23:00 day-rollover across month/year boundaries.
-- **Global Distortion**: Extreme longitudes (e.g., Xinjiang, Iceland) and fractional timezones (e.g., India UTC+5.5).
-- **Historical DST**: Explicit `dstOffset` input or IANA timezone rules; the engine does not guess historical policy.
-- **Century Boundaries**: Regression coverage for dates across 1800, 1900, 2000, and 2100.
-- **Da Yun**: Exact start date, elapsed-age convention, direction, and cycle boundaries.
-- **Da Yun V2**: Second propagation, numeric/IANA parity, DST gap/overlap rejection,
-  missing-input fallback, symbolic conversion, and nominal calendar clamping.
-- **Factual Enrichment**: Ten Gods, hidden stems, Na Yin, Xun, void branches, and growth stages.
-- **Interaction topology**: Repeated positions, full-group embeddings, eight half trines, missing hours, dynamic role identity, invalid branches, and the no-transformation/no-scoring contract.
-
-Run the tests yourself:
-```bash
+```sh
+npm ci
 npm test
+npm run build
+npm run build:pages
 ```
 
----
+若是教材勘誤，請附課名、原書頁次或可重現的出生輸入。若是排盤差異，請一併附上時區、經度、換日與起運設定。[回報問題](https://github.com/openfate-ai/bazi-engine/issues)
 
-## How It Works
+## 授權與引用
 
-```
-Birth input (civil time)
-        ↓
-[@openfate/true-solar-time]   ← Longitude correction + Meeus Equation of Time
-        ↓
-  True Solar Time
-        ↓
-[lunar-javascript]             ← Solar Term boundary detection + Ganzhi calculation
-        ↓
-  Four Pillars  →  Da Yun  →  Interactions
-```
-
----
-
-## 🔗 Try the Full Engine
-
-`@openfate/bazi-engine` gives you the data. **[OpenFate.ai](https://openfate.ai/bazi)** gives you the complete AI-powered interpretation — relationship analysis, career forecasting, and interactive AI chat with your chart.
-
-## GitHub Pages Site
-
-This repository now includes a static GitHub Pages microsite in [`docs/index.html`](docs/index.html).
-
-To publish it:
-
-1. Push the repository to GitHub on the `main` branch.
-2. In the repository settings, open `Pages`.
-3. Under `Build and deployment`, select `GitHub Actions`.
-4. Push a new commit or manually run the `Deploy GitHub Pages` workflow.
-
-If the workflow fails with `Get Pages site failed`:
-
-- The repository does not have GitHub Pages enabled yet.
-- The fastest fix is to open `Settings` -> `Pages` and set `Source` to `GitHub Actions`, then rerun the workflow.
-- Optional: create a repository secret named `PAGES_TOKEN` with a token that can administer Pages. The workflow will then try to enable Pages automatically on the first run.
-
-Once enabled, the site will publish at:
-
-- `https://openfate-ai.github.io/bazi-engine/` for the current repository name
-- or `https://<owner>.github.io/<repo>/` for forks and renamed repositories
-
-## License
-
-MIT — Free to use, modify, and distribute commercially.
+引擎程式碼採 [MIT](LICENSE)。OpenFate Bazi Corpus 的資料與原創解讀採 CC BY 4.0，可商用及改作，使用時請標明作者 OpenFate、來源、授權與修改內容。[資料授權與署名範例](corpus/DATASET-LICENSE.md)

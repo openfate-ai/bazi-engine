@@ -1,0 +1,208 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: light;
+    font: 16px/1.65 "PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    color: #252f29;
+    background: #faf8f2;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    max-width: 72rem;
+    margin: auto;
+    padding: 1rem clamp(1rem,4vw,3rem) 3rem;
+}
+
+nav, footer {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #c5cec5;
+    padding: .7rem 0;
+}
+
+a {
+    color: #20583d;
+    text-underline-offset: .2em;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
+    outline: 3px solid #b76617;
+    outline-offset: 3px;
+}
+
+h1 {
+    font: 600 clamp(1.8rem,4vw,3rem)/1.28 "Songti TC",serif;
+    margin: 2rem 0 .5rem;
+}
+
+h2 {
+    font-size: 1.35rem;
+    margin: .8rem 0;
+}
+
+h3 {
+    font-size: 1.05rem;
+    margin: 1.2rem 0 .3rem;
+}
+
+p {
+    margin: .4rem 0 .8rem;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: end;
+    margin-top: 1.5rem;
+}
+
+fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    min-width: 0;
+    padding: .4rem .7rem .65rem;
+    border: 1px solid #b1bfb2;
+    border-radius: .4rem;
+}
+
+legend, label {
+    font-size: .88rem;
+    font-weight: 600;
+}
+
+label {
+    display: grid;
+    gap: .2rem;
+}
+
+input, select, button {
+    font: inherit;
+    min-height: 44px;
+    padding: .45rem;
+    border: 1px solid #859888;
+    border-radius: .3rem;
+    background: #fff;
+    color: inherit;
+}
+
+button {
+    border-color: #214735;
+    background: #214735;
+    color: #fff;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+.note, small {
+    font-size: .85rem;
+    color: #46574b;
+}
+
+.results {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 1rem;
+}
+
+article {
+    min-width: 0;
+    background: #fff;
+    border: 1px solid #cbd2c8;
+    border-radius: .6rem;
+    padding: clamp(1rem,2vw,1.5rem);
+}
+
+.pillars {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: .3rem;
+    margin: .7rem 0;
+}
+
+.pillar {
+    display: grid;
+    text-align: center;
+    padding: .4rem;
+    background: #f3f4ef;
+}
+
+.changed {
+    background: #f9ecd4;
+    border-bottom: 3px solid #ab7134;
+}
+
+.pillar strong {
+    font: 600 1.3rem/1.7 "Songti TC",serif;
+}
+
+summary {
+    cursor: pointer;
+    padding: .6rem 0;
+    min-height: 44px;
+}
+
+ul {
+    padding-inline-start: 1.3rem;
+    margin: .3rem 0;
+}
+
+code, pre {
+    font-family: ui-monospace,monospace;
+    font-size: .85rem;
+    overflow-wrap: anywhere;
+}
+
+pre {
+    white-space: pre-wrap;
+    background: #f5f5ef;
+    padding: .7rem;
+    user-select: all;
+}
+
+#status {
+    font-weight: 600;
+    margin: 1.2rem 0;
+}
+
+footer {
+    margin-top: 1.4rem;
+    border: 0;
+}
+
+@media(max-width:710px) {
+    .results {
+        grid-template-columns: 1fr;
+    }
+    form {
+        align-items: stretch;
+    }
+    form>label, fieldset {
+        flex: 1 1 100%;
+    }
+    fieldset label {
+        flex: 1 1 7rem;
+    }
+    form button {
+        width: 100%;
+    }
+}
+
+.embedded nav {
+    display: none;
+}
+
+.embedded main {
+    padding: .8rem .3rem;
+}
+
+.embedded h1 {
+    margin-top: .4rem;
+}
