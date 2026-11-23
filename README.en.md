@@ -1,6 +1,8 @@
 # OpenFate Bazi Engine
 
-A JavaScript and TypeScript library for Four Pillars charts. Calculate a chart locally, read its Traditional Chinese relationship chapter, and inspect the chart fields that selected the text.
+**1.11 million chart samples, 14.46 million reading chapters and over 100 million annual projections.**
+
+The open corpus spans 1900 to 2026 and covers **402,736 distinct Four Pillars combinations**. Each sample includes 13 chapters in Traditional Chinese. With the JavaScript and TypeScript SDK, you can calculate a chart locally, read its relationship chapter and trace the passage to the rule that selected it.
 
 **[Compare two birth times](https://openfate-ai.github.io/bazi-engine/compare/)** · [Traditional Chinese](README.md) · [English field guide](learn/en.md) · [Download the corpus](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0)
 
@@ -33,7 +35,9 @@ The field guide starts with hidden stems and uses diagrams to show how the same 
 
 ## Offline corpus
 
-The frozen v2.1 corpus covers January 1, 1900 through November 22, 2026. It contains 1,112,328 representative birth inputs and 402,736 distinct Four Pillars combinations. Each input has 13 Traditional Chinese life chapters. Download the offline reader and a single year to explore a chart, or download the compressed volumes and reproduce the edition. The live SDK provides one relationship chapter. [Dataset guide](corpus/README.md) · [Offline reader](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/reader.html) · [Year files](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0)
+The frozen v2.1 corpus covers January 1, 1900 through November 22, 2026. Its 1,112,328 representative birth inputs contain **14,460,264 life chapters** in total, with five scenario questions per chapter. Inputs with the same four pillars can share natal reading text. Each input with a resolved luck-cycle onset has 90 midyear observations, for a total of **100,092,240 annual projections**. [Counts and checksums by year](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/edition-manifest.json)
+
+Download the offline reader and a single year to explore a chart, or download the compressed volumes and reproduce the edition. The live SDK provides one relationship chapter. [Dataset guide](corpus/README.md) · [Offline reader](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/reader.html) · [Year files](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0)
 
 ## Lunar Calendar Input
 
