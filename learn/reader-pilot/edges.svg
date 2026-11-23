@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="184" viewBox="0 0 760 184" role="img" aria-labelledby="title desc">
+<title id="title">一個時支，同時牽到哪兩柱？</title><desc id="desc">出生時刻，月支戌 ↔ 時支，日支酉 ↔ 時支。06:30　卯時，戌、卯　六合，酉、卯　相沖。08:30　辰時，戌、辰　相沖，酉、辰　六合</desc>
+<g font-family="PingFang TC, Noto Sans CJK TC, Microsoft JhengHei, sans-serif" font-size="20">
+<rect width="760" height="184" fill="#f4f3ee"/>
+<text x="14" y="47" fill="#183d3b">06:30</text>
+<rect x="110" y="22" width="110" height="42" rx="8" fill="#214c49"/>
+<text x="165" y="51" text-anchor="middle" fill="white">月支 戌</text>
+<rect x="360" y="22" width="110" height="42" rx="8" fill="#214c49"/>
+<text x="415" y="51" text-anchor="middle" fill="white">時支 卯</text>
+<rect x="610" y="22" width="110" height="42" rx="8" fill="#214c49"/>
+<text x="665" y="51" text-anchor="middle" fill="white">日支 酉</text>
+<path d="M220 43h140" stroke="#206457" stroke-width="3"/>
+<text x="290" y="71" text-anchor="middle" fill="#206457">六合</text>
+<path d="M470 43h140" stroke="#803c2c" stroke-width="3"/>
+<text x="540" y="71" text-anchor="middle" fill="#803c2c">相沖</text>
+<text x="14" y="141" fill="#183d3b">08:30</text>
+<rect x="110" y="116" width="110" height="42" rx="8" fill="#214c49"/>
+<text x="165" y="145" text-anchor="middle" fill="white">月支 戌</text>
+<rect x="360" y="116" width="110" height="42" rx="8" fill="#214c49"/>
+<text x="415" y="145" text-anchor="middle" fill="white">時支 辰</text>
+<rect x="610" y="116" width="110" height="42" rx="8" fill="#214c49"/>
+<text x="665" y="145" text-anchor="middle" fill="white">日支 酉</text>
+<path d="M220 137h140" stroke="#803c2c" stroke-width="3"/>
+<text x="290" y="165" text-anchor="middle" fill="#803c2c">相沖</text>
+<path d="M470 137h140" stroke="#206457" stroke-width="3"/>
+<text x="540" y="165" text-anchor="middle" fill="#206457">六合</text>
+</g></svg>

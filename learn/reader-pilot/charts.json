@@ -1,0 +1,2556 @@
+{
+  "1900-01-01T00:30:00+08:00/female": {
+    "fourPillars": "己亥 丙子 甲戌 甲子",
+    "pillars": {
+      "year": {
+        "stem": "己",
+        "branch": "亥",
+        "stemTenGod": "正财",
+        "hiddenStems": [
+          {
+            "stem": "壬",
+            "element": "water",
+            "polarity": "yang",
+            "tenGod": "偏印",
+            "isMain": true
+          },
+          {
+            "stem": "甲",
+            "element": "wood",
+            "polarity": "yang",
+            "tenGod": "比肩",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "丙",
+        "branch": "子",
+        "stemTenGod": "食神",
+        "hiddenStems": [
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": true
+          }
+        ]
+      },
+      "day": {
+        "stem": "甲",
+        "branch": "戌",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "偏财",
+            "isMain": true
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "正官",
+            "isMain": false
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": false
+          }
+        ]
+      },
+      "hour": {
+        "stem": "甲",
+        "branch": "子",
+        "stemTenGod": "比肩",
+        "hiddenStems": [
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": true
+          }
+        ]
+      }
+    },
+    "interactions": []
+  },
+  "1900-01-01T02:30:00+08:00/female": {
+    "fourPillars": "己亥 丙子 甲戌 乙丑",
+    "pillars": {
+      "year": {
+        "stem": "己",
+        "branch": "亥",
+        "stemTenGod": "正财",
+        "hiddenStems": [
+          {
+            "stem": "壬",
+            "element": "water",
+            "polarity": "yang",
+            "tenGod": "偏印",
+            "isMain": true
+          },
+          {
+            "stem": "甲",
+            "element": "wood",
+            "polarity": "yang",
+            "tenGod": "比肩",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "丙",
+        "branch": "子",
+        "stemTenGod": "食神",
+        "hiddenStems": [
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": true
+          }
+        ]
+      },
+      "day": {
+        "stem": "甲",
+        "branch": "戌",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "偏财",
+            "isMain": true
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "正官",
+            "isMain": false
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": false
+          }
+        ]
+      },
+      "hour": {
+        "stem": "乙",
+        "branch": "丑",
+        "stemTenGod": "劫财",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "正财",
+            "isMain": true
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": false
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "正官",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "子",
+          "丑"
+        ],
+        "pillars": [
+          "month",
+          "hour"
+        ]
+      },
+      {
+        "type": "DIRECTIONAL",
+        "branches": [
+          "亥",
+          "子",
+          "丑"
+        ],
+        "pillars": [
+          "year",
+          "month",
+          "hour"
+        ]
+      }
+    ]
+  },
+  "1950-01-15T00:30:00+08:00/female": {
+    "fourPillars": "己丑 丁丑 庚戌 丙子",
+    "pillars": {
+      "year": {
+        "stem": "己",
+        "branch": "丑",
+        "stemTenGod": "正印",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": true
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": false
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "劫财",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "丁",
+        "branch": "丑",
+        "stemTenGod": "正官",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": true
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": false
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "劫财",
+            "isMain": false
+          }
+        ]
+      },
+      "day": {
+        "stem": "庚",
+        "branch": "戌",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "偏印",
+            "isMain": true
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "劫财",
+            "isMain": false
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "正官",
+            "isMain": false
+          }
+        ]
+      },
+      "hour": {
+        "stem": "丙",
+        "branch": "子",
+        "stemTenGod": "七杀",
+        "hiddenStems": [
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": true
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "丑",
+          "子"
+        ],
+        "pillars": [
+          "year",
+          "hour"
+        ]
+      },
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "丑",
+          "子"
+        ],
+        "pillars": [
+          "month",
+          "hour"
+        ]
+      }
+    ],
+    "control": {
+      "title": "接急件以前，先問資源不夠時誰准你停一件事。",
+      "body": "用上一次人手突然不足的例子談。若所有工作都得照舊完成，先協調優先順序再承諾。",
+      "evidence": "年支丑所藏的癸為傷官，食傷只在支中有據，年、月、時干沒有透出。月干丁為正官、時干丙為七殺，官殺有明干可以直接指認。",
+      "ref": [
+        "/pillars/year",
+        "/pillars/month",
+        "/pillars/day",
+        "/pillars/hour",
+        "/pillars/year/hiddenStems/1",
+        "/pillars/month/stemTenGod",
+        "/pillars/hour/stemTenGod"
+      ]
+    }
+  },
+  "1950-01-15T02:30:00+08:00/female": {
+    "fourPillars": "己丑 丁丑 庚戌 丁丑",
+    "pillars": {
+      "year": {
+        "stem": "己",
+        "branch": "丑",
+        "stemTenGod": "正印",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": true
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": false
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "劫财",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "丁",
+        "branch": "丑",
+        "stemTenGod": "正官",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": true
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": false
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "劫财",
+            "isMain": false
+          }
+        ]
+      },
+      "day": {
+        "stem": "庚",
+        "branch": "戌",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "偏印",
+            "isMain": true
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "劫财",
+            "isMain": false
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "正官",
+            "isMain": false
+          }
+        ]
+      },
+      "hour": {
+        "stem": "丁",
+        "branch": "丑",
+        "stemTenGod": "正官",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": true
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": false
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "劫财",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [],
+    "control": {
+      "title": "接下職位前，問清楚誰能簽下「做到這裡就算完成」。",
+      "body": "請主管從最近一次驗收講起。知道最後一位簽字的人看什麼，再估要為這份承諾留多少時間。",
+      "evidence": "年支丑所藏的癸為傷官，食傷只在支中有據，年、月、時干沒有透出。月干丁為正官、時干丁為正官，官殺有明干可以直接指認。",
+      "ref": [
+        "/pillars/year",
+        "/pillars/month",
+        "/pillars/day",
+        "/pillars/hour",
+        "/pillars/year/hiddenStems/1",
+        "/pillars/month/stemTenGod",
+        "/pillars/hour/stemTenGod"
+      ]
+    }
+  },
+  "1962-01-02T12:30:00+08:00/female": {
+    "fourPillars": "辛丑 庚子 庚子 壬午",
+    "pillars": {
+      "year": {
+        "stem": "辛",
+        "branch": "丑",
+        "stemTenGod": "劫财",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": true
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": false
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "劫财",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "庚",
+        "branch": "子",
+        "stemTenGod": "比肩",
+        "hiddenStems": [
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": true
+          }
+        ]
+      },
+      "day": {
+        "stem": "庚",
+        "branch": "子",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": true
+          }
+        ]
+      },
+      "hour": {
+        "stem": "壬",
+        "branch": "午",
+        "stemTenGod": "食神",
+        "hiddenStems": [
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "正官",
+            "isMain": true
+          },
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "CLASH",
+        "branches": [
+          "子",
+          "午"
+        ],
+        "pillars": [
+          "month",
+          "hour"
+        ]
+      },
+      {
+        "type": "CLASH",
+        "branches": [
+          "子",
+          "午"
+        ],
+        "pillars": [
+          "day",
+          "hour"
+        ]
+      },
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "丑",
+          "子"
+        ],
+        "pillars": [
+          "year",
+          "month"
+        ]
+      },
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "丑",
+          "子"
+        ],
+        "pillars": [
+          "year",
+          "day"
+        ]
+      },
+      {
+        "type": "HARM",
+        "branches": [
+          "丑",
+          "午"
+        ],
+        "pillars": [
+          "year",
+          "hour"
+        ]
+      }
+    ]
+  },
+  "1971-02-08T02:30:00+08:00/female": {
+    "fourPillars": "辛亥 庚寅 甲子 乙丑",
+    "pillars": {
+      "year": {
+        "stem": "辛",
+        "branch": "亥",
+        "stemTenGod": "正官",
+        "hiddenStems": [
+          {
+            "stem": "壬",
+            "element": "water",
+            "polarity": "yang",
+            "tenGod": "偏印",
+            "isMain": true
+          },
+          {
+            "stem": "甲",
+            "element": "wood",
+            "polarity": "yang",
+            "tenGod": "比肩",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "庚",
+        "branch": "寅",
+        "stemTenGod": "七杀",
+        "hiddenStems": [
+          {
+            "stem": "甲",
+            "element": "wood",
+            "polarity": "yang",
+            "tenGod": "比肩",
+            "isMain": true
+          },
+          {
+            "stem": "丙",
+            "element": "fire",
+            "polarity": "yang",
+            "tenGod": "食神",
+            "isMain": false
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "偏财",
+            "isMain": false
+          }
+        ]
+      },
+      "day": {
+        "stem": "甲",
+        "branch": "子",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": true
+          }
+        ]
+      },
+      "hour": {
+        "stem": "乙",
+        "branch": "丑",
+        "stemTenGod": "劫财",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "正财",
+            "isMain": true
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": false
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "正官",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "亥",
+          "寅"
+        ],
+        "pillars": [
+          "year",
+          "month"
+        ]
+      },
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "子",
+          "丑"
+        ],
+        "pillars": [
+          "day",
+          "hour"
+        ]
+      },
+      {
+        "type": "DIRECTIONAL",
+        "branches": [
+          "亥",
+          "子",
+          "丑"
+        ],
+        "pillars": [
+          "year",
+          "day",
+          "hour"
+        ]
+      },
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "亥",
+          "寅"
+        ],
+        "pillars": [
+          "year",
+          "month"
+        ]
+      }
+    ]
+  },
+  "1977-05-15T10:30:00+08:00/female": {
+    "fourPillars": "丁巳 乙巳 壬申 乙巳",
+    "pillars": {
+      "year": {
+        "stem": "丁",
+        "branch": "巳",
+        "stemTenGod": "正财",
+        "hiddenStems": [
+          {
+            "stem": "丙",
+            "element": "fire",
+            "polarity": "yang",
+            "tenGod": "偏财",
+            "isMain": true
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "七杀",
+            "isMain": false
+          },
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "偏印",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "乙",
+        "branch": "巳",
+        "stemTenGod": "伤官",
+        "hiddenStems": [
+          {
+            "stem": "丙",
+            "element": "fire",
+            "polarity": "yang",
+            "tenGod": "偏财",
+            "isMain": true
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "七杀",
+            "isMain": false
+          },
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "偏印",
+            "isMain": false
+          }
+        ]
+      },
+      "day": {
+        "stem": "壬",
+        "branch": "申",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "偏印",
+            "isMain": true
+          },
+          {
+            "stem": "壬",
+            "element": "water",
+            "polarity": "yang",
+            "tenGod": "比肩",
+            "isMain": false
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "七杀",
+            "isMain": false
+          }
+        ]
+      },
+      "hour": {
+        "stem": "乙",
+        "branch": "巳",
+        "stemTenGod": "伤官",
+        "hiddenStems": [
+          {
+            "stem": "丙",
+            "element": "fire",
+            "polarity": "yang",
+            "tenGod": "偏财",
+            "isMain": true
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "七杀",
+            "isMain": false
+          },
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "偏印",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "巳",
+          "申"
+        ],
+        "pillars": [
+          "year",
+          "day"
+        ]
+      },
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "巳",
+          "申"
+        ],
+        "pillars": [
+          "month",
+          "day"
+        ]
+      },
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "申",
+          "巳"
+        ],
+        "pillars": [
+          "day",
+          "hour"
+        ]
+      },
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "巳",
+          "申"
+        ],
+        "pillars": [
+          "year",
+          "day"
+        ]
+      },
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "巳",
+          "申"
+        ],
+        "pillars": [
+          "month",
+          "day"
+        ]
+      },
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "申",
+          "巳"
+        ],
+        "pillars": [
+          "day",
+          "hour"
+        ]
+      }
+    ],
+    "control": {
+      "title": "換到陌生的地方，先挑一件做熟的事。",
+      "body": "從你認得的步驟做起，跟以前不同的那一步再去請教，較容易辨認哪些經驗還用得上。",
+      "evidence": "月支巳的本氣丙在年、月、時干均未透出。日干壬也落在日支申所藏的壬，可以指認同字根。",
+      "ref": [
+        "/pillars/month/hiddenStems/0",
+        "/pillars/year/stem",
+        "/pillars/month/stem",
+        "/pillars/hour/stem",
+        "/dayMaster",
+        "/pillars/year/hiddenStems",
+        "/pillars/month/hiddenStems",
+        "/pillars/day/hiddenStems",
+        "/pillars/hour/hiddenStems"
+      ]
+    }
+  },
+  "1977-05-15T12:30:00+08:00/female": {
+    "fourPillars": "丁巳 乙巳 壬申 丙午",
+    "pillars": {
+      "year": {
+        "stem": "丁",
+        "branch": "巳",
+        "stemTenGod": "正财",
+        "hiddenStems": [
+          {
+            "stem": "丙",
+            "element": "fire",
+            "polarity": "yang",
+            "tenGod": "偏财",
+            "isMain": true
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "七杀",
+            "isMain": false
+          },
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "偏印",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "乙",
+        "branch": "巳",
+        "stemTenGod": "伤官",
+        "hiddenStems": [
+          {
+            "stem": "丙",
+            "element": "fire",
+            "polarity": "yang",
+            "tenGod": "偏财",
+            "isMain": true
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "七杀",
+            "isMain": false
+          },
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "偏印",
+            "isMain": false
+          }
+        ]
+      },
+      "day": {
+        "stem": "壬",
+        "branch": "申",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "偏印",
+            "isMain": true
+          },
+          {
+            "stem": "壬",
+            "element": "water",
+            "polarity": "yang",
+            "tenGod": "比肩",
+            "isMain": false
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "七杀",
+            "isMain": false
+          }
+        ]
+      },
+      "hour": {
+        "stem": "丙",
+        "branch": "午",
+        "stemTenGod": "偏财",
+        "hiddenStems": [
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "正财",
+            "isMain": true
+          },
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "正官",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "巳",
+          "申"
+        ],
+        "pillars": [
+          "year",
+          "day"
+        ]
+      },
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "巳",
+          "申"
+        ],
+        "pillars": [
+          "month",
+          "day"
+        ]
+      },
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "巳",
+          "申"
+        ],
+        "pillars": [
+          "year",
+          "day"
+        ]
+      },
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "巳",
+          "申"
+        ],
+        "pillars": [
+          "month",
+          "day"
+        ]
+      }
+    ],
+    "control": {
+      "title": "遇到相反意見，帶一個做過的例子去問。",
+      "body": "請對方指出哪個條件會讓你的舊方法失效。說得出具體差別，再決定這次要改哪一步。",
+      "evidence": "月支巳的本氣丙又見於時干丙，月令本氣在明干有落點。日干壬也落在日支申所藏的壬，可以指認同字根。",
+      "ref": [
+        "/pillars/month/hiddenStems/0",
+        "/pillars/year/stem",
+        "/pillars/month/stem",
+        "/pillars/hour/stem",
+        "/dayMaster",
+        "/pillars/year/hiddenStems",
+        "/pillars/month/hiddenStems",
+        "/pillars/day/hiddenStems",
+        "/pillars/hour/hiddenStems"
+      ]
+    }
+  },
+  "1978-10-16T08:30:00+08:00/female": {
+    "fourPillars": "戊午 壬戌 辛亥 壬辰",
+    "pillars": {
+      "year": {
+        "stem": "戊",
+        "branch": "午",
+        "stemTenGod": "正印",
+        "hiddenStems": [
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "七杀",
+            "isMain": true
+          },
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "偏印",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "壬",
+        "branch": "戌",
+        "stemTenGod": "伤官",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "正印",
+            "isMain": true
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "比肩",
+            "isMain": false
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "七杀",
+            "isMain": false
+          }
+        ]
+      },
+      "day": {
+        "stem": "辛",
+        "branch": "亥",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "壬",
+            "element": "water",
+            "polarity": "yang",
+            "tenGod": "伤官",
+            "isMain": true
+          },
+          {
+            "stem": "甲",
+            "element": "wood",
+            "polarity": "yang",
+            "tenGod": "正财",
+            "isMain": false
+          }
+        ]
+      },
+      "hour": {
+        "stem": "壬",
+        "branch": "辰",
+        "stemTenGod": "伤官",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "正印",
+            "isMain": true
+          },
+          {
+            "stem": "乙",
+            "element": "wood",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": false
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "食神",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "CLASH",
+        "branches": [
+          "戌",
+          "辰"
+        ],
+        "pillars": [
+          "month",
+          "hour"
+        ]
+      },
+      {
+        "type": "COMBINATION_HALF",
+        "branches": [
+          "午",
+          "戌"
+        ],
+        "pillars": [
+          "year",
+          "month"
+        ]
+      }
+    ]
+  },
+  "1991-10-18T06:30:00+08:00/female": {
+    "fourPillars": "辛未 戊戌 辛酉 辛卯",
+    "pillars": {
+      "year": {
+        "stem": "辛",
+        "branch": "未",
+        "stemTenGod": "比肩",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "偏印",
+            "isMain": true
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "七杀",
+            "isMain": false
+          },
+          {
+            "stem": "乙",
+            "element": "wood",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "戊",
+        "branch": "戌",
+        "stemTenGod": "正印",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "正印",
+            "isMain": true
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "比肩",
+            "isMain": false
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "七杀",
+            "isMain": false
+          }
+        ]
+      },
+      "day": {
+        "stem": "辛",
+        "branch": "酉",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "比肩",
+            "isMain": true
+          }
+        ]
+      },
+      "hour": {
+        "stem": "辛",
+        "branch": "卯",
+        "stemTenGod": "比肩",
+        "hiddenStems": [
+          {
+            "stem": "乙",
+            "element": "wood",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": true
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "CLASH",
+        "branches": [
+          "酉",
+          "卯"
+        ],
+        "pillars": [
+          "day",
+          "hour"
+        ]
+      },
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "戌",
+          "卯"
+        ],
+        "pillars": [
+          "month",
+          "hour"
+        ]
+      },
+      {
+        "type": "COMBINATION_HALF",
+        "branches": [
+          "未",
+          "卯"
+        ],
+        "pillars": [
+          "year",
+          "hour"
+        ]
+      },
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "未",
+          "戌"
+        ],
+        "pillars": [
+          "year",
+          "month"
+        ]
+      },
+      {
+        "type": "HARM",
+        "branches": [
+          "戌",
+          "酉"
+        ],
+        "pillars": [
+          "month",
+          "day"
+        ]
+      }
+    ],
+    "control": {
+      "title": "相處有摩擦，先把兩人各自能改的安排說出來。",
+      "body": "若卡在見面或分工，先讓每人指出一項能調的事，再談兩邊都動不了的限制。",
+      "evidence": "日支酉與時支卯相沖。",
+      "ref": [
+        "/pillars/day/branch",
+        "/interactions",
+        "/interactions/0"
+      ]
+    }
+  },
+  "1991-10-18T08:30:00+08:00/female": {
+    "fourPillars": "辛未 戊戌 辛酉 壬辰",
+    "pillars": {
+      "year": {
+        "stem": "辛",
+        "branch": "未",
+        "stemTenGod": "比肩",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "偏印",
+            "isMain": true
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "七杀",
+            "isMain": false
+          },
+          {
+            "stem": "乙",
+            "element": "wood",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "戊",
+        "branch": "戌",
+        "stemTenGod": "正印",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "正印",
+            "isMain": true
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "比肩",
+            "isMain": false
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "七杀",
+            "isMain": false
+          }
+        ]
+      },
+      "day": {
+        "stem": "辛",
+        "branch": "酉",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "比肩",
+            "isMain": true
+          }
+        ]
+      },
+      "hour": {
+        "stem": "壬",
+        "branch": "辰",
+        "stemTenGod": "伤官",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "正印",
+            "isMain": true
+          },
+          {
+            "stem": "乙",
+            "element": "wood",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": false
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "食神",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "CLASH",
+        "branches": [
+          "戌",
+          "辰"
+        ],
+        "pillars": [
+          "month",
+          "hour"
+        ]
+      },
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "酉",
+          "辰"
+        ],
+        "pillars": [
+          "day",
+          "hour"
+        ]
+      },
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "未",
+          "戌"
+        ],
+        "pillars": [
+          "year",
+          "month"
+        ]
+      },
+      {
+        "type": "HARM",
+        "branches": [
+          "戌",
+          "酉"
+        ],
+        "pillars": [
+          "month",
+          "day"
+        ]
+      }
+    ],
+    "control": {
+      "title": "兩人已經談妥，還得替牽動行程的人留個位置。",
+      "body": "若約好的時間一再改，先問是哪邊另外答應了別人，再決定要重談的是你們的約定，還是外面的安排。",
+      "evidence": "日支酉與時支辰六合，另見月支戌與時支辰相沖。",
+      "ref": [
+        "/pillars/day/branch",
+        "/interactions",
+        "/interactions/1",
+        "/interactions/0"
+      ]
+    }
+  },
+  "1991-10-19T08:30:00+08:00/female": {
+    "fourPillars": "辛未 戊戌 壬戌 甲辰",
+    "pillars": {
+      "year": {
+        "stem": "辛",
+        "branch": "未",
+        "stemTenGod": "正印",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "正官",
+            "isMain": true
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "正财",
+            "isMain": false
+          },
+          {
+            "stem": "乙",
+            "element": "wood",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "戊",
+        "branch": "戌",
+        "stemTenGod": "七杀",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "七杀",
+            "isMain": true
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": false
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "正财",
+            "isMain": false
+          }
+        ]
+      },
+      "day": {
+        "stem": "壬",
+        "branch": "戌",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "七杀",
+            "isMain": true
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "正印",
+            "isMain": false
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "正财",
+            "isMain": false
+          }
+        ]
+      },
+      "hour": {
+        "stem": "甲",
+        "branch": "辰",
+        "stemTenGod": "食神",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "七杀",
+            "isMain": true
+          },
+          {
+            "stem": "乙",
+            "element": "wood",
+            "polarity": "yin",
+            "tenGod": "伤官",
+            "isMain": false
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "劫财",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "CLASH",
+        "branches": [
+          "戌",
+          "辰"
+        ],
+        "pillars": [
+          "month",
+          "hour"
+        ]
+      },
+      {
+        "type": "CLASH",
+        "branches": [
+          "戌",
+          "辰"
+        ],
+        "pillars": [
+          "day",
+          "hour"
+        ]
+      },
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "未",
+          "戌"
+        ],
+        "pillars": [
+          "year",
+          "month"
+        ]
+      },
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "未",
+          "戌"
+        ],
+        "pillars": [
+          "year",
+          "day"
+        ]
+      }
+    ]
+  },
+  "1997-08-15T08:30:00+08:00/female": {
+    "fourPillars": "丁丑 戊申 己丑 戊辰",
+    "pillars": {
+      "year": {
+        "stem": "丁",
+        "branch": "丑",
+        "stemTenGod": "偏印",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "比肩",
+            "isMain": true
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": false
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "食神",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "戊",
+        "branch": "申",
+        "stemTenGod": "劫财",
+        "hiddenStems": [
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "伤官",
+            "isMain": true
+          },
+          {
+            "stem": "壬",
+            "element": "water",
+            "polarity": "yang",
+            "tenGod": "正财",
+            "isMain": false
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "劫财",
+            "isMain": false
+          }
+        ]
+      },
+      "day": {
+        "stem": "己",
+        "branch": "丑",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "比肩",
+            "isMain": true
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": false
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "食神",
+            "isMain": false
+          }
+        ]
+      },
+      "hour": {
+        "stem": "戊",
+        "branch": "辰",
+        "stemTenGod": "劫财",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "劫财",
+            "isMain": true
+          },
+          {
+            "stem": "乙",
+            "element": "wood",
+            "polarity": "yin",
+            "tenGod": "七杀",
+            "isMain": false
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "丑",
+          "辰"
+        ],
+        "pillars": [
+          "year",
+          "hour"
+        ]
+      },
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "丑",
+          "辰"
+        ],
+        "pillars": [
+          "day",
+          "hour"
+        ]
+      }
+    ],
+    "control": {
+      "title": "從最近一次沒說清楚的小事談起。",
+      "body": "各自說出當時以為對方答應了什麼，找出真的理解不同的那一句，再約下次怎麼說。",
+      "evidence": "日支丑與時支辰相破。",
+      "ref": [
+        "/pillars/day/branch",
+        "/interactions",
+        "/interactions/1"
+      ]
+    }
+  },
+  "1997-08-15T12:30:00+08:00/female": {
+    "fourPillars": "丁丑 戊申 己丑 庚午",
+    "pillars": {
+      "year": {
+        "stem": "丁",
+        "branch": "丑",
+        "stemTenGod": "偏印",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "比肩",
+            "isMain": true
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": false
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "食神",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "戊",
+        "branch": "申",
+        "stemTenGod": "劫财",
+        "hiddenStems": [
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "伤官",
+            "isMain": true
+          },
+          {
+            "stem": "壬",
+            "element": "water",
+            "polarity": "yang",
+            "tenGod": "正财",
+            "isMain": false
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "劫财",
+            "isMain": false
+          }
+        ]
+      },
+      "day": {
+        "stem": "己",
+        "branch": "丑",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "比肩",
+            "isMain": true
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": false
+          },
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "食神",
+            "isMain": false
+          }
+        ]
+      },
+      "hour": {
+        "stem": "庚",
+        "branch": "午",
+        "stemTenGod": "伤官",
+        "hiddenStems": [
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "偏印",
+            "isMain": true
+          },
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "比肩",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "HARM",
+        "branches": [
+          "丑",
+          "午"
+        ],
+        "pillars": [
+          "year",
+          "hour"
+        ]
+      },
+      {
+        "type": "HARM",
+        "branches": [
+          "丑",
+          "午"
+        ],
+        "pillars": [
+          "day",
+          "hour"
+        ]
+      }
+    ],
+    "control": {
+      "title": "從最近一次沒說清楚的小事談起。",
+      "body": "各自說出當時以為對方答應了什麼，找出真的理解不同的那一句，再約下次怎麼說。",
+      "evidence": "日支丑與時支午相害。",
+      "ref": [
+        "/pillars/day/branch",
+        "/interactions",
+        "/interactions/1"
+      ]
+    }
+  },
+  "2004-09-15T08:30:00+08:00/female": {
+    "fourPillars": "甲申 癸酉 丁酉 甲辰",
+    "pillars": {
+      "year": {
+        "stem": "甲",
+        "branch": "申",
+        "stemTenGod": "正印",
+        "hiddenStems": [
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "正财",
+            "isMain": true
+          },
+          {
+            "stem": "壬",
+            "element": "water",
+            "polarity": "yang",
+            "tenGod": "正官",
+            "isMain": false
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "伤官",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "癸",
+        "branch": "酉",
+        "stemTenGod": "七杀",
+        "hiddenStems": [
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": true
+          }
+        ]
+      },
+      "day": {
+        "stem": "丁",
+        "branch": "酉",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": true
+          }
+        ]
+      },
+      "hour": {
+        "stem": "甲",
+        "branch": "辰",
+        "stemTenGod": "正印",
+        "hiddenStems": [
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "伤官",
+            "isMain": true
+          },
+          {
+            "stem": "乙",
+            "element": "wood",
+            "polarity": "yin",
+            "tenGod": "偏印",
+            "isMain": false
+          },
+          {
+            "stem": "癸",
+            "element": "water",
+            "polarity": "yin",
+            "tenGod": "七杀",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "酉",
+          "辰"
+        ],
+        "pillars": [
+          "month",
+          "hour"
+        ]
+      },
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "酉",
+          "辰"
+        ],
+        "pillars": [
+          "day",
+          "hour"
+        ]
+      },
+      {
+        "type": "PUNISHMENT",
+        "branches": [
+          "酉",
+          "酉"
+        ],
+        "pillars": [
+          "month",
+          "day"
+        ]
+      }
+    ],
+    "control": {
+      "title": "把兩個人的默契落到一件能互相確認的小事。",
+      "body": "例如誰臨時晚到就先留訊息，試一週後看兩人是不是都覺得自在。",
+      "evidence": "日支酉與時支辰六合。",
+      "ref": [
+        "/pillars/day/branch",
+        "/interactions",
+        "/interactions/1"
+      ]
+    }
+  },
+  "2004-09-15T10:30:00+08:00/female": {
+    "fourPillars": "甲申 癸酉 丁酉 乙巳",
+    "pillars": {
+      "year": {
+        "stem": "甲",
+        "branch": "申",
+        "stemTenGod": "正印",
+        "hiddenStems": [
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "正财",
+            "isMain": true
+          },
+          {
+            "stem": "壬",
+            "element": "water",
+            "polarity": "yang",
+            "tenGod": "正官",
+            "isMain": false
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "伤官",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "癸",
+        "branch": "酉",
+        "stemTenGod": "七杀",
+        "hiddenStems": [
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": true
+          }
+        ]
+      },
+      "day": {
+        "stem": "丁",
+        "branch": "酉",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": true
+          }
+        ]
+      },
+      "hour": {
+        "stem": "乙",
+        "branch": "巳",
+        "stemTenGod": "偏印",
+        "hiddenStems": [
+          {
+            "stem": "丙",
+            "element": "fire",
+            "polarity": "yang",
+            "tenGod": "劫财",
+            "isMain": true
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "伤官",
+            "isMain": false
+          },
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "正财",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "COMBINATION_2",
+        "branches": [
+          "申",
+          "巳"
+        ],
+        "pillars": [
+          "year",
+          "hour"
+        ]
+      },
+      {
+        "type": "COMBINATION_HALF",
+        "branches": [
+          "酉",
+          "巳"
+        ],
+        "pillars": [
+          "month",
+          "hour"
+        ]
+      },
+      {
+        "type": "COMBINATION_HALF",
+        "branches": [
+          "酉",
+          "巳"
+        ],
+        "pillars": [
+          "day",
+          "hour"
+        ]
+      },
+      {
+        "type": "PUNISHMENT",
+        "branches": [
+          "酉",
+          "酉"
+        ],
+        "pillars": [
+          "month",
+          "day"
+        ]
+      },
+      {
+        "type": "DESTRUCTION",
+        "branches": [
+          "申",
+          "巳"
+        ],
+        "pillars": [
+          "year",
+          "hour"
+        ]
+      }
+    ],
+    "control": {
+      "title": "把兩個人的默契落到一件能互相確認的小事。",
+      "body": "例如誰臨時晚到就先留訊息，試一週後看兩人是不是都覺得自在。",
+      "evidence": "日支酉與時支巳半合。",
+      "ref": [
+        "/pillars/day/branch",
+        "/interactions",
+        "/interactions/2"
+      ]
+    }
+  },
+  "2004-09-15T12:30:00+08:00/female": {
+    "fourPillars": "甲申 癸酉 丁酉 丙午",
+    "pillars": {
+      "year": {
+        "stem": "甲",
+        "branch": "申",
+        "stemTenGod": "正印",
+        "hiddenStems": [
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "正财",
+            "isMain": true
+          },
+          {
+            "stem": "壬",
+            "element": "water",
+            "polarity": "yang",
+            "tenGod": "正官",
+            "isMain": false
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "伤官",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "癸",
+        "branch": "酉",
+        "stemTenGod": "七杀",
+        "hiddenStems": [
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": true
+          }
+        ]
+      },
+      "day": {
+        "stem": "丁",
+        "branch": "酉",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": true
+          }
+        ]
+      },
+      "hour": {
+        "stem": "丙",
+        "branch": "午",
+        "stemTenGod": "劫财",
+        "hiddenStems": [
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "比肩",
+            "isMain": true
+          },
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "食神",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "PUNISHMENT",
+        "branches": [
+          "酉",
+          "酉"
+        ],
+        "pillars": [
+          "month",
+          "day"
+        ]
+      }
+    ],
+    "control": {
+      "title": "換到陌生的地方，先挑一件做熟的事。",
+      "body": "從你認得的步驟做起，跟以前不同的那一步再去請教，較容易辨認哪些經驗還用得上。",
+      "evidence": "月支酉的本氣辛在年、月、時干均未透出。日干丁也落在時支午的本氣丁，可以指認同字根。",
+      "ref": [
+        "/pillars/month/hiddenStems/0",
+        "/pillars/year/stem",
+        "/pillars/month/stem",
+        "/pillars/hour/stem",
+        "/dayMaster",
+        "/pillars/year/hiddenStems",
+        "/pillars/month/hiddenStems",
+        "/pillars/day/hiddenStems",
+        "/pillars/hour/hiddenStems"
+      ]
+    }
+  },
+  "2004-09-15T14:30:00+08:00/female": {
+    "fourPillars": "甲申 癸酉 丁酉 丁未",
+    "pillars": {
+      "year": {
+        "stem": "甲",
+        "branch": "申",
+        "stemTenGod": "正印",
+        "hiddenStems": [
+          {
+            "stem": "庚",
+            "element": "metal",
+            "polarity": "yang",
+            "tenGod": "正财",
+            "isMain": true
+          },
+          {
+            "stem": "壬",
+            "element": "water",
+            "polarity": "yang",
+            "tenGod": "正官",
+            "isMain": false
+          },
+          {
+            "stem": "戊",
+            "element": "earth",
+            "polarity": "yang",
+            "tenGod": "伤官",
+            "isMain": false
+          }
+        ]
+      },
+      "month": {
+        "stem": "癸",
+        "branch": "酉",
+        "stemTenGod": "七杀",
+        "hiddenStems": [
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": true
+          }
+        ]
+      },
+      "day": {
+        "stem": "丁",
+        "branch": "酉",
+        "stemTenGod": "日主",
+        "hiddenStems": [
+          {
+            "stem": "辛",
+            "element": "metal",
+            "polarity": "yin",
+            "tenGod": "偏财",
+            "isMain": true
+          }
+        ]
+      },
+      "hour": {
+        "stem": "丁",
+        "branch": "未",
+        "stemTenGod": "比肩",
+        "hiddenStems": [
+          {
+            "stem": "己",
+            "element": "earth",
+            "polarity": "yin",
+            "tenGod": "食神",
+            "isMain": true
+          },
+          {
+            "stem": "丁",
+            "element": "fire",
+            "polarity": "yin",
+            "tenGod": "比肩",
+            "isMain": false
+          },
+          {
+            "stem": "乙",
+            "element": "wood",
+            "polarity": "yin",
+            "tenGod": "偏印",
+            "isMain": false
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "PUNISHMENT",
+        "branches": [
+          "酉",
+          "酉"
+        ],
+        "pillars": [
+          "month",
+          "day"
+        ]
+      }
+    ],
+    "control": {
+      "title": "換到陌生的地方，先挑一件做熟的事。",
+      "body": "從你認得的步驟做起，跟以前不同的那一步再去請教，較容易辨認哪些經驗還用得上。",
+      "evidence": "月支酉的本氣辛在年、月、時干均未透出。日干丁也落在時支未所藏的丁，可以指認同字根。",
+      "ref": [
+        "/pillars/month/hiddenStems/0",
+        "/pillars/year/stem",
+        "/pillars/month/stem",
+        "/pillars/hour/stem",
+        "/dayMaster",
+        "/pillars/year/hiddenStems",
+        "/pillars/month/hiddenStems",
+        "/pillars/day/hiddenStems",
+        "/pillars/hour/hiddenStems"
+      ]
+    }
+  }
+}
