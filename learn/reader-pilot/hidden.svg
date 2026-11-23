@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="184" viewBox="0 0 760 184" role="img" aria-labelledby="title desc">
+<title id="title">甲日的正官，能在哪一格找到？</title><desc id="desc">1900 年 1 月 1 日，日柱甲戌，時柱及藏干。00:30，戌藏戊、辛、丁，甲子　子藏癸。02:30，戌藏戊、辛、丁，乙丑　丑藏己、癸、辛</desc>
+<g font-family="PingFang TC, Noto Sans CJK TC, Microsoft JhengHei, sans-serif" font-size="20">
+<rect x="0" y="0" width="228" height="58" fill="#1d4644"/>
+<text x="12" y="36" fill="#ffffff">1900 年 1 月 1 日</text>
+<rect x="230" y="0" width="233" height="58" fill="#1d4644"/>
+<text x="242" y="36" fill="#ffffff">日柱甲戌</text>
+<rect x="465" y="0" width="293" height="58" fill="#1d4644"/>
+<text x="477" y="36" fill="#ffffff">時柱及藏干</text>
+<rect x="0" y="60" width="228" height="58" fill="#f6f3ed"/>
+<text x="12" y="96" fill="#183d3b">00:30</text>
+<rect x="230" y="60" width="233" height="58" fill="#f6f3ed"/>
+<text x="242" y="96" fill="#183d3b">戌藏戊、<tspan fill="#963d24" font-weight="700">辛</tspan>、丁</text>
+<rect x="465" y="60" width="293" height="58" fill="#e5f1ee"/>
+<text x="477" y="96" fill="#183d3b">甲子　子藏癸</text>
+<rect x="0" y="120" width="228" height="58" fill="#f6f3ed"/>
+<text x="12" y="156" fill="#183d3b">02:30</text>
+<rect x="230" y="120" width="233" height="58" fill="#f6f3ed"/>
+<text x="242" y="156" fill="#183d3b">戌藏戊、<tspan fill="#963d24" font-weight="700">辛</tspan>、丁</text>
+<rect x="465" y="120" width="293" height="58" fill="#e5f1ee"/>
+<text x="477" y="156" fill="#183d3b">乙丑　丑藏己、癸、<tspan fill="#963d24" font-weight="700">辛</tspan></text>
+</g></svg>
