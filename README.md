@@ -2,7 +2,7 @@
 
 **111 萬筆八字排盤樣本，1,446 萬章生活解讀，超過 1 億筆流年推演。**
 
-[**比較兩個出生時辰**](https://openfate-ai.github.io/bazi-engine/compare/) · [下載命盤庫](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [跟著命例學八字](learn/README.md) · [English](README.en.md)
+[**雙盤對照**](https://openfate-ai.github.io/bazi-engine/compare/) · [下載命盤庫](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [命例教材](learn/README.md) · [English](README.en.md)
 
 <div>
 <a href="https://openfate-ai.github.io/bazi-engine/compare/"><picture>
