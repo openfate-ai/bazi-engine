@@ -2,11 +2,14 @@
 
 **111 萬筆八字排盤樣本，1,446 萬章生活解讀，超過 1 億筆流年推演。**
 
-從 1900 年排到 2026 年，命盤庫收錄 **402,736 種不同四柱**。每筆樣本附 13 章繁體中文解讀，涵蓋工作、感情與家庭等主題。想看解讀怎麼來？打開同一天 08:30 與 12:30 的兩張盤，看看換了哪個字，讓感情章問了另一個問題。點進規則原始碼，就能改完再排一次。
+[**比較兩個出生時辰**](https://openfate-ai.github.io/bazi-engine/compare/) · [下載命盤庫](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [跟著命例學八字](learn/README.md) · [English](README.en.md)
 
-**[打開雙盤對照](https://openfate-ai.github.io/bazi-engine/compare/)** · [跟著命例學八字](learn/README.md) · [下載八字命盤庫](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [English / API reference](README.en.md)
+<a href="https://openfate-ai.github.io/bazi-engine/compare/"><picture>
+  <source media="(max-width: 600px)" srcset="learn/cover-mobile.webp">
+  <img src="learn/cover.webp" alt="1997 年 8 月 15 日，08:30 與 12:30 的前三柱同為丁丑、戊申、己丑。時柱由戊辰換成庚午。點圖可比較兩張盤。" width="100%">
+</picture></a>
 
-[![npm 版本](https://img.shields.io/npm/v/@openfate/bazi-engine)](https://www.npmjs.com/package/@openfate/bazi-engine) [![SDK 測試與建置](https://github.com/openfate-ai/bazi-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/openfate-ai/bazi-engine/actions/workflows/ci.yml)
+同一天，早上八點半是戊辰時，中午十二點半是庚午時。點圖就能讀到兩篇不同的感情建議，還能查出選中每一段的規則。命盤庫從 1900 年收錄至 2026 年，涵蓋 **402,736 種不同四柱**，每筆樣本附 13 章繁體中文解讀。
 
 ## 從哪裡開始
 
@@ -18,9 +21,13 @@
 | 在 Claude 或 Cursor 裡排盤 | [安裝 OpenFate MCP](https://github.com/openfate-ai/openfate-mcp#install)，把同一個引擎接進對話。 |
 | 學會自己看一張盤 | [從合沖圖和原書命式開始](#classics)。看完把答案遮住，試讀下一張盤。 |
 
-**想叫程式助理把示範跑在自己電腦上？** 可以直接貼這句：
+<details>
+<summary>複製一句指令，請程式助理在本機開啟示範</summary>
+
 
 > 請把 `https://github.com/openfate-ai/bazi-engine` 複製到新的資料夾，在專案根目錄執行 `npm ci` 和 `npm run build:pages`。用 `python3 -m http.server 8000 --bind 127.0.0.1 --directory docs` 啟動，再開啟 `http://127.0.0.1:8000/compare/`，並排顯示範例的兩張盤。
+
+</details>
 
 ## 看一張盤怎麼變成一段解讀
 
@@ -137,6 +144,8 @@ print(chart["readings"]["work"]["evidence"])
 <a id="sdk-start"></a>
 
 ## 用 JavaScript 重現首頁的兩張盤
+
+[![npm 版本](https://img.shields.io/npm/v/@openfate/bazi-engine)](https://www.npmjs.com/package/@openfate/bazi-engine) [![SDK 測試與建置](https://github.com/openfate-ai/bazi-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/openfate-ai/bazi-engine/actions/workflows/ci.yml)
 
 ```sh
 npm install @openfate/bazi-engine@^2.1.0

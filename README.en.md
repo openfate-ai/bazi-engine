@@ -2,9 +2,14 @@
 
 **1.11 million chart samples, 14.46 million reading chapters and over 100 million annual projections.**
 
-The open corpus spans 1900 to 2026 and covers **402,736 distinct Four Pillars combinations**. Each sample includes 13 chapters in Traditional Chinese. With the JavaScript and TypeScript SDK, you can calculate a chart locally, read its relationship chapter and trace the passage to the rule that selected it.
+[**Compare two birth times**](https://openfate-ai.github.io/bazi-engine/compare/) · [Download the corpus](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [English field guide](learn/en.md) · [繁體中文](README.md)
 
-**[Compare two birth times](https://openfate-ai.github.io/bazi-engine/compare/)** · [Traditional Chinese](README.md) · [English field guide](learn/en.md) · [Download the corpus](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0)
+<a href="https://openfate-ai.github.io/bazi-engine/compare/"><picture>
+  <source media="(max-width: 600px)" srcset="learn/cover-mobile.webp">
+  <img src="learn/cover.webp" alt="August 15, 1997. The first three pillars stay 丁丑, 戊申 and 己丑. Changing the birth time from 08:30 to 12:30 changes the hour pillar from 戊辰 to 庚午. Open the comparison." width="100%">
+</picture></a>
+
+On August 15, 1997, changing the birth time from 08:30 to 12:30 changes the hour pillar and the relationship chapter. Open the comparison to see both readings and the rule behind each one. The 1900–2026 corpus covers **402,736 distinct Four Pillars combinations** and includes 13 Traditional Chinese life chapters per sample.
 
 | What would you like to do? | Start here |
 | --- | --- |
