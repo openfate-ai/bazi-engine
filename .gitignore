@@ -4,3 +4,4 @@ dist/
 .DS_Store
 /docs/compare/app.js
 /docs/compare/app.js.LEGAL.txt
+/docs/library/corpus.mjs

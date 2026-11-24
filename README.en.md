@@ -2,7 +2,7 @@
 
 **1.11 million chart samples, 14.46 million reading chapters and over 100 million annual projections.**
 
-[**Compare two birth times**](https://openfate-ai.github.io/bazi-engine/compare/) · [Download the corpus](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [English field guide](learn/en.md) · [繁體中文](README.md)
+[**Browse the 13 chapters**](https://openfate-ai.github.io/bazi-engine/library/) · [Compare two birth times](https://openfate-ai.github.io/bazi-engine/compare/) · [Download the corpus](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [English field guide](learn/en.md) · [繁體中文](README.md)
 
 <div>
 <a href="https://openfate-ai.github.io/bazi-engine/compare/"><picture>
@@ -13,11 +13,13 @@
 
 On August 15, 1997, changing the birth time from 08:30 to 12:30 changes the hour pillar and the relationship chapter. Open the comparison to see both readings and the rule behind each one. The 1900–2026 corpus covers **402,736 distinct Four Pillars combinations** and includes 13 Traditional Chinese life chapters per sample.
 
+The [online library](https://openfate-ai.github.io/bazi-engine/library/) opens all 13 chapters for any corpus sample. Select a second time to compare individual passages and their chart evidence. The [Da Yun exercise](https://openfate-ai.github.io/bazi-engine/library/practice.html) uses three charts with answers drawn from the same runtime. The chapters and exercises are in Traditional Chinese.
+
 | What would you like to do? | Start here |
 | --- | --- |
 | Build a charting app | [Run the JavaScript example below](#reproduce-the-example). The SDK calculates charts locally. |
 | Build a searchable reading library | [Download one birth year](#download-one-year) and join the records by birth ID. |
-| Connect an AI client | [Install the MCP server](https://github.com/openfate-ai/openfate-mcp#install). Its seven tools include chart calculation and reverse lookup. |
+| Connect an AI client | [Install the MCP server](https://github.com/openfate-ai/openfate-mcp#install). Its tools include chart calculation and reverse lookup. |
 | Learn how the interpretation works | [Compare two charts in the browser](https://openfate-ai.github.io/bazi-engine/compare/) and follow each rule back to its source. |
 
 To run the comparison page locally, clone this repository, run `npm ci` and `npm run build:pages` in its root, then run `python3 -m http.server 8000 --bind 127.0.0.1 --directory docs`. Open `http://127.0.0.1:8000/compare/` in your browser.
@@ -98,7 +100,7 @@ print(chart["readings"]["work"]["evidence"])
 | Timing boundaries | For 192 inputs, the birth instant and the solar-time chart disagree at a term boundary. The edition keeps their natal chapters and leaves the annual list empty. [A 1932 example](learn/solar-term.md) |
 | Hour-sensitive text | Among 132 adjacent-hour pairs in the published comparison, 74 pairs selected different career opening advice in edition 2.1.0. [Comparison data](https://github.com/openfate-ai/bazi-engine/releases/download/corpus-v2.1.0/opening-comparison.json) |
 
-The corpus freezes its chart dependency at SDK 2.0.0. Use the tagged edition to reproduce the published readings. For a new app, SDK 2.1.0 also offers a live relationship chapter with its own rules version. Its [selection rules](src/readings/relationship.ts), the [published chapter openings](corpus/chapter-openings.mjs) and the [annual generator](corpus/yearbook.mjs) can each be inspected separately.
+The corpus freezes its chart dependency at SDK 2.0.0. Use the tagged edition to reproduce the published readings. SDK 2.2.0 includes the pinned corpus runtime in `dist/corpus.mjs` and also offers a live relationship chapter with its own rules version. Its [selection rules](src/readings/relationship.ts), the [published chapter openings](corpus/chapter-openings.mjs) and the [annual generator](corpus/yearbook.mjs) can each be inspected separately.
 
 ## Lunar Calendar Input
 

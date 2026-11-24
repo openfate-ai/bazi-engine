@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>八字命盤庫・十三章選讀｜OpenFate</title>
+  <meta name="description" content="線上閱讀 1900 至 2026 年的八字樣本。選一個日期和時辰，讀十三章生活解讀，對照另一個時辰與每段的盤面依據。">
+  <link rel="stylesheet" href="library.css"><script type="module" src="app.mjs"></script>
+</head>
+<body><a class="skip" href="#reading">跳到章節</a>
+<header><nav><a class="brand" href="../">OpenFate <span>八字引擎</span></a><a href="practice.html">大運練習</a><a href="https://github.com/openfate-ai/bazi-engine">GitHub ↗</a></nav></header>
+<main>
+  <h1>八字命盤庫</h1>
+  <p class="intro">選一張盤，讀工作、感情與生活的 13 章。換個時辰，就能對照哪一段建議跟著改變。</p>
+  <form id="lookup">
+    <label>日期<input type="date" id="date" required min="1900-01-01" max="2026-11-22" value="1991-10-18"></label>
+    <label>代表時刻<select id="hour" required></select></label>
+    <label>排運性別<select id="gender"><option value="female">女盤</option><option value="male">男盤</option></select></label>
+    <button type="submit">讀這張盤</button>
+  </form>
+  <p class="note">共 1,112,328 筆代表樣本。固定東經 120°、UTC+8，採真太陽時與子初換日。每兩小時取一筆，涵蓋 1900-01-01 至 2026-11-22。</p>
+  <p id="error" class="error" role="alert"></p><noscript>請開啟 JavaScript 讀取命盤。也可以<a href="https://github.com/openfate-ai/bazi-engine/tree/corpus-v2.1.0/corpus/examples">直接讀完整樣稿</a>。</noscript>
+  <section id="reading" tabindex="-1" hidden>
+    <div class="plate"><div><p id="sample"></p><div class="pillars" id="pillars"></div></div><div id="onset"></div></div>
+    <div class="toolbar">
+      <label>選讀章節<select id="topic"></select></label>
+      <label>對照時刻<select id="other"></select></label>
+      <button type="button" class="quiet" id="share">複製本頁連結</button>
+    </div>
+    <p role="status" id="status"></p><h2 id="chapter"></h2>
+    <div id="parts"></div>
+    <a id="personal" class="next" href="https://openfate.ai/zh-hant/bazi-chart?utm_source=github&amp;utm_medium=referral&amp;utm_campaign=corpus_library">用自己的出生地排盤 ↗</a>
+  </section>
+</main>
+<footer>OpenFate 八字命盤庫 v2.1.0 · <a href="https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0">資料與下載</a> · <a href="https://github.com/openfate-ai/bazi-engine/tree/corpus-v2.1.0/corpus">成稿規則</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></footer>
+</body></html>
