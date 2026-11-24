@@ -2,7 +2,7 @@
 
 **111 萬筆八字排盤樣本，1,446 萬章生活解讀，超過 1 億筆流年推演。**
 
-[**雙盤對照**](https://openfate-ai.github.io/bazi-engine/compare/) · [下載命盤庫](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [命例教材](learn/README.md) · [English](README.en.md)
+[**線上讀 13 章**](https://openfate-ai.github.io/bazi-engine/library/) · [雙盤對照](https://openfate-ai.github.io/bazi-engine/compare/) · [下載命盤庫](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [命例教材](learn/README.md) · [English](README.en.md)
 
 <div>
 <a href="https://openfate-ai.github.io/bazi-engine/compare/"><picture>
@@ -82,6 +82,20 @@
 | 《三命通會》 | 從卷五「甲見辛為正官」回到 1900 年元旦的甲日盤。在明干找不到辛，還可以往哪一柱的藏干找？[看盤與答案](learn/reading-pillars.md) |
 
 古籍索引保留採用的版本與出處。買菜、面試和談加薪等生活情境由 OpenFate 編寫，章節列出選用它們的盤面條件。[原典與編寫說明](learn/sources.md)
+
+## 線上讀命盤庫
+
+[打開 1991 年卯時與辰時的職涯章](https://openfate-ai.github.io/bazi-engine/library/#id=1991-10-18T08%3A30%3A00%2B08%3A00%2Ffemale&chapter=work&other=06)。可展開每段的盤面依據，或改讀同一筆的其他 12 章。複製網址能保留章節和對照時刻。固定取樣的日期與時刻在瀏覽器重現，使用 corpus v2.1.0 的成稿程式與 2.0.0 排盤版本。
+
+同樣的查詢可用 npm 套件 2.2.0 在本機執行。輸入須使用資料庫的完整樣本 ID。原創解讀採 CC BY 4.0。
+
+```js
+import { readCorpusChapter } from '@openfate/bazi-engine/dist/corpus.mjs';
+const { chart, chapter } = readCorpusChapter('1991-10-18T08:30:00+08:00/female', 'work');
+console.log(chart.fourPillars, chapter.parts[0].text, chapter.parts[0].ref);
+```
+
+[練習順逆大運，猜完再看起運日期](https://openfate-ai.github.io/bazi-engine/library/practice.html)
 
 ## 下載 1900–2026 八字命盤庫
 
@@ -191,7 +205,7 @@ SDK 預設午夜換日及舊版起運算法。要重現上例，請保留程式�
 
 ### SDK、資料發行版與 MCP 的版本怎麼選？
 
-開發新功能用 [SDK v2.1.0](https://github.com/openfate-ai/bazi-engine/releases/tag/v2.1.0)，本機可排盤並生成繁中感情章。要重現已出版的 13 章成稿，請用 [Corpus v2.1.0](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) 及其鎖定的 SDK 2.0.0。要在 AI 客戶端呼叫新版 SDK，請裝 [MCP v0.4.0](https://github.com/openfate-ai/openfate-mcp/releases/tag/v0.4.0)。下載資料只需選出生年份；即時排盤可自行指定出生地經度、時區和原始鐘點。
+開發新功能用 [SDK v2.2.0](https://github.com/openfate-ai/bazi-engine/releases/tag/v2.2.0)，本機可排盤並生成繁中感情章。要重現已出版的 13 章成稿，請用 [Corpus v2.1.0](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) 及其鎖定的 SDK 2.0.0。要在 AI 客戶端呼叫新版 SDK，請裝 [OpenFate MCP](https://github.com/openfate-ai/openfate-mcp#install)。下載資料只需選出生年份；即時排盤可自行指定出生地經度、時區和原始鐘點。
 
 ## 改規則，再跑一次
 

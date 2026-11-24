@@ -1,0 +1,677 @@
+{
+  "1900-01-01T00:30:00+08:00/female": {
+    "chapters": "e3a88ea42419f8cfedd08b61f482b9597f96d41cde88b92266054b6f08d4a110",
+    "fourPillars": "己亥 丙子 甲戌 甲子",
+    "startDate": "1901-09-08 19:30:00"
+  },
+  "1900-01-01T08:30:00+08:00/female": {
+    "chapters": "9aefbbe279f4135a5b22bb8b9549f48eab913b514b71f47c661b0e6a3e16f20b",
+    "fourPillars": "己亥 丙子 甲戌 戊辰",
+    "startDate": "1901-07-29 03:30:00"
+  },
+  "1901-01-01T10:30:00+08:00/male": {
+    "chapters": "535c7a533eca2f7da9718ada1518a04ab1e8f6e7e0f763b7d33dc969e3582bd8",
+    "fourPillars": "庚子 戊子 己卯 己巳",
+    "startDate": "1902-08-18 08:30:00"
+  },
+  "1902-01-01T12:30:00+08:00/female": {
+    "chapters": "25a41060cb3bb37cb4a667c5af981efa3b8711dbd2acc0920468e85b18974145",
+    "fourPillars": "辛丑 庚子 甲申 庚午",
+    "startDate": "1903-09-08 07:30:00"
+  },
+  "1903-01-01T14:30:00+08:00/male": {
+    "chapters": "cc6cd3c67cf25f460f3f974ca3a00506511f70e52950a1b2f6ea2839497bed94",
+    "fourPillars": "壬寅 壬子 己丑 辛未",
+    "startDate": "1904-09-27 17:30:00"
+  },
+  "1904-01-01T16:30:00+08:00/female": {
+    "chapters": "65719a42dca68718758fda5316554a9f6f8cc178bd35a5960ebbe8638b3373fc",
+    "fourPillars": "癸卯 甲子 甲午 壬申",
+    "startDate": "1905-10-17 06:30:00"
+  },
+  "1905-01-01T18:30:00+08:00/male": {
+    "chapters": "5c4bcd8f445876bdf55e0fc23a27c28aed0d9738fe1824c1d8fea6ea269f6f33",
+    "fourPillars": "甲辰 丙子 庚子 乙酉",
+    "startDate": "1906-07-06 12:30:00"
+  },
+  "1906-01-01T20:30:00+08:00/female": {
+    "chapters": "0f84290f57cb2a3d79f6a7be4373fd9274c7379dad9e24558d559e1b493165ac",
+    "fourPillars": "乙巳 戊子 乙巳 丙戌",
+    "startDate": "1907-07-25 10:30:00"
+  },
+  "1907-01-01T22:30:00+08:00/male": {
+    "chapters": "6682071431c3860cde2e78210ff3c14ba53ce178487db2801b30911fd00647a1",
+    "fourPillars": "丙午 庚子 庚戌 丁亥",
+    "startDate": "1908-08-15 08:30:00"
+  },
+  "1908-01-01T00:30:00+08:00/female": {
+    "chapters": "345277aa93e228bf4deef5c29473ef264d9a83f37c6dbf495296000a8e9d189e",
+    "fourPillars": "丁未 壬子 乙卯 丙子",
+    "startDate": "1910-01-03 14:30:00"
+  },
+  "1909-01-01T02:30:00+08:00/male": {
+    "chapters": "386a71f5142ac6b048d31f1a8aea404fa4c17151d7b26fb28c9c6b6e61842b3e",
+    "fourPillars": "戊申 甲子 辛酉 己丑",
+    "startDate": "1910-09-22 08:30:00"
+  },
+  "1910-01-01T04:30:00+08:00/female": {
+    "chapters": "d091b353643511c29ae18742fd2bd2abf1a13d0c60dc9be95d00e582bd5de4e5",
+    "fourPillars": "己酉 丙子 丙寅 庚寅",
+    "startDate": "1911-10-11 19:30:00"
+  },
+  "1911-01-01T06:30:00+08:00/male": {
+    "chapters": "6fff5a5126bc729e5252a6374ad486e033dd8ff7f0bceeadfd276d9b13996ed7",
+    "fourPillars": "庚戌 戊子 辛未 辛卯",
+    "startDate": "1912-10-30 11:30:00"
+  },
+  "1912-01-01T08:30:00+08:00/female": {
+    "chapters": "2b671daa357edc5436e2876dd66b2fcc051bd696fa553f606001286d41eafdda",
+    "fourPillars": "辛亥 庚子 丙子 壬辰",
+    "startDate": "1913-11-19 10:30:00"
+  },
+  "1913-01-01T10:30:00+08:00/male": {
+    "chapters": "a86c94aae476c906887934a5d4b56c4edb137f14502f2cb340cd9e564118d0bc",
+    "fourPillars": "壬子 壬子 壬午 乙巳",
+    "startDate": "1914-08-08 17:30:00"
+  },
+  "1914-01-01T12:30:00+08:00/female": {
+    "chapters": "d85736abf05b1091be82abf6b0f166bf9af67c7702a078566f583960b49172ef",
+    "fourPillars": "癸丑 甲子 丁亥 丙午",
+    "startDate": "1915-08-27 13:30:00"
+  },
+  "1915-01-01T14:30:00+08:00/male": {
+    "chapters": "2d22f679d1f8d7bd906e0461a50a0f80ad926f1ee9084d4a10f7ed8b42ebee35",
+    "fourPillars": "甲寅 丙子 壬辰 丁未",
+    "startDate": "1916-09-17 10:30:00"
+  },
+  "1916-01-01T16:30:00+08:00/female": {
+    "chapters": "15e3956de527e3137f02d558214e522a0ee6915f50b5df99587717b79227a4f3",
+    "fourPillars": "乙卯 戊子 丁酉 戊申",
+    "startDate": "1917-10-06 11:30:00"
+  },
+  "1917-01-01T18:30:00+08:00/male": {
+    "chapters": "372e4001a4e04936d4ca6640107b3af56b5e6cf4415791e004021070dca5bf1e",
+    "fourPillars": "丙辰 庚子 癸卯 辛酉",
+    "startDate": "1918-06-25 00:30:00"
+  },
+  "1918-01-01T20:30:00+08:00/female": {
+    "chapters": "8951477a7a53dacd37ca6673bfd984163abfbb629622be568a8e7734f9f29ca9",
+    "fourPillars": "丁巳 壬子 戊申 壬戌",
+    "startDate": "1919-07-14 16:30:00"
+  },
+  "1919-01-01T22:30:00+08:00/male": {
+    "chapters": "e70ff34ea406a0d15afd2a09f97fbca405c6002cb7d27d77c3d33582ea3d32c8",
+    "fourPillars": "戊午 甲子 癸丑 癸亥",
+    "startDate": "1920-08-03 16:30:00"
+  },
+  "1920-01-01T00:30:00+08:00/female": {
+    "chapters": "c46169f9204d43d5c8528ddb16ecbb3d70eb3823a8fb9fd0a4844dd831ae5228",
+    "fourPillars": "己未 丙子 戊午 壬子",
+    "startDate": "1921-12-21 21:30:00"
+  },
+  "1921-01-01T02:30:00+08:00/male": {
+    "chapters": "d4f11d79f2172960ee0739bbaec02584ac8ad1fbd3c0c9fea2e51d8cbf8e4973",
+    "fourPillars": "庚申 戊子 甲子 乙丑",
+    "startDate": "1922-09-11 09:30:00"
+  },
+  "1922-01-01T04:30:00+08:00/female": {
+    "chapters": "30c080abfcc6edff5f7af341dd34a11c22dfa2e76630f38500ee1170c254d6bb",
+    "fourPillars": "辛酉 庚子 己巳 丙寅",
+    "startDate": "1923-09-30 01:30:00"
+  },
+  "1923-01-01T06:30:00+08:00/male": {
+    "chapters": "d08db99197e3c7a91fb638631af1465682fea3a2f9b844f7dbb8af84a2e80f95",
+    "fourPillars": "壬戌 壬子 甲戌 丁卯",
+    "startDate": "1924-10-19 22:30:00"
+  },
+  "1924-01-01T08:30:00+08:00/female": {
+    "chapters": "c22cf190206ea64e6911ef09eb6a86ee6a6e003d6ebdfbc645abaad271331bb7",
+    "fourPillars": "癸亥 甲子 己卯 戊辰",
+    "startDate": "1925-11-09 07:30:00"
+  },
+  "1925-01-01T10:30:00+08:00/male": {
+    "chapters": "1610c734c4976fb637d259cba8600568fb44a546e7d37348f542ee228d0ee86b",
+    "fourPillars": "甲子 丙子 乙酉 辛巳",
+    "startDate": "1926-07-28 08:30:00"
+  },
+  "1926-01-01T12:30:00+08:00/female": {
+    "chapters": "92907f86f9ff9791da1bf92577269caab280862157729af2092ee943bf2ac859",
+    "fourPillars": "乙丑 戊子 庚寅 壬午",
+    "startDate": "1927-08-18 12:30:00"
+  },
+  "1927-01-01T14:30:00+08:00/male": {
+    "chapters": "8a7442dbdaa3a03a14791473dd89efde6447992f2be1c32cb041b8cee9543ef7",
+    "fourPillars": "丙寅 庚子 乙未 癸未",
+    "startDate": "1928-09-07 19:30:00"
+  },
+  "1928-01-01T16:30:00+08:00/female": {
+    "chapters": "4087f21d393e2f2534f2955c0a11e9b7c0611ff4c1d3d39508dea80e39c89869",
+    "fourPillars": "丁卯 壬子 庚子 甲申",
+    "startDate": "1929-09-26 18:30:00"
+  },
+  "1929-01-01T18:30:00+08:00/male": {
+    "chapters": "439528ffb2d68c3b0cf9fb7540fa3d242b3eaf4aa9857bcddc572afb63476443",
+    "fourPillars": "戊辰 甲子 丙午 丁酉",
+    "startDate": "1930-06-16 02:30:00"
+  },
+  "1930-01-01T20:30:00+08:00/female": {
+    "chapters": "b08d9838b07179c04e1a769dcc85706f93448d814913642aaf5dd39132ff9133",
+    "fourPillars": "己巳 丙子 辛亥 戊戌",
+    "startDate": "1931-07-04 13:30:00"
+  },
+  "1931-01-01T22:30:00+08:00/male": {
+    "chapters": "f977f67c3426b2037eda592f92d0a616552cfff13382b5997364631e76060abb",
+    "fourPillars": "庚午 戊子 丙辰 己亥",
+    "startDate": "1932-07-24 01:30:00"
+  },
+  "1932-01-01T00:30:00+08:00/female": {
+    "chapters": "b426209c191b975d63b35c4bd2090377217e42d67acbed1536fa17586c700a15",
+    "fourPillars": "辛未 庚子 辛酉 戊子",
+    "startDate": "1933-12-12 06:30:00"
+  },
+  "1932-02-05T08:30:00+08:00/female": {
+    "chapters": "10bd8016ec81954a48b4a2aa94dedfb7baabb134bfb92509fb8f1cc52e2be8f1",
+    "fourPillars": "辛未 辛丑 丙申 壬辰",
+    "startDate": null
+  },
+  "1932-02-06T08:30:00+08:00/male": {
+    "chapters": "05106b16f83efa496495ca7780c8b6e66c2921f8d596252ad04c6ef5e7683be4",
+    "fourPillars": "壬申 壬寅 丁酉 甲辰",
+    "startDate": "1941-09-07 22:30:00"
+  },
+  "1933-01-01T02:30:00+08:00/male": {
+    "chapters": "650514f53f7cd8fb32662d7e178c41766a373a41773980779a0504af0893c998",
+    "fourPillars": "壬申 壬子 丁卯 辛丑",
+    "startDate": "1934-08-30 12:30:00"
+  },
+  "1934-01-01T04:30:00+08:00/female": {
+    "chapters": "5129393cf7e6b1d65899fb416dd829a765abb35131fdae8f8f4709c40af5df23",
+    "fourPillars": "癸酉 甲子 壬申 壬寅",
+    "startDate": "1935-09-20 00:30:00"
+  },
+  "1935-01-01T06:30:00+08:00/male": {
+    "chapters": "508d5def982199595c602d0efe0f9d93a87c5f5f0fc182d23e52fa519edd2564",
+    "fourPillars": "甲戌 丙子 丁丑 癸卯",
+    "startDate": "1936-10-08 22:30:00"
+  },
+  "1936-01-01T08:30:00+08:00/female": {
+    "chapters": "92f725b5d595b30adb1b529e25544fb13e451b3f3b59ca741fe77b3018eb9886",
+    "fourPillars": "乙亥 戊子 壬午 甲辰",
+    "startDate": "1937-10-27 17:30:00"
+  },
+  "1937-01-01T10:30:00+08:00/male": {
+    "chapters": "70a8cb06ac35053e52bb63b3bd67871448c97825d26d0942f71e073ffc980acd",
+    "fourPillars": "丙子 庚子 戊子 丁巳",
+    "startDate": "1938-07-17 13:30:00"
+  },
+  "1938-01-01T12:30:00+08:00/female": {
+    "chapters": "58109563dfe311e00aaf7c9aecc55ac0adf12fab053f69365b0cb6b68cc04fa3",
+    "fourPillars": "丁丑 壬子 癸巳 戊午",
+    "startDate": "1939-08-06 14:30:00"
+  },
+  "1939-01-01T14:30:00+08:00/male": {
+    "chapters": "792ed3397bc98480350659033b9d4a31262e78c1f5b8a03ab7391a10893338bb",
+    "fourPillars": "戊寅 甲子 戊戌 己未",
+    "startDate": "1940-08-26 09:30:00"
+  },
+  "1940-01-01T16:30:00+08:00/female": {
+    "chapters": "94714a1715ccb3f839136f18acaf35d1201746624756f7f6d5942c30235d59d5",
+    "fourPillars": "己卯 丙子 癸卯 庚申",
+    "startDate": "1941-09-16 03:30:00"
+  },
+  "1941-01-01T18:30:00+08:00/male": {
+    "chapters": "5747c8c776692d5c5142411a3fd3443eb14faffd82e77a4270c5cb446bb431e5",
+    "fourPillars": "庚辰 戊子 己酉 癸酉",
+    "startDate": "1942-06-04 13:30:00"
+  },
+  "1942-01-01T20:30:00+08:00/female": {
+    "chapters": "3abbce467206d50da9be5bc9c91e64ba8316a766c021c238caff0b6463f8c17e",
+    "fourPillars": "辛巳 庚子 甲寅 甲戌",
+    "startDate": "1943-06-24 12:30:00"
+  },
+  "1943-01-01T22:30:00+08:00/male": {
+    "chapters": "97bcfc8d935ac0e08450c93f7231294f00232464839babdcc2fa488aa8c9c503",
+    "fourPillars": "壬午 壬子 己未 乙亥",
+    "startDate": "1944-07-13 23:30:00"
+  },
+  "1944-01-01T00:30:00+08:00/female": {
+    "chapters": "a863c8c80105072020d54d3b1edf7218a4d6d280f6dd1267f7ea05063e83ec4f",
+    "fourPillars": "癸未 甲子 甲子 甲子",
+    "startDate": "1945-12-01 18:30:00"
+  },
+  "1945-01-01T02:30:00+08:00/male": {
+    "chapters": "8efd69bf08e8d134520a0061386b66aff7097b750c814be77b4f2ba7e576beaf",
+    "fourPillars": "甲申 丙子 庚午 丁丑",
+    "startDate": "1946-08-21 10:30:00"
+  },
+  "1946-01-01T04:30:00+08:00/female": {
+    "chapters": "2d305b7aef32d3d70bb631afce2cbe10c74e953129f0837222545250b88a456c",
+    "fourPillars": "乙酉 戊子 乙亥 戊寅",
+    "startDate": "1947-09-10 00:30:00"
+  },
+  "1947-01-01T06:30:00+08:00/male": {
+    "chapters": "86e73ad072b606e4bc74a172306363a5c2529b523630e78622873ce7a2082551",
+    "fourPillars": "丙戌 庚子 庚辰 己卯",
+    "startDate": "1948-09-29 06:30:00"
+  },
+  "1948-01-01T08:30:00+08:00/female": {
+    "chapters": "287e99029212b90d3198140815c0a2d16e34f641afe970d80f28978305902a43",
+    "fourPillars": "丁亥 壬子 乙酉 庚辰",
+    "startDate": "1949-10-18 20:30:00"
+  },
+  "1949-01-01T10:30:00+08:00/male": {
+    "chapters": "7acf60ab5db6111a94135363477625ecbd2c50fba23e19db349d9eb279cd7eac",
+    "fourPillars": "戊子 甲子 辛卯 癸巳",
+    "startDate": "1950-07-07 08:30:00"
+  },
+  "1950-01-01T12:30:00+08:00/female": {
+    "chapters": "e978d43ad4ab3a2d78b5840309244258631ac23f6184776e7176fc1bb6f13504",
+    "fourPillars": "己丑 丙子 丙申 甲午",
+    "startDate": "1951-07-27 05:30:00"
+  },
+  "1951-01-01T14:30:00+08:00/male": {
+    "chapters": "598c77e05e77c4ae5ff5e2ab76e50f46a640a8c25b31c7d5f4134d94ffd9fd04",
+    "fourPillars": "庚寅 戊子 辛丑 乙未",
+    "startDate": "1952-08-16 14:30:00"
+  },
+  "1952-01-01T16:30:00+08:00/female": {
+    "chapters": "f103ea437c707e0b56ee4b2640906661ec5c22b2a954b2026dd377109bbf77c6",
+    "fourPillars": "辛卯 庚子 丙午 丙申",
+    "startDate": "1953-09-04 23:30:00"
+  },
+  "1953-01-01T18:30:00+08:00/male": {
+    "chapters": "b83d435b9d9c3b5f13ea7392d5b27c0d39ce24757ad92929802421d2a39fb3e3",
+    "fourPillars": "壬辰 壬子 壬子 己酉",
+    "startDate": "1954-05-24 10:30:00"
+  },
+  "1954-01-01T20:30:00+08:00/female": {
+    "chapters": "0c957b72959abf8fe2b0c372118fe4cbfe692a9b0f70cf03eb2a6ca8881b5de4",
+    "fourPillars": "癸巳 甲子 丁巳 庚戌",
+    "startDate": "1955-06-13 02:30:00"
+  },
+  "1955-01-01T22:30:00+08:00/male": {
+    "chapters": "5baffa6741fc93ea1f9abe4185128cefd6c49e6899bc63bed6906c5b9fe58d18",
+    "fourPillars": "甲午 丙子 壬戌 辛亥",
+    "startDate": "1956-07-02 09:30:00"
+  },
+  "1956-01-01T00:30:00+08:00/female": {
+    "chapters": "baffb5aa3e8f6b08c051acd9adec64606321c11ab1c6fb4ce7c318f08f068753",
+    "fourPillars": "乙未 戊子 丁卯 庚子",
+    "startDate": "1957-11-21 00:30:00"
+  },
+  "1957-01-01T02:30:00+08:00/male": {
+    "chapters": "300e00f19864bbe8c92869fde484cbc1f509ac2f9b9c17266ec4a0790690045a",
+    "fourPillars": "丙申 庚子 癸酉 癸丑",
+    "startDate": "1958-08-09 10:30:00"
+  },
+  "1958-01-01T04:30:00+08:00/female": {
+    "chapters": "ca73d0ba412705a6783c04b231f5345c66c3221cb7280f03f27fd4995b72c92c",
+    "fourPillars": "丁酉 壬子 戊寅 甲寅",
+    "startDate": "1959-08-29 00:30:00"
+  },
+  "1959-01-01T06:30:00+08:00/male": {
+    "chapters": "1dfcb21a9f01ac191a46af440729d8054d7e286f8db8da5fd0cd69b31ed69d1f",
+    "fourPillars": "戊戌 甲子 癸未 乙卯",
+    "startDate": "1960-09-18 14:30:00"
+  },
+  "1960-01-01T08:30:00+08:00/female": {
+    "chapters": "1f79adefa5e160d012ab4697534eef2c0207592a2e9ae339c4b9fcd99e8cbea0",
+    "fourPillars": "己亥 丙子 戊子 丙辰",
+    "startDate": "1961-10-07 08:30:00"
+  },
+  "1961-01-01T10:30:00+08:00/male": {
+    "chapters": "0052710e7702d9fa35a734624a6803561bc0941b9573f642120bac9fdfbe9a6f",
+    "fourPillars": "庚子 戊子 甲午 己巳",
+    "startDate": "1962-06-27 11:30:00"
+  },
+  "1962-01-01T12:30:00+08:00/female": {
+    "chapters": "f0751eca880e1082a5605b8c87286ae9bd8c642a0d44ce9a2f63ca4c1a3d9470",
+    "fourPillars": "辛丑 庚子 己亥 庚午",
+    "startDate": "1963-07-16 21:30:00"
+  },
+  "1963-01-01T14:30:00+08:00/male": {
+    "chapters": "a1ff32cf36c04ad7137e7ce5f84cad0ba3e50be12e58cfd36a001e9c4b48cf5f",
+    "fourPillars": "壬寅 壬子 甲辰 辛未",
+    "startDate": "1964-08-06 06:30:00"
+  },
+  "1964-01-01T16:30:00+08:00/female": {
+    "chapters": "2702a3cf2e3a39a87fcefb45b0a0c36c2863c2c1d59294833f378fdd435066ed",
+    "fourPillars": "癸卯 甲子 己酉 壬申",
+    "startDate": "1965-08-26 00:30:00"
+  },
+  "1965-01-01T18:30:00+08:00/male": {
+    "chapters": "6e6a0f11edbee10e3f9f6c719448efbd6648967c906c7ffa0d4a983a41e32dde",
+    "fourPillars": "甲辰 丙子 乙卯 乙酉",
+    "startDate": "1966-05-14 09:30:00"
+  },
+  "1966-01-01T20:30:00+08:00/female": {
+    "chapters": "2917105e69ab4b783fe654d2c864c9ee98b777183cfdd7bf469dade1f9eb54ea",
+    "fourPillars": "乙巳 戊子 庚申 丙戌",
+    "startDate": "1967-06-03 20:30:00"
+  },
+  "1967-01-01T22:30:00+08:00/male": {
+    "chapters": "cdf84eb1362637d9f6322f4db133a02aab10519aa6a45124ddc0e376314d152f",
+    "fourPillars": "丙午 庚子 乙丑 丁亥",
+    "startDate": "1968-06-23 10:30:00"
+  },
+  "1968-01-01T00:30:00+08:00/female": {
+    "chapters": "3b958d25aef159656ead3eda3575cd2d39b82b7cf4a7a5d7b21fa0a79bda6dd5",
+    "fourPillars": "丁未 壬子 庚午 丙子",
+    "startDate": "1969-11-10 16:30:00"
+  },
+  "1969-01-01T02:30:00+08:00/male": {
+    "chapters": "cece234a31a2b716bd62c1ff7c7ac4a0c0eea980f555e05aacd93d21db869864",
+    "fourPillars": "戊申 甲子 丙子 己丑",
+    "startDate": "1970-07-29 23:30:00"
+  },
+  "1970-01-01T04:30:00+08:00/female": {
+    "chapters": "986b3bc9008ab98deda2a198fc819d2f00f486919a2e8a7c6667ebf40c53e5b0",
+    "fourPillars": "己酉 丙子 辛巳 庚寅",
+    "startDate": "1971-08-18 19:30:00"
+  },
+  "1971-01-01T06:30:00+08:00/male": {
+    "chapters": "e7c239dae544688b331227bb2a48fe5648f450cdcb1a4bf2d2917875990bbeff",
+    "fourPillars": "庚戌 戊子 丙戌 辛卯",
+    "startDate": "1972-09-07 12:30:00"
+  },
+  "1972-01-01T08:30:00+08:00/female": {
+    "chapters": "85b5b24b14ccf7709e9540092649e71e6bb4fdafb2e6faa4fe4786bdc8616ccf",
+    "fourPillars": "辛亥 庚子 辛卯 壬辰",
+    "startDate": "1973-09-27 07:30:00"
+  },
+  "1973-01-01T10:30:00+08:00/male": {
+    "chapters": "e443b11a3bd9cb0fc7a7624677ce61c4407e01b798147e95f9b787bb256c9bba",
+    "fourPillars": "壬子 壬子 丁酉 乙巳",
+    "startDate": "1974-06-16 00:30:00"
+  },
+  "1974-01-01T12:30:00+08:00/female": {
+    "chapters": "fab988f885df633ee884781a58a24628952d6299de284d6e0029991bf31d6b2b",
+    "fourPillars": "癸丑 甲子 壬寅 丙午",
+    "startDate": "1975-07-05 15:30:00"
+  },
+  "1975-01-01T14:30:00+08:00/male": {
+    "chapters": "e509fa2ab7fb1c743ecafd5b5ff7ee9241776f3ce552d91729fce719fec694b8",
+    "fourPillars": "甲寅 丙子 丁未 丁未",
+    "startDate": "1976-07-25 13:30:00"
+  },
+  "1976-01-01T16:30:00+08:00/female": {
+    "chapters": "42d153152771c231055f562c30da76c30d285be38a28254bed80075644264b12",
+    "fourPillars": "乙卯 戊子 壬子 戊申",
+    "startDate": "1977-08-13 22:30:00"
+  },
+  "1977-01-01T18:30:00+08:00/male": {
+    "chapters": "2cd1eb06a2bf998d9772e4ef2b7c19736467310cd40cfe2bb08e545d374a1e68",
+    "fourPillars": "丙辰 庚子 戊午 辛酉",
+    "startDate": "1978-05-03 12:30:00"
+  },
+  "1978-01-01T20:30:00+08:00/female": {
+    "chapters": "01a44cb312e794541ecc473e6b210e1bd7e57cbaae2e91720fdb0140a31b0d08",
+    "fourPillars": "丁巳 壬子 癸亥 壬戌",
+    "startDate": "1979-05-22 22:30:00"
+  },
+  "1979-01-01T22:30:00+08:00/male": {
+    "chapters": "bf6ca43d19133a2ccfa41826211517e61c2c8180ca4d168fd04ce1eb245fea1c",
+    "fourPillars": "戊午 甲子 戊辰 癸亥",
+    "startDate": "1980-06-12 01:30:00"
+  },
+  "1980-01-01T00:30:00+08:00/female": {
+    "chapters": "9ccc024a2295fa7fabd5ba37fd0c4b824ad3c8cdeb59b2ed25f2e03caff08f7d",
+    "fourPillars": "己未 丙子 癸酉 壬子",
+    "startDate": "1981-10-30 21:30:00"
+  },
+  "1981-01-01T02:30:00+08:00/male": {
+    "chapters": "949f99103191bef6db631d9f13d6067b3eb8fa16a6ccd70350918b13f49f1ae8",
+    "fourPillars": "庚申 戊子 己卯 乙丑",
+    "startDate": "1982-07-19 15:30:00"
+  },
+  "1982-01-01T04:30:00+08:00/female": {
+    "chapters": "c4d2ab24516e44309845c5e03c4ff425da187242e5696888b9efff6e0b4b0686",
+    "fourPillars": "辛酉 庚子 甲申 丙寅",
+    "startDate": "1983-08-08 21:30:00"
+  },
+  "1983-01-01T06:30:00+08:00/male": {
+    "chapters": "0c7b32952dc5da2e7a1bdf92892f89ae44c0a726a2e417b1ae9128f6e6bddfba",
+    "fourPillars": "壬戌 壬子 己丑 丁卯",
+    "startDate": "1984-08-28 15:30:00"
+  },
+  "1984-01-01T08:30:00+08:00/female": {
+    "chapters": "768733ce2f1a8f44af4a89220722f7414b76f15350f45298da4fac83480d023f",
+    "fourPillars": "癸亥 甲子 甲午 戊辰",
+    "startDate": "1985-09-17 05:30:00"
+  },
+  "1985-01-01T10:30:00+08:00/male": {
+    "chapters": "04e1c33480cfa55b565e25b4f96cd75a810d667cb4d34bb015284fa351a46d4b",
+    "fourPillars": "甲子 丙子 庚子 辛巳",
+    "startDate": "1986-06-06 20:30:00"
+  },
+  "1986-01-01T12:30:00+08:00/female": {
+    "chapters": "03a067ac64d46bf357e7b1e3553c1f9cb10c2167e52bf41e50b0c98acf0f706c",
+    "fourPillars": "乙丑 戊子 乙巳 壬午",
+    "startDate": "1987-06-26 08:30:00"
+  },
+  "1987-01-01T14:30:00+08:00/male": {
+    "chapters": "b06414033cead46b65e0d3914b13f96e162af4c0a8fc91b73536759854e184c5",
+    "fourPillars": "丙寅 庚子 庚戌 癸未",
+    "startDate": "1988-07-15 04:30:00"
+  },
+  "1988-01-01T16:30:00+08:00/female": {
+    "chapters": "f2b02bb724e1752501ddd5246b7fbd67d2b6492aa6ef0130d26b36f23ecd11b4",
+    "fourPillars": "丁卯 壬子 乙卯 甲申",
+    "startDate": "1989-08-04 11:30:00"
+  },
+  "1989-01-01T18:30:00+08:00/male": {
+    "chapters": "d58d4a2967f8d360573367a646a199c86f2423019573283d48fb6f7343b3cadf",
+    "fourPillars": "戊辰 甲子 辛酉 丁酉",
+    "startDate": "1990-04-23 01:30:00"
+  },
+  "1990-01-01T20:30:00+08:00/female": {
+    "chapters": "0687a7dfa7fbc513f5e75aa6d0529b5637f8c7320e64ba95c91a97932d6dde96",
+    "fourPillars": "己巳 丙子 丙寅 戊戌",
+    "startDate": "1991-05-12 02:30:00"
+  },
+  "1991-01-01T22:30:00+08:00/male": {
+    "chapters": "3aae3d84dcaf6b27d7476799df45291ed0bd875e4b7153c55d960549f7639230",
+    "fourPillars": "庚午 戊子 辛未 己亥",
+    "startDate": "1992-05-31 18:30:00"
+  },
+  "1991-10-18T06:30:00+08:00/female": {
+    "chapters": "abb3838491e4ed9559d5be8378d5e49de715e82ff45f0775371343e9019de8a4",
+    "fourPillars": "辛未 戊戌 辛酉 辛卯",
+    "startDate": "1998-10-16 09:30:00"
+  },
+  "1991-10-18T08:30:00+08:00/female": {
+    "chapters": "3af4a815e707fc8abfd614a2d83ea23b8c94e49178bc7f0284cadc382d7b3eb7",
+    "fourPillars": "辛未 戊戌 辛酉 壬辰",
+    "startDate": "1998-10-06 11:30:00"
+  },
+  "1991-10-18T08:30:00+08:00/male": {
+    "chapters": "3af4a815e707fc8abfd614a2d83ea23b8c94e49178bc7f0284cadc382d7b3eb7",
+    "fourPillars": "辛未 戊戌 辛酉 壬辰",
+    "startDate": "1994-11-14 17:30:00"
+  },
+  "1992-01-01T00:30:00+08:00/female": {
+    "chapters": "0df7e18018083040c9f948f0674588d4d11174fabc1b89df30f3e7fe6c819a03",
+    "fourPillars": "辛未 庚子 丙子 戊子",
+    "startDate": "1993-10-19 05:30:00"
+  },
+  "1993-01-01T02:30:00+08:00/male": {
+    "chapters": "b337075e486577b653083e12958c403bc2d0856b64afca1dda72ff8374190b3a",
+    "fourPillars": "壬申 壬子 壬午 辛丑",
+    "startDate": "1994-07-08 07:30:00"
+  },
+  "1994-01-01T04:30:00+08:00/female": {
+    "chapters": "c2fb55808763bc8216f22a320134fa115fcec6f27883a411fda5c16ab78091d9",
+    "fourPillars": "癸酉 甲子 丁亥 壬寅",
+    "startDate": "1995-07-27 16:30:00"
+  },
+  "1995-01-01T06:30:00+08:00/male": {
+    "chapters": "25f7bd680d78b4541c07e033362cb8f7657f52fa4a9be4a6eca2cf0f4e7878dc",
+    "fourPillars": "甲戌 丙子 壬辰 癸卯",
+    "startDate": "1996-08-16 14:30:00"
+  },
+  "1996-01-01T08:30:00+08:00/female": {
+    "chapters": "db19a02cd89c085ba11fca2cdbdf65c634b5a81704b98478ad91306444703408",
+    "fourPillars": "乙亥 戊子 丁酉 甲辰",
+    "startDate": "1997-09-06 10:30:00"
+  },
+  "1997-01-01T10:30:00+08:00/male": {
+    "chapters": "a1bcea4406d957ffcc0b4cc9bcfc2c57414be204502539454f31de3e69c6197d",
+    "fourPillars": "丙子 庚子 癸卯 丁巳",
+    "startDate": "1998-05-25 22:30:00"
+  },
+  "1998-01-01T12:30:00+08:00/female": {
+    "chapters": "b83f14af8d9fcc0e799df9f25cfc6df142f3bb4c07be8ed110964ee6f9df09af",
+    "fourPillars": "丁丑 壬子 戊申 戊午",
+    "startDate": "1999-06-15 12:30:00"
+  },
+  "1999-01-01T14:30:00+08:00/male": {
+    "chapters": "0adc56bc076072f2ff7c5da99c3d4efc0e00b5f7825c35064cc97a9905f21072",
+    "fourPillars": "戊寅 甲子 癸丑 己未",
+    "startDate": "2000-07-05 12:30:00"
+  },
+  "2000-01-01T16:30:00+08:00/female": {
+    "chapters": "49afb12d4530cbb913013b86b531aa9e8b6e7ae4da5c6b0c3e782b2f120fa1c9",
+    "fourPillars": "己卯 丙子 戊午 庚申",
+    "startDate": "2001-07-24 05:30:00"
+  },
+  "2000-02-29T12:30:00+08:00/male": {
+    "chapters": "891ed2aaa38d4aca043920b99ad7deed4881acc97c57f53e4d8615199117619f",
+    "fourPillars": "庚辰 戊寅 丁巳 丙午",
+    "startDate": "2001-11-08 13:30:00"
+  },
+  "2001-01-01T18:30:00+08:00/male": {
+    "chapters": "779fed8f1cd33b81d56b3ce5771819deec7d1b9ba40cc5f9fecbb88f68ba9ac5",
+    "fourPillars": "庚辰 戊子 甲子 癸酉",
+    "startDate": "2002-04-13 08:30:00"
+  },
+  "2002-01-01T20:30:00+08:00/female": {
+    "chapters": "d1d04435ae5c2664294ce405b3fd361df55dd5f9e2f81a11c94213884c491a51",
+    "fourPillars": "辛巳 庚子 己巳 甲戌",
+    "startDate": "2003-05-02 23:30:00"
+  },
+  "2003-01-01T22:30:00+08:00/male": {
+    "chapters": "b532896b1973474f42f7fbf52fa4d872d17d680805edbf15c3a0631c39515657",
+    "fourPillars": "壬午 壬子 甲戌 乙亥",
+    "startDate": "2004-05-21 17:30:00"
+  },
+  "2004-01-01T00:30:00+08:00/female": {
+    "chapters": "2f9b9af5eebf4e1365e721ae400c443f8db15b62a9d8af8063eae0d63c224654",
+    "fourPillars": "癸未 甲子 己卯 甲子",
+    "startDate": "2005-10-10 01:30:00"
+  },
+  "2005-01-01T02:30:00+08:00/male": {
+    "chapters": "147d33d990409c300d18072ee8ad7732592a3b26e86cce353d2b83ab2c1ef045",
+    "fourPillars": "甲申 丙子 乙酉 丁丑",
+    "startDate": "2006-06-28 19:30:00"
+  },
+  "2006-01-01T04:30:00+08:00/female": {
+    "chapters": "f46f303e49a4fa382813e12ae8e351a16a17504ed505e95cf7cccb461cddc31c",
+    "fourPillars": "乙酉 戊子 庚寅 戊寅",
+    "startDate": "2007-07-17 13:30:00"
+  },
+  "2007-01-01T06:30:00+08:00/male": {
+    "chapters": "a7e095345e3394dd7b81532d057cad4d88b06291eee435f85110b32caf8e4c2e",
+    "fourPillars": "丙戌 庚子 乙未 己卯",
+    "startDate": "2008-08-07 02:30:00"
+  },
+  "2008-01-01T08:30:00+08:00/female": {
+    "chapters": "0fb3351dcb1336fd5eb9ce0fcf250357d384053dbd96264c07aaba0a7fcc302e",
+    "fourPillars": "丁亥 壬子 庚子 庚辰",
+    "startDate": "2009-08-25 21:30:00"
+  },
+  "2009-01-01T10:30:00+08:00/male": {
+    "chapters": "4c96807dc993afdf95011a2580900faca176e4d5579fba976734a9b9feda74e5",
+    "fourPillars": "戊子 甲子 丙午 癸巳",
+    "startDate": "2010-05-15 02:30:00"
+  },
+  "2010-01-01T12:30:00+08:00/female": {
+    "chapters": "29d9efd013cbb2524c8e1242d2610068c03443cbbd0268077f29a4b3eaf88dac",
+    "fourPillars": "己丑 丙子 辛亥 甲午",
+    "startDate": "2011-06-04 17:30:00"
+  },
+  "2011-01-01T14:30:00+08:00/male": {
+    "chapters": "41c3d32e83e9102d38607537c55ac8435d96c6579c5d4656cd42a7f78beadd5b",
+    "fourPillars": "庚寅 戊子 丙辰 乙未",
+    "startDate": "2012-06-23 15:30:00"
+  },
+  "2012-01-01T16:30:00+08:00/female": {
+    "chapters": "3ff5327b5ce8cd9094babff02fd04a1c36164370f57604abdedd95081450af62",
+    "fourPillars": "辛卯 庚子 辛酉 丙申",
+    "startDate": "2013-07-12 19:30:00"
+  },
+  "2013-01-01T18:30:00+08:00/male": {
+    "chapters": "c492cf9409f8fc0547abf6697c1e04d64ea0f25e58e0db6385f385693c7f60d0",
+    "fourPillars": "壬辰 壬子 丁卯 己酉",
+    "startDate": "2014-04-02 01:30:00"
+  },
+  "2014-01-01T20:30:00+08:00/female": {
+    "chapters": "96637a725646c246ccd7e6ead3864f70657ef900f360a8ee46537d2d64b557b2",
+    "fourPillars": "癸巳 甲子 壬申 庚戌",
+    "startDate": "2015-04-21 08:30:00"
+  },
+  "2015-01-01T22:30:00+08:00/male": {
+    "chapters": "fe746573ff50a24086f2c3058cd218b7a44f34f465ffe62ccc78c2b93fbe1076",
+    "fourPillars": "甲午 丙子 丁丑 辛亥",
+    "startDate": "2016-05-11 03:30:00"
+  },
+  "2016-01-01T00:30:00+08:00/female": {
+    "chapters": "2d007d9a49fae19eddb368e3b54352d6fc59f1e5e52234d84997b4ef59224d8b",
+    "fourPillars": "乙未 戊子 壬午 庚子",
+    "startDate": "2017-09-29 04:30:00"
+  },
+  "2017-01-01T02:30:00+08:00/male": {
+    "chapters": "7196d0ea677112c75d1ef6117d2b63123e0dc23395e9188b82d7a5d04d98b3c3",
+    "fourPillars": "丙申 庚子 戊子 癸丑",
+    "startDate": "2018-06-18 05:30:00"
+  },
+  "2018-01-01T04:30:00+08:00/female": {
+    "chapters": "87265eac918c15e9f64137d57b395dc8c0b32598494db58a29fd4a7d048a5314",
+    "fourPillars": "丁酉 壬子 癸巳 甲寅",
+    "startDate": "2019-07-07 17:30:00"
+  },
+  "2019-01-01T06:30:00+08:00/male": {
+    "chapters": "e33ab4f7ed7a31013be185c9664ff59954cc7320fb3a0220feb0620bb96ae810",
+    "fourPillars": "戊戌 甲子 戊戌 乙卯",
+    "startDate": "2020-07-26 23:30:00"
+  },
+  "2020-01-01T08:30:00+08:00/female": {
+    "chapters": "d5541326f3c9108111590fdd73f1f3902c3b26cb1a50897b1e1c6e689acfb623",
+    "fourPillars": "己亥 丙子 癸卯 丙辰",
+    "startDate": "2021-08-16 08:30:00"
+  },
+  "2021-01-01T10:30:00+08:00/male": {
+    "chapters": "9d0a6b5d11c990585510758c0d7bd84f645fdeeeea0e154ec7f21fea57d4603f",
+    "fourPillars": "庚子 戊子 己酉 己巳",
+    "startDate": "2022-05-05 20:30:00"
+  },
+  "2022-01-01T12:30:00+08:00/female": {
+    "chapters": "a9179c35f302b2ec5c4fc3ab6e263ac5e82be39aca744cd9b9c16a54f168cd3f",
+    "fourPillars": "辛丑 庚子 甲寅 庚午",
+    "startDate": "2023-05-25 04:30:00"
+  },
+  "2023-01-01T14:30:00+08:00/male": {
+    "chapters": "723f996f03f8621204a8f0df21b54f0fefb19b987d289497a0604cde26f9a40c",
+    "fourPillars": "壬寅 壬子 己未 辛未",
+    "startDate": "2024-06-14 11:30:00"
+  },
+  "2024-01-01T16:30:00+08:00/female": {
+    "chapters": "6eb9269d5f6e9c9d8a1a32c801e47a2fd8b17500c49d490c8a5b82505ced3bd7",
+    "fourPillars": "癸卯 甲子 甲子 壬申",
+    "startDate": "2025-07-03 06:30:00"
+  },
+  "2025-01-01T18:30:00+08:00/male": {
+    "chapters": "99a2a9a9737708f6f3ef562bc8096739f259949464a3c8521c8c3ee3b1d01eba",
+    "fourPillars": "甲辰 丙子 庚午 乙酉",
+    "startDate": "2026-03-21 23:30:00"
+  },
+  "2026-01-01T20:30:00+08:00/female": {
+    "chapters": "b76e2970e7e9e80c8e57c2da143550a467069eed8a20cb58c637095177856743",
+    "fourPillars": "乙巳 戊子 乙亥 丙戌",
+    "startDate": "2027-04-11 06:30:00"
+  },
+  "2026-11-22T22:30:00+08:00/male": {
+    "chapters": "cfdc49df3c65a586aec2746756bc782f7d348e96fb8add8e4420ea9b0c11a7a6",
+    "fourPillars": "丙午 己亥 庚子 丁亥",
+    "startDate": "2031-09-24 19:30:00"
+  }
+}

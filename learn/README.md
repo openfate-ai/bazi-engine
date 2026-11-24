@@ -1,6 +1,6 @@
 # 跟著命例學八字
 
-[新版試讀｜六對同日異時命例與三堂讀盤課](reader-pilot/README.md)
+[練習順逆大運，換盤核對答案](https://openfate-ai.github.io/bazi-engine/library/practice.html) · [新版試讀｜六對同日異時命例與三堂讀盤課](reader-pilot/README.md)
 
 第一次看八字，可以從一個字學起：為什麼 1900 年元旦這張盤，四個天干都沒有辛，解讀裡卻出現了「正官」？先在四柱圖裡找到它，再換一個出生時辰，看原本的判斷還成不成立。[從第一課開始](reading-pillars.md) · [English field guide](en.md)
 
