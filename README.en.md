@@ -4,10 +4,12 @@
 
 [**Compare two birth times**](https://openfate-ai.github.io/bazi-engine/compare/) · [Download the corpus](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [English field guide](learn/en.md) · [繁體中文](README.md)
 
+<div>
 <a href="https://openfate-ai.github.io/bazi-engine/compare/"><picture>
   <source media="(max-width: 600px)" srcset="learn/cover-mobile.webp">
   <img src="learn/cover.webp" alt="August 15, 1997. The first three pillars stay 丁丑, 戊申 and 己丑. Changing the birth time from 08:30 to 12:30 changes the hour pillar from 戊辰 to 庚午. Open the comparison." width="100%">
 </picture></a>
+</div>
 
 On August 15, 1997, changing the birth time from 08:30 to 12:30 changes the hour pillar and the relationship chapter. Open the comparison to see both readings and the rule behind each one. The 1900–2026 corpus covers **402,736 distinct Four Pillars combinations** and includes 13 Traditional Chinese life chapters per sample.
 

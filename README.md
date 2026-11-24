@@ -4,10 +4,12 @@
 
 [**比較兩個出生時辰**](https://openfate-ai.github.io/bazi-engine/compare/) · [下載命盤庫](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [跟著命例學八字](learn/README.md) · [English](README.en.md)
 
+<div>
 <a href="https://openfate-ai.github.io/bazi-engine/compare/"><picture>
   <source media="(max-width: 600px)" srcset="learn/cover-mobile.webp">
   <img src="learn/cover.webp" alt="1997 年 8 月 15 日，08:30 與 12:30 的前三柱同為丁丑、戊申、己丑。時柱由戊辰換成庚午。點圖可比較兩張盤。" width="100%">
 </picture></a>
+</div>
 
 同一天，早上八點半是戊辰時，中午十二點半是庚午時。點圖就能讀到兩篇不同的感情建議，還能查出選中每一段的規則。命盤庫從 1900 年收錄至 2026 年，涵蓋 **402,736 種不同四柱**，每筆樣本附 13 章繁體中文解讀。
 
