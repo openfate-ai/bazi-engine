@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer">
+<title>按問題找八字命盤｜OpenFate</title>
+<meta name="description" content="在 1900 至 2026 年的公開命盤庫搜尋同柱合沖、同盤不同起運與交節待定，逐筆查看排盤依據。">
+<link rel="stylesheet" href="../library.css"><link rel="stylesheet" href="search.css"><script type="module" src="search.mjs"></script>
+</head><body><a class="skip" href="#filters">跳到查詢</a>
+<header><nav><a class="brand" href="../../">OpenFate <span>八字引擎</span></a><a href="../">選日期讀盤</a><a href="https://github.com/openfate-ai/bazi-engine">GitHub ↗</a></nav></header>
+<main><h1>按問題找命盤</h1>
+<p class="intro">從 1900 至 2026 年的公開樣本裡，找出符合條件的時刻。展開一筆，就能看到判斷用的是哪兩柱或哪兩個起運日期。</p>
+<form id="filters">
+<label>想查的問題<select id="question" name="q"><option value="mixed">哪一柱同時有六合與相沖？</option><option value="gap">四柱相同，起運日期相差多久？</option><option value="boundary">哪些時刻遇到交節，起運日期待定？</option></select></label>
+<label>出生年份<select id="year" name="year"><option value="all">全部年份</option></select></label>
+<label id="pillar-label">柱位<select id="pillar" name="pillar"><option value="any">任一柱</option><option value="year">年柱</option><option value="month">月柱</option><option value="day">日柱</option><option value="hour">時柱</option></select></label>
+<button type="submit" id="submit">查命盤</button></form>
+<p id="definition" class="note"></p>
+<p id="status" role="status" aria-live="polite">正在讀取資料索引…</p>
+<button id="retry" class="quiet" hidden>重新載入索引</button>
+<div id="results"></div>
+<div id="pager" hidden><button id="prev" class="quiet">上一頁</button><span id="page"></span><button id="next" class="quiet">下一頁</button></div>
+<section class="examples"><h2>讀一個完整命例</h2><ul>
+<li><a href="cases/career-hour/">同一天出生，面試時該問的問題怎麼變了？</a></li>
+<li><a href="cases/luck-gap/">四柱相同，第一步大運為什麼差了近四年？</a></li>
+<li><a href="cases/solar-boundary/">立春已過四十秒，為什麼起運日留白？</a></li></ul></section>
+<noscript>線上查詢需要 JavaScript。上方三篇命例可以直接閱讀。</noscript>
+</main><footer>OpenFate 八字命盤庫 v2.1.0 · <a href="data/index.json">全年份統計與 SHA-256</a> · <a href="https://github.com/openfate-ai/bazi-engine/blob/main/corpus/PATTERNS.md">資料定義與重製方法</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></footer></body></html>

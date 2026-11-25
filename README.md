@@ -2,7 +2,7 @@
 
 **111 萬筆八字排盤樣本，1,446 萬章生活解讀，超過 1 億筆流年推演。**
 
-[**線上讀 13 章**](https://openfate-ai.github.io/bazi-engine/library/) · [雙盤對照](https://openfate-ai.github.io/bazi-engine/compare/) · [下載命盤庫](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [命例教材](learn/README.md) · [English](README.en.md)
+[**線上讀 13 章**](https://openfate-ai.github.io/bazi-engine/library/) · [按問題找盤](https://openfate-ai.github.io/bazi-engine/library/search/) · [雙盤對照](https://openfate-ai.github.io/bazi-engine/compare/) · [下載命盤庫](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [命例教材](learn/README.md) · [English](README.en.md)
 
 <div>
 <a href="https://openfate-ai.github.io/bazi-engine/compare/"><picture>
@@ -82,6 +82,16 @@
 | 《三命通會》 | 從卷五「甲見辛為正官」回到 1900 年元旦的甲日盤。在明干找不到辛，還可以往哪一柱的藏干找？[看盤與答案](learn/reading-pillars.md) |
 
 古籍索引保留採用的版本與出處。買菜、面試和談加薪等生活情境由 OpenFate 編寫，章節列出選用它們的盤面條件。[原典與編寫說明](learn/sources.md)
+
+## 按問題找命盤
+
+在 **556,164 個代表出生時刻**中，有 **75,159 個**至少一柱同時牽涉六合與相沖。每個時刻各有女男兩筆樣本；其中 **391,676 組**的兩個起運日期相差至少 1,096 天。另有 **96 個時刻、192 筆樣本**遇到交節邊界而保留空白起運日。三項條件可重疊。[搜尋全庫](https://openfate-ai.github.io/bazi-engine/library/search/) · [資料定義與重製](corpus/PATTERNS.md)
+
+| 從哪個問題開始 | 打開命例 |
+| --- | --- |
+| 同一天出生，面試時該問什麼？ | [1991 年兩個時辰，對照職涯成稿與時支合沖](https://openfate-ai.github.io/bazi-engine/library/search/cases/career-hour/) |
+| 四柱相同，起運為什麼差了近四年？ | [同一時刻的男女兩筆排運輸入](https://openfate-ai.github.io/bazi-engine/library/search/cases/luck-gap/) |
+| 立春已過四十秒，為什麼起運日留白？ | [1932 年立春前後三個時刻](https://openfate-ai.github.io/bazi-engine/library/search/cases/solar-boundary/) |
 
 ## 線上讀命盤庫
 

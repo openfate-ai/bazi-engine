@@ -1,0 +1,1163 @@
+{
+  "format": 1,
+  "edition": "2.1.0",
+  "coreManifestSha256": "e1bfa79f042778bd319a8c7b2dcf2f0bb2ac74f73a3924d17dcac2dc11efd67e",
+  "firstDate": "1900-01-01",
+  "lastDate": "2026-11-22",
+  "records": 1112328,
+  "minimumGapDays": 1096,
+  "file": "patterns-08bb6a6638adb8be.bin",
+  "sha256": "08bb6a6638adb8be559678181d603c5e3d76199e001badf1d7237d40e7681a91",
+  "totals": {
+    "slots": 556164,
+    "mixedSlots": 75159,
+    "gapPairs": 391676,
+    "boundarySlots": 96,
+    "boundaryRecords": 192
+  },
+  "years": [
+    {
+      "year": 1900,
+      "slots": 4380,
+      "mixedSlots": 519,
+      "gapPairs": 3081,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 0
+    },
+    {
+      "year": 1901,
+      "slots": 4380,
+      "mixedSlots": 667,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 4380
+    },
+    {
+      "year": 1902,
+      "slots": 4380,
+      "mixedSlots": 584,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 8760
+    },
+    {
+      "year": 1903,
+      "slots": 4380,
+      "mixedSlots": 582,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 13140
+    },
+    {
+      "year": 1904,
+      "slots": 4392,
+      "mixedSlots": 582,
+      "gapPairs": 3097,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 17520
+    },
+    {
+      "year": 1905,
+      "slots": 4380,
+      "mixedSlots": 583,
+      "gapPairs": 3082,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 21912
+    },
+    {
+      "year": 1906,
+      "slots": 4380,
+      "mixedSlots": 495,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 26292
+    },
+    {
+      "year": 1907,
+      "slots": 4380,
+      "mixedSlots": 596,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 30672
+    },
+    {
+      "year": 1908,
+      "slots": 4392,
+      "mixedSlots": 697,
+      "gapPairs": 3096,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 35052
+    },
+    {
+      "year": 1909,
+      "slots": 4380,
+      "mixedSlots": 602,
+      "gapPairs": 3083,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 39444
+    },
+    {
+      "year": 1910,
+      "slots": 4380,
+      "mixedSlots": 603,
+      "gapPairs": 3084,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 43824
+    },
+    {
+      "year": 1911,
+      "slots": 4380,
+      "mixedSlots": 599,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 48204
+    },
+    {
+      "year": 1912,
+      "slots": 4392,
+      "mixedSlots": 520,
+      "gapPairs": 3093,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 52584
+    },
+    {
+      "year": 1913,
+      "slots": 4380,
+      "mixedSlots": 671,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 56976
+    },
+    {
+      "year": 1914,
+      "slots": 4380,
+      "mixedSlots": 585,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 61356
+    },
+    {
+      "year": 1915,
+      "slots": 4380,
+      "mixedSlots": 587,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 65736
+    },
+    {
+      "year": 1916,
+      "slots": 4392,
+      "mixedSlots": 584,
+      "gapPairs": 3096,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 70116
+    },
+    {
+      "year": 1917,
+      "slots": 4380,
+      "mixedSlots": 577,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 74508
+    },
+    {
+      "year": 1918,
+      "slots": 4380,
+      "mixedSlots": 481,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 78888
+    },
+    {
+      "year": 1919,
+      "slots": 4380,
+      "mixedSlots": 580,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 83268
+    },
+    {
+      "year": 1920,
+      "slots": 4392,
+      "mixedSlots": 674,
+      "gapPairs": 3097,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 87648
+    },
+    {
+      "year": 1921,
+      "slots": 4380,
+      "mixedSlots": 584,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 92040
+    },
+    {
+      "year": 1922,
+      "slots": 4380,
+      "mixedSlots": 591,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 96420
+    },
+    {
+      "year": 1923,
+      "slots": 4380,
+      "mixedSlots": 592,
+      "gapPairs": 3082,
+      "boundarySlots": 3,
+      "boundaryRecords": 6,
+      "offset": 100800
+    },
+    {
+      "year": 1924,
+      "slots": 4392,
+      "mixedSlots": 523,
+      "gapPairs": 3096,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 105180
+    },
+    {
+      "year": 1925,
+      "slots": 4380,
+      "mixedSlots": 679,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 109572
+    },
+    {
+      "year": 1926,
+      "slots": 4380,
+      "mixedSlots": 604,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 113952
+    },
+    {
+      "year": 1927,
+      "slots": 4380,
+      "mixedSlots": 600,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 118332
+    },
+    {
+      "year": 1928,
+      "slots": 4392,
+      "mixedSlots": 599,
+      "gapPairs": 3097,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 122712
+    },
+    {
+      "year": 1929,
+      "slots": 4380,
+      "mixedSlots": 601,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 127104
+    },
+    {
+      "year": 1930,
+      "slots": 4380,
+      "mixedSlots": 506,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 131484
+    },
+    {
+      "year": 1931,
+      "slots": 4380,
+      "mixedSlots": 585,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 135864
+    },
+    {
+      "year": 1932,
+      "slots": 4392,
+      "mixedSlots": 678,
+      "gapPairs": 3095,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 140244
+    },
+    {
+      "year": 1933,
+      "slots": 4380,
+      "mixedSlots": 583,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 144636
+    },
+    {
+      "year": 1934,
+      "slots": 4380,
+      "mixedSlots": 578,
+      "gapPairs": 3084,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 149016
+    },
+    {
+      "year": 1935,
+      "slots": 4380,
+      "mixedSlots": 589,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 153396
+    },
+    {
+      "year": 1936,
+      "slots": 4392,
+      "mixedSlots": 523,
+      "gapPairs": 3095,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 157776
+    },
+    {
+      "year": 1937,
+      "slots": 4380,
+      "mixedSlots": 679,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 162168
+    },
+    {
+      "year": 1938,
+      "slots": 4380,
+      "mixedSlots": 615,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 166548
+    },
+    {
+      "year": 1939,
+      "slots": 4380,
+      "mixedSlots": 604,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 170928
+    },
+    {
+      "year": 1940,
+      "slots": 4392,
+      "mixedSlots": 600,
+      "gapPairs": 3096,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 175308
+    },
+    {
+      "year": 1941,
+      "slots": 4380,
+      "mixedSlots": 599,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 179700
+    },
+    {
+      "year": 1942,
+      "slots": 4380,
+      "mixedSlots": 504,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 184080
+    },
+    {
+      "year": 1943,
+      "slots": 4380,
+      "mixedSlots": 593,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 188460
+    },
+    {
+      "year": 1944,
+      "slots": 4392,
+      "mixedSlots": 691,
+      "gapPairs": 3096,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 192840
+    },
+    {
+      "year": 1945,
+      "slots": 4380,
+      "mixedSlots": 602,
+      "gapPairs": 3080,
+      "boundarySlots": 3,
+      "boundaryRecords": 6,
+      "offset": 197232
+    },
+    {
+      "year": 1946,
+      "slots": 4380,
+      "mixedSlots": 600,
+      "gapPairs": 3084,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 201612
+    },
+    {
+      "year": 1947,
+      "slots": 4380,
+      "mixedSlots": 597,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 205992
+    },
+    {
+      "year": 1948,
+      "slots": 4392,
+      "mixedSlots": 512,
+      "gapPairs": 3097,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 210372
+    },
+    {
+      "year": 1949,
+      "slots": 4380,
+      "mixedSlots": 665,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 214764
+    },
+    {
+      "year": 1950,
+      "slots": 4380,
+      "mixedSlots": 583,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 219144
+    },
+    {
+      "year": 1951,
+      "slots": 4380,
+      "mixedSlots": 580,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 223524
+    },
+    {
+      "year": 1952,
+      "slots": 4392,
+      "mixedSlots": 583,
+      "gapPairs": 3095,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 227904
+    },
+    {
+      "year": 1953,
+      "slots": 4380,
+      "mixedSlots": 586,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 232296
+    },
+    {
+      "year": 1954,
+      "slots": 4380,
+      "mixedSlots": 500,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 236676
+    },
+    {
+      "year": 1955,
+      "slots": 4380,
+      "mixedSlots": 597,
+      "gapPairs": 3081,
+      "boundarySlots": 3,
+      "boundaryRecords": 6,
+      "offset": 241056
+    },
+    {
+      "year": 1956,
+      "slots": 4392,
+      "mixedSlots": 700,
+      "gapPairs": 3095,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 245436
+    },
+    {
+      "year": 1957,
+      "slots": 4380,
+      "mixedSlots": 600,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 249828
+    },
+    {
+      "year": 1958,
+      "slots": 4380,
+      "mixedSlots": 601,
+      "gapPairs": 3086,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 254208
+    },
+    {
+      "year": 1959,
+      "slots": 4380,
+      "mixedSlots": 596,
+      "gapPairs": 3085,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 258588
+    },
+    {
+      "year": 1960,
+      "slots": 4392,
+      "mixedSlots": 522,
+      "gapPairs": 3096,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 262968
+    },
+    {
+      "year": 1961,
+      "slots": 4380,
+      "mixedSlots": 673,
+      "gapPairs": 3083,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 267360
+    },
+    {
+      "year": 1962,
+      "slots": 4380,
+      "mixedSlots": 582,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 271740
+    },
+    {
+      "year": 1963,
+      "slots": 4380,
+      "mixedSlots": 587,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 276120
+    },
+    {
+      "year": 1964,
+      "slots": 4392,
+      "mixedSlots": 582,
+      "gapPairs": 3096,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 280500
+    },
+    {
+      "year": 1965,
+      "slots": 4380,
+      "mixedSlots": 581,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 284892
+    },
+    {
+      "year": 1966,
+      "slots": 4380,
+      "mixedSlots": 486,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 289272
+    },
+    {
+      "year": 1967,
+      "slots": 4380,
+      "mixedSlots": 585,
+      "gapPairs": 3084,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 293652
+    },
+    {
+      "year": 1968,
+      "slots": 4392,
+      "mixedSlots": 682,
+      "gapPairs": 3096,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 298032
+    },
+    {
+      "year": 1969,
+      "slots": 4380,
+      "mixedSlots": 590,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 302424
+    },
+    {
+      "year": 1970,
+      "slots": 4380,
+      "mixedSlots": 600,
+      "gapPairs": 3085,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 306804
+    },
+    {
+      "year": 1971,
+      "slots": 4380,
+      "mixedSlots": 592,
+      "gapPairs": 3085,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 311184
+    },
+    {
+      "year": 1972,
+      "slots": 4392,
+      "mixedSlots": 523,
+      "gapPairs": 3093,
+      "boundarySlots": 3,
+      "boundaryRecords": 6,
+      "offset": 315564
+    },
+    {
+      "year": 1973,
+      "slots": 4380,
+      "mixedSlots": 673,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 319956
+    },
+    {
+      "year": 1974,
+      "slots": 4380,
+      "mixedSlots": 604,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 324336
+    },
+    {
+      "year": 1975,
+      "slots": 4380,
+      "mixedSlots": 600,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 328716
+    },
+    {
+      "year": 1976,
+      "slots": 4392,
+      "mixedSlots": 601,
+      "gapPairs": 3097,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 333096
+    },
+    {
+      "year": 1977,
+      "slots": 4380,
+      "mixedSlots": 602,
+      "gapPairs": 3082,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 337488
+    },
+    {
+      "year": 1978,
+      "slots": 4380,
+      "mixedSlots": 507,
+      "gapPairs": 3084,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 341868
+    },
+    {
+      "year": 1979,
+      "slots": 4380,
+      "mixedSlots": 582,
+      "gapPairs": 3083,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 346248
+    },
+    {
+      "year": 1980,
+      "slots": 4392,
+      "mixedSlots": 672,
+      "gapPairs": 3094,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 350628
+    },
+    {
+      "year": 1981,
+      "slots": 4380,
+      "mixedSlots": 582,
+      "gapPairs": 3086,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 355020
+    },
+    {
+      "year": 1982,
+      "slots": 4380,
+      "mixedSlots": 578,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 359400
+    },
+    {
+      "year": 1983,
+      "slots": 4380,
+      "mixedSlots": 588,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 363780
+    },
+    {
+      "year": 1984,
+      "slots": 4392,
+      "mixedSlots": 528,
+      "gapPairs": 3095,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 368160
+    },
+    {
+      "year": 1985,
+      "slots": 4380,
+      "mixedSlots": 683,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 372552
+    },
+    {
+      "year": 1986,
+      "slots": 4380,
+      "mixedSlots": 614,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 376932
+    },
+    {
+      "year": 1987,
+      "slots": 4380,
+      "mixedSlots": 606,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 381312
+    },
+    {
+      "year": 1988,
+      "slots": 4392,
+      "mixedSlots": 603,
+      "gapPairs": 3096,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 385692
+    },
+    {
+      "year": 1989,
+      "slots": 4380,
+      "mixedSlots": 601,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 390084
+    },
+    {
+      "year": 1990,
+      "slots": 4380,
+      "mixedSlots": 505,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 394464
+    },
+    {
+      "year": 1991,
+      "slots": 4380,
+      "mixedSlots": 595,
+      "gapPairs": 3086,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 398844
+    },
+    {
+      "year": 1992,
+      "slots": 4392,
+      "mixedSlots": 691,
+      "gapPairs": 3095,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 403224
+    },
+    {
+      "year": 1993,
+      "slots": 4380,
+      "mixedSlots": 600,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 407616
+    },
+    {
+      "year": 1994,
+      "slots": 4380,
+      "mixedSlots": 595,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 411996
+    },
+    {
+      "year": 1995,
+      "slots": 4380,
+      "mixedSlots": 594,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 416376
+    },
+    {
+      "year": 1996,
+      "slots": 4392,
+      "mixedSlots": 514,
+      "gapPairs": 3095,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 420756
+    },
+    {
+      "year": 1997,
+      "slots": 4380,
+      "mixedSlots": 673,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 425148
+    },
+    {
+      "year": 1998,
+      "slots": 4380,
+      "mixedSlots": 580,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 429528
+    },
+    {
+      "year": 1999,
+      "slots": 4380,
+      "mixedSlots": 581,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 433908
+    },
+    {
+      "year": 2000,
+      "slots": 4392,
+      "mixedSlots": 588,
+      "gapPairs": 3096,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 438288
+    },
+    {
+      "year": 2001,
+      "slots": 4380,
+      "mixedSlots": 585,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 442680
+    },
+    {
+      "year": 2002,
+      "slots": 4380,
+      "mixedSlots": 503,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 447060
+    },
+    {
+      "year": 2003,
+      "slots": 4380,
+      "mixedSlots": 596,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 451440
+    },
+    {
+      "year": 2004,
+      "slots": 4392,
+      "mixedSlots": 699,
+      "gapPairs": 3095,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 455820
+    },
+    {
+      "year": 2005,
+      "slots": 4380,
+      "mixedSlots": 599,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 460212
+    },
+    {
+      "year": 2006,
+      "slots": 4380,
+      "mixedSlots": 603,
+      "gapPairs": 3086,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 464592
+    },
+    {
+      "year": 2007,
+      "slots": 4380,
+      "mixedSlots": 595,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 468972
+    },
+    {
+      "year": 2008,
+      "slots": 4392,
+      "mixedSlots": 523,
+      "gapPairs": 3096,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 473352
+    },
+    {
+      "year": 2009,
+      "slots": 4380,
+      "mixedSlots": 675,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 477744
+    },
+    {
+      "year": 2010,
+      "slots": 4380,
+      "mixedSlots": 577,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 482124
+    },
+    {
+      "year": 2011,
+      "slots": 4380,
+      "mixedSlots": 586,
+      "gapPairs": 3083,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 486504
+    },
+    {
+      "year": 2012,
+      "slots": 4392,
+      "mixedSlots": 584,
+      "gapPairs": 3095,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 490884
+    },
+    {
+      "year": 2013,
+      "slots": 4380,
+      "mixedSlots": 580,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 495276
+    },
+    {
+      "year": 2014,
+      "slots": 4380,
+      "mixedSlots": 483,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 499656
+    },
+    {
+      "year": 2015,
+      "slots": 4380,
+      "mixedSlots": 586,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 504036
+    },
+    {
+      "year": 2016,
+      "slots": 4392,
+      "mixedSlots": 690,
+      "gapPairs": 3094,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 508416
+    },
+    {
+      "year": 2017,
+      "slots": 4380,
+      "mixedSlots": 599,
+      "gapPairs": 3084,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 512808
+    },
+    {
+      "year": 2018,
+      "slots": 4380,
+      "mixedSlots": 609,
+      "gapPairs": 3085,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 517188
+    },
+    {
+      "year": 2019,
+      "slots": 4380,
+      "mixedSlots": 598,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 521568
+    },
+    {
+      "year": 2020,
+      "slots": 4392,
+      "mixedSlots": 520,
+      "gapPairs": 3096,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 525948
+    },
+    {
+      "year": 2021,
+      "slots": 4380,
+      "mixedSlots": 671,
+      "gapPairs": 3084,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 530340
+    },
+    {
+      "year": 2022,
+      "slots": 4380,
+      "mixedSlots": 605,
+      "gapPairs": 3082,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 534720
+    },
+    {
+      "year": 2023,
+      "slots": 4380,
+      "mixedSlots": 599,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 539100
+    },
+    {
+      "year": 2024,
+      "slots": 4392,
+      "mixedSlots": 601,
+      "gapPairs": 3094,
+      "boundarySlots": 2,
+      "boundaryRecords": 4,
+      "offset": 543480
+    },
+    {
+      "year": 2025,
+      "slots": 4380,
+      "mixedSlots": 601,
+      "gapPairs": 3083,
+      "boundarySlots": 1,
+      "boundaryRecords": 2,
+      "offset": 547872
+    },
+    {
+      "year": 2026,
+      "slots": 3912,
+      "mixedSlots": 397,
+      "gapPairs": 2773,
+      "boundarySlots": 0,
+      "boundaryRecords": 0,
+      "offset": 552252
+    }
+  ]
+}
