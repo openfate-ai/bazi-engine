@@ -35,7 +35,7 @@ jobs:
         run: npm run build
 
       - name: Compare the packed corpus runtime with release samples
-        run: node --test tests/library.test.mjs
+        run: node --test tests/library.test.mjs tests/patterns.test.mjs
 
       - name: Build the public comparison page
         run: npm run build:pages

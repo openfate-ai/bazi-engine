@@ -1,0 +1,21 @@
+#filters { padding-block:1rem; border-block:1px solid var(--line) }
+#filters select { width:100% }
+#status { font-size:1.15rem; color:var(--ink); font-variant-numeric:tabular-nums; margin:1rem 0 }
+.hit { margin:0; border-top:1px solid var(--line) }
+.hit summary { display:list-item; width:auto; padding:.65rem 0; min-height:44px }
+.hit summary:hover { text-decoration:underline }
+.slot { font-variant-numeric:tabular-nums; font-weight:650 }
+.fact-label { color:var(--muted); font-size:.9rem; margin-inline-start:.8rem }
+.details { padding:.2rem 1rem 1rem; border-inline-start:3px solid #b28b66; margin-bottom:.8rem }
+.details p { margin:.35rem 0 }
+.details a { display:inline-block; padding:.3rem .75rem .3rem 0 }
+.details code { color:var(--muted) }
+#pager { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin:1rem 0 }
+#pager[hidden] { display:none }
+button:disabled { opacity:.45; cursor:default }
+.examples { margin-top:2.4rem } .examples li { margin-block:.4rem }
+.case-body { max-width:58rem }
+.case-body table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; margin:1.4rem 0 }
+.case-body th,.case-body td { text-align:left; padding:.6rem .35rem; border-bottom:1px solid var(--line) }
+.case-body th { color:var(--green) } .case-body a.next { margin-right:.5rem }
+@media(max-width:600px){ #filters label:first-child { flex:1 0 100% } #filters label { min-width:0 } .case-body table { font-size:.9rem } .fact-label { margin-inline-start:.4rem } }

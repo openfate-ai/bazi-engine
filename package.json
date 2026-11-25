@@ -16,7 +16,7 @@
     "test": "node --import tsx --test tests/*.test.ts",
     "release": "npm version patch -m \"chore: release v%s [release]\" && git push --follow-tags",
     "prepublishOnly": "npm run build && npm run test",
-    "build:pages": "node docs/compare/build.mjs && node corpus/build-library.mjs pages"
+    "build:pages": "node docs/compare/build.mjs && node corpus/build-library.mjs pages && node corpus/build-pattern-cases.mjs"
   },
   "author": {
     "name": "OpenFate Engineering",
