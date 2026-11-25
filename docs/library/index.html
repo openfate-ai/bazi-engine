@@ -12,6 +12,7 @@
 <main>
   <h1>八字命盤庫</h1>
   <p class="intro">選一張盤，讀工作、感情與生活的 13 章。換個時辰，就能對照哪一段建議跟著改變。</p>
+  <p><a href="atlas/">查 28 個格局分類與正反命例</a></p>
   <form id="lookup">
     <label>日期<input type="date" id="date" required min="1900-01-01" max="2026-11-22" value="1991-10-18"></label>
     <label>代表時刻<select id="hour" required></select></label>
@@ -22,6 +23,7 @@
   <p id="error" class="error" role="alert"></p><noscript>請開啟 JavaScript 讀取命盤。也可以<a href="https://github.com/openfate-ai/bazi-engine/tree/corpus-v2.1.0/corpus/examples">直接讀完整樣稿</a>。</noscript>
   <section id="reading" tabindex="-1" hidden>
     <div class="plate"><div><p id="sample"></p><div class="pillars" id="pillars"></div></div><div id="onset"></div></div>
+    <details id="atlas-frame"><summary>這張盤怎麼取格？</summary><p id="atlas-evidence"></p><ul id="atlas-links"></ul></details>
     <div class="toolbar">
       <label>選讀章節<select id="topic"></select></label>
       <label>對照時刻<select id="other"></select></label>

@@ -1,5 +1,8 @@
 import { parseSampleId, readCorpusSample, topicTitles } from './corpus.mjs';
 
+import { evaluate, rules } from './atlas/rules.mjs';
+import { monthReading, statusNames } from './atlas/view.mjs';
+
 const el = id => document.getElementById(id);
 const make = (tag, text) => {
   const node = document.createElement(tag);
@@ -73,6 +76,21 @@ function render() {
       cell.append(make('strong', pillar));
       return cell;
     }));
+    if (el('atlas-frame').dataset.sample !== state.id) {
+      const assessment = evaluate(chart.fourPillars);
+      el('atlas-evidence').textContent = monthReading(assessment)+' '+assessment.branchEvidence.join('。')+'。';
+      el('atlas-links').replaceChildren();
+      for (const [i, entry] of assessment.entries.entries()) {
+        if (entry.status === 'outside') continue;
+        const li = make('li', '');
+        const link = make('a', rules[i].name);
+        link.href = 'atlas/' + entry.id + '/';
+        li.append(link, ' · ' + statusNames[entry.status] + '。' +
+          entry.checks.filter(c => entry.status === 'match' || !c.ok).map(c => c.label).join('；') + '。');
+        el('atlas-links').append(li);
+      }
+      el('atlas-frame').dataset.sample = state.id;
+    }
     const luck = chart.daYun;
     el('onset').textContent = luck.startDate ? '第一步大運　' + luck.cycles[0].ganZhi + '\n起運　' + luck.startDate.slice(0, 10) : '交節邊界，起運日期待定。';
     const chapter = chapters[state.topic];

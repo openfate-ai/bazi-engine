@@ -2,7 +2,7 @@
 
 **1.11 million chart samples, 14.46 million reading chapters and over 100 million annual projections.**
 
-[**Browse the 13 chapters**](https://openfate-ai.github.io/bazi-engine/library/) · [Search by chart pattern](https://openfate-ai.github.io/bazi-engine/library/search/) · [Compare two birth times](https://openfate-ai.github.io/bazi-engine/compare/) · [Download the corpus](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [English field guide](learn/en.md) · [繁體中文](README.md)
+[**Browse the 13 chapters**](https://openfate-ai.github.io/bazi-engine/library/) · [28 classical pattern entries](https://openfate-ai.github.io/bazi-engine/library/atlas/) · [Search by chart pattern](https://openfate-ai.github.io/bazi-engine/library/search/) · [Compare two birth times](https://openfate-ai.github.io/bazi-engine/compare/) · [Download the corpus](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [English field guide](learn/en.md) · [繁體中文](README.md)
 
 <div>
 <a href="https://openfate-ai.github.io/bazi-engine/compare/"><picture>
@@ -12,6 +12,8 @@
 </div>
 
 On August 15, 1997, changing the birth time from 08:30 to 12:30 changes the hour pillar and the relationship chapter. Open the comparison to see both readings and the rule behind each one. The 1900–2026 corpus covers **402,736 distinct Four Pillars combinations** and includes 13 Traditional Chinese life chapters per sample.
+
+The classical atlas evaluates 12 month frames and 16 special structures across the same grid. Each entry gives its rule, a matching chart, a near miss, and separate counts for birth inputs and distinct four-pillar combinations. You can combine a frame with a natal interaction or a Da Yun timing condition. [Browse the atlas](https://openfate-ai.github.io/bazi-engine/library/atlas/) · [Definitions and reproducibility](corpus/ATLAS.md)
 
 The [pattern index](corpus/PATTERNS.md) covers 556,164 representative birth times. At 75,159 of them, one pillar participates in both a six-combination and a clash. In 391,676 paired samples the two civil onset dates differ by at least 1,096 days. The browser and the dependency-free Node CLI use the same downloadable index. [Search the corpus](https://openfate-ai.github.io/bazi-engine/library/search/)
 
