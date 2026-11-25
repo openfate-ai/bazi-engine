@@ -2,7 +2,7 @@
 
 **111 萬筆八字排盤樣本，1,446 萬章生活解讀，超過 1 億筆流年推演。**
 
-[**線上讀 13 章**](https://openfate-ai.github.io/bazi-engine/library/) · [按問題找盤](https://openfate-ai.github.io/bazi-engine/library/search/) · [雙盤對照](https://openfate-ai.github.io/bazi-engine/compare/) · [下載命盤庫](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [命例教材](learn/README.md) · [English](README.en.md)
+[**線上讀 13 章**](https://openfate-ai.github.io/bazi-engine/library/) · [28 個格局與命例](https://openfate-ai.github.io/bazi-engine/library/atlas/) · [按問題找盤](https://openfate-ai.github.io/bazi-engine/library/search/) · [雙盤對照](https://openfate-ai.github.io/bazi-engine/compare/) · [下載命盤庫](https://github.com/openfate-ai/bazi-engine/releases/tag/corpus-v2.1.0) · [命例教材](learn/README.md) · [English](README.en.md)
 
 <div>
 <a href="https://openfate-ai.github.io/bazi-engine/compare/"><picture>
@@ -12,6 +12,12 @@
 </div>
 
 同一天，早上八點半是戊辰時，中午十二點半是庚午時。點圖就能讀到兩篇不同的感情建議，還能查出選中每一段的規則。命盤庫從 1900 年收錄至 2026 年，涵蓋 **402,736 種不同四柱**，每筆樣本附 13 章繁體中文解讀。
+
+## 這張盤為什麼取這個格？
+
+**從殺格，全庫只有 19 個時刻符合本版條件，合計 14 種不同四柱。** 1903 年 3 月 12 日 00:30 與 02:30 的前三柱相同，都是癸卯、乙卯、己亥。前一張是甲子時，四支都找不到扶助己土的印比；兩小時後換成乙丑，丑中藏己，日主有了根。兩張盤的官殺都佔七處中的四處，後一張卻差在這個藏干。[並排看這兩張從殺命例](https://openfate-ai.github.io/bazi-engine/library/atlas/follow-power/)
+
+格局圖鑑收錄 **12 個月令分類、16 個特殊格局**。每個分類都可以查看符合條件的盤、差一項的對照命例，再加入六合、相沖或起運條件縮小範圍。[格局與命例目錄](https://openfate-ai.github.io/bazi-engine/library/atlas/) · [取格規則與全量核對](corpus/ATLAS.md)
 
 ## 從哪裡開始
 

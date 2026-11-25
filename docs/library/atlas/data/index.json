@@ -1,0 +1,1269 @@
+{
+  "profile": "openfate-ziping-atlas/1",
+  "edition": "2.1.0",
+  "width": 7,
+  "slots": 556164,
+  "records": 1112328,
+  "distinct": 402736,
+  "coreManifestSha256": "e1bfa79f042778bd319a8c7b2dcf2f0bb2ac74f73a3924d17dcac2dc11efd67e",
+  "sourcePatternSha256": "08bb6a6638adb8be559678181d603c5e3d76199e001badf1d7237d40e7681a91",
+  "file": "atlas-c5ac5967053f4c5f.bin",
+  "sha256": "c5ac5967053f4c5ffc745f011caaaba9aeeafc562b429e121496d6c0c202bb80",
+  "ruleIds": [
+    "officer",
+    "killings",
+    "wealth",
+    "indirect-wealth",
+    "seal",
+    "indirect-seal",
+    "food",
+    "hurting",
+    "peer",
+    "rob",
+    "lu",
+    "blade",
+    "transform-wood",
+    "transform-fire",
+    "transform-earth",
+    "transform-metal",
+    "transform-water",
+    "follow-wealth",
+    "follow-power",
+    "follow-output",
+    "follow-mixed",
+    "follow-strength",
+    "follow-dominant",
+    "dominant-wood",
+    "dominant-fire",
+    "dominant-earth",
+    "dominant-metal",
+    "dominant-water"
+  ],
+  "years": [
+    {
+      "year": 1900,
+      "offset": 0,
+      "slots": 4380
+    },
+    {
+      "year": 1901,
+      "offset": 4380,
+      "slots": 4380
+    },
+    {
+      "year": 1902,
+      "offset": 8760,
+      "slots": 4380
+    },
+    {
+      "year": 1903,
+      "offset": 13140,
+      "slots": 4380
+    },
+    {
+      "year": 1904,
+      "offset": 17520,
+      "slots": 4392
+    },
+    {
+      "year": 1905,
+      "offset": 21912,
+      "slots": 4380
+    },
+    {
+      "year": 1906,
+      "offset": 26292,
+      "slots": 4380
+    },
+    {
+      "year": 1907,
+      "offset": 30672,
+      "slots": 4380
+    },
+    {
+      "year": 1908,
+      "offset": 35052,
+      "slots": 4392
+    },
+    {
+      "year": 1909,
+      "offset": 39444,
+      "slots": 4380
+    },
+    {
+      "year": 1910,
+      "offset": 43824,
+      "slots": 4380
+    },
+    {
+      "year": 1911,
+      "offset": 48204,
+      "slots": 4380
+    },
+    {
+      "year": 1912,
+      "offset": 52584,
+      "slots": 4392
+    },
+    {
+      "year": 1913,
+      "offset": 56976,
+      "slots": 4380
+    },
+    {
+      "year": 1914,
+      "offset": 61356,
+      "slots": 4380
+    },
+    {
+      "year": 1915,
+      "offset": 65736,
+      "slots": 4380
+    },
+    {
+      "year": 1916,
+      "offset": 70116,
+      "slots": 4392
+    },
+    {
+      "year": 1917,
+      "offset": 74508,
+      "slots": 4380
+    },
+    {
+      "year": 1918,
+      "offset": 78888,
+      "slots": 4380
+    },
+    {
+      "year": 1919,
+      "offset": 83268,
+      "slots": 4380
+    },
+    {
+      "year": 1920,
+      "offset": 87648,
+      "slots": 4392
+    },
+    {
+      "year": 1921,
+      "offset": 92040,
+      "slots": 4380
+    },
+    {
+      "year": 1922,
+      "offset": 96420,
+      "slots": 4380
+    },
+    {
+      "year": 1923,
+      "offset": 100800,
+      "slots": 4380
+    },
+    {
+      "year": 1924,
+      "offset": 105180,
+      "slots": 4392
+    },
+    {
+      "year": 1925,
+      "offset": 109572,
+      "slots": 4380
+    },
+    {
+      "year": 1926,
+      "offset": 113952,
+      "slots": 4380
+    },
+    {
+      "year": 1927,
+      "offset": 118332,
+      "slots": 4380
+    },
+    {
+      "year": 1928,
+      "offset": 122712,
+      "slots": 4392
+    },
+    {
+      "year": 1929,
+      "offset": 127104,
+      "slots": 4380
+    },
+    {
+      "year": 1930,
+      "offset": 131484,
+      "slots": 4380
+    },
+    {
+      "year": 1931,
+      "offset": 135864,
+      "slots": 4380
+    },
+    {
+      "year": 1932,
+      "offset": 140244,
+      "slots": 4392
+    },
+    {
+      "year": 1933,
+      "offset": 144636,
+      "slots": 4380
+    },
+    {
+      "year": 1934,
+      "offset": 149016,
+      "slots": 4380
+    },
+    {
+      "year": 1935,
+      "offset": 153396,
+      "slots": 4380
+    },
+    {
+      "year": 1936,
+      "offset": 157776,
+      "slots": 4392
+    },
+    {
+      "year": 1937,
+      "offset": 162168,
+      "slots": 4380
+    },
+    {
+      "year": 1938,
+      "offset": 166548,
+      "slots": 4380
+    },
+    {
+      "year": 1939,
+      "offset": 170928,
+      "slots": 4380
+    },
+    {
+      "year": 1940,
+      "offset": 175308,
+      "slots": 4392
+    },
+    {
+      "year": 1941,
+      "offset": 179700,
+      "slots": 4380
+    },
+    {
+      "year": 1942,
+      "offset": 184080,
+      "slots": 4380
+    },
+    {
+      "year": 1943,
+      "offset": 188460,
+      "slots": 4380
+    },
+    {
+      "year": 1944,
+      "offset": 192840,
+      "slots": 4392
+    },
+    {
+      "year": 1945,
+      "offset": 197232,
+      "slots": 4380
+    },
+    {
+      "year": 1946,
+      "offset": 201612,
+      "slots": 4380
+    },
+    {
+      "year": 1947,
+      "offset": 205992,
+      "slots": 4380
+    },
+    {
+      "year": 1948,
+      "offset": 210372,
+      "slots": 4392
+    },
+    {
+      "year": 1949,
+      "offset": 214764,
+      "slots": 4380
+    },
+    {
+      "year": 1950,
+      "offset": 219144,
+      "slots": 4380
+    },
+    {
+      "year": 1951,
+      "offset": 223524,
+      "slots": 4380
+    },
+    {
+      "year": 1952,
+      "offset": 227904,
+      "slots": 4392
+    },
+    {
+      "year": 1953,
+      "offset": 232296,
+      "slots": 4380
+    },
+    {
+      "year": 1954,
+      "offset": 236676,
+      "slots": 4380
+    },
+    {
+      "year": 1955,
+      "offset": 241056,
+      "slots": 4380
+    },
+    {
+      "year": 1956,
+      "offset": 245436,
+      "slots": 4392
+    },
+    {
+      "year": 1957,
+      "offset": 249828,
+      "slots": 4380
+    },
+    {
+      "year": 1958,
+      "offset": 254208,
+      "slots": 4380
+    },
+    {
+      "year": 1959,
+      "offset": 258588,
+      "slots": 4380
+    },
+    {
+      "year": 1960,
+      "offset": 262968,
+      "slots": 4392
+    },
+    {
+      "year": 1961,
+      "offset": 267360,
+      "slots": 4380
+    },
+    {
+      "year": 1962,
+      "offset": 271740,
+      "slots": 4380
+    },
+    {
+      "year": 1963,
+      "offset": 276120,
+      "slots": 4380
+    },
+    {
+      "year": 1964,
+      "offset": 280500,
+      "slots": 4392
+    },
+    {
+      "year": 1965,
+      "offset": 284892,
+      "slots": 4380
+    },
+    {
+      "year": 1966,
+      "offset": 289272,
+      "slots": 4380
+    },
+    {
+      "year": 1967,
+      "offset": 293652,
+      "slots": 4380
+    },
+    {
+      "year": 1968,
+      "offset": 298032,
+      "slots": 4392
+    },
+    {
+      "year": 1969,
+      "offset": 302424,
+      "slots": 4380
+    },
+    {
+      "year": 1970,
+      "offset": 306804,
+      "slots": 4380
+    },
+    {
+      "year": 1971,
+      "offset": 311184,
+      "slots": 4380
+    },
+    {
+      "year": 1972,
+      "offset": 315564,
+      "slots": 4392
+    },
+    {
+      "year": 1973,
+      "offset": 319956,
+      "slots": 4380
+    },
+    {
+      "year": 1974,
+      "offset": 324336,
+      "slots": 4380
+    },
+    {
+      "year": 1975,
+      "offset": 328716,
+      "slots": 4380
+    },
+    {
+      "year": 1976,
+      "offset": 333096,
+      "slots": 4392
+    },
+    {
+      "year": 1977,
+      "offset": 337488,
+      "slots": 4380
+    },
+    {
+      "year": 1978,
+      "offset": 341868,
+      "slots": 4380
+    },
+    {
+      "year": 1979,
+      "offset": 346248,
+      "slots": 4380
+    },
+    {
+      "year": 1980,
+      "offset": 350628,
+      "slots": 4392
+    },
+    {
+      "year": 1981,
+      "offset": 355020,
+      "slots": 4380
+    },
+    {
+      "year": 1982,
+      "offset": 359400,
+      "slots": 4380
+    },
+    {
+      "year": 1983,
+      "offset": 363780,
+      "slots": 4380
+    },
+    {
+      "year": 1984,
+      "offset": 368160,
+      "slots": 4392
+    },
+    {
+      "year": 1985,
+      "offset": 372552,
+      "slots": 4380
+    },
+    {
+      "year": 1986,
+      "offset": 376932,
+      "slots": 4380
+    },
+    {
+      "year": 1987,
+      "offset": 381312,
+      "slots": 4380
+    },
+    {
+      "year": 1988,
+      "offset": 385692,
+      "slots": 4392
+    },
+    {
+      "year": 1989,
+      "offset": 390084,
+      "slots": 4380
+    },
+    {
+      "year": 1990,
+      "offset": 394464,
+      "slots": 4380
+    },
+    {
+      "year": 1991,
+      "offset": 398844,
+      "slots": 4380
+    },
+    {
+      "year": 1992,
+      "offset": 403224,
+      "slots": 4392
+    },
+    {
+      "year": 1993,
+      "offset": 407616,
+      "slots": 4380
+    },
+    {
+      "year": 1994,
+      "offset": 411996,
+      "slots": 4380
+    },
+    {
+      "year": 1995,
+      "offset": 416376,
+      "slots": 4380
+    },
+    {
+      "year": 1996,
+      "offset": 420756,
+      "slots": 4392
+    },
+    {
+      "year": 1997,
+      "offset": 425148,
+      "slots": 4380
+    },
+    {
+      "year": 1998,
+      "offset": 429528,
+      "slots": 4380
+    },
+    {
+      "year": 1999,
+      "offset": 433908,
+      "slots": 4380
+    },
+    {
+      "year": 2000,
+      "offset": 438288,
+      "slots": 4392
+    },
+    {
+      "year": 2001,
+      "offset": 442680,
+      "slots": 4380
+    },
+    {
+      "year": 2002,
+      "offset": 447060,
+      "slots": 4380
+    },
+    {
+      "year": 2003,
+      "offset": 451440,
+      "slots": 4380
+    },
+    {
+      "year": 2004,
+      "offset": 455820,
+      "slots": 4392
+    },
+    {
+      "year": 2005,
+      "offset": 460212,
+      "slots": 4380
+    },
+    {
+      "year": 2006,
+      "offset": 464592,
+      "slots": 4380
+    },
+    {
+      "year": 2007,
+      "offset": 468972,
+      "slots": 4380
+    },
+    {
+      "year": 2008,
+      "offset": 473352,
+      "slots": 4392
+    },
+    {
+      "year": 2009,
+      "offset": 477744,
+      "slots": 4380
+    },
+    {
+      "year": 2010,
+      "offset": 482124,
+      "slots": 4380
+    },
+    {
+      "year": 2011,
+      "offset": 486504,
+      "slots": 4380
+    },
+    {
+      "year": 2012,
+      "offset": 490884,
+      "slots": 4392
+    },
+    {
+      "year": 2013,
+      "offset": 495276,
+      "slots": 4380
+    },
+    {
+      "year": 2014,
+      "offset": 499656,
+      "slots": 4380
+    },
+    {
+      "year": 2015,
+      "offset": 504036,
+      "slots": 4380
+    },
+    {
+      "year": 2016,
+      "offset": 508416,
+      "slots": 4392
+    },
+    {
+      "year": 2017,
+      "offset": 512808,
+      "slots": 4380
+    },
+    {
+      "year": 2018,
+      "offset": 517188,
+      "slots": 4380
+    },
+    {
+      "year": 2019,
+      "offset": 521568,
+      "slots": 4380
+    },
+    {
+      "year": 2020,
+      "offset": 525948,
+      "slots": 4392
+    },
+    {
+      "year": 2021,
+      "offset": 530340,
+      "slots": 4380
+    },
+    {
+      "year": 2022,
+      "offset": 534720,
+      "slots": 4380
+    },
+    {
+      "year": 2023,
+      "offset": 539100,
+      "slots": 4380
+    },
+    {
+      "year": 2024,
+      "offset": 543480,
+      "slots": 4392
+    },
+    {
+      "year": 2025,
+      "offset": 547872,
+      "slots": 4380
+    },
+    {
+      "year": 2026,
+      "offset": 552252,
+      "slots": 3912
+    }
+  ],
+  "rules": [
+    {
+      "id": "officer",
+      "match": {
+        "slots": 26615,
+        "distinct": 19301
+      },
+      "review": {
+        "slots": 29039,
+        "distinct": 20998
+      },
+      "examples": {
+        "match": {
+          "slot": 96,
+          "pillars": "己亥 丁丑 壬午 庚子"
+        },
+        "review": {
+          "slot": 101,
+          "pillars": "己亥 丁丑 壬午 乙巳"
+        }
+      }
+    },
+    {
+      "id": "killings",
+      "match": {
+        "slots": 27375,
+        "distinct": 19812
+      },
+      "review": {
+        "slots": 27823,
+        "distinct": 20114
+      },
+      "examples": {
+        "match": {
+          "slot": 36,
+          "pillars": "己亥 丙子 丁丑 庚子"
+        },
+        "review": {
+          "slot": 38,
+          "pillars": "己亥 丙子 丁丑 壬寅"
+        }
+      }
+    },
+    {
+      "id": "wealth",
+      "match": {
+        "slots": 24603,
+        "distinct": 17832
+      },
+      "review": {
+        "slots": 30796,
+        "distinct": 22288
+      },
+      "examples": {
+        "match": {
+          "slot": 122,
+          "pillars": "己亥 丁丑 甲申 丙寅"
+        },
+        "review": {
+          "slot": 130,
+          "pillars": "己亥 丁丑 甲申 甲戌"
+        }
+      }
+    },
+    {
+      "id": "indirect-wealth",
+      "match": {
+        "slots": 23639,
+        "distinct": 17167
+      },
+      "review": {
+        "slots": 30157,
+        "distinct": 21850
+      },
+      "examples": {
+        "match": {
+          "slot": 132,
+          "pillars": "己亥 丁丑 乙酉 丙子"
+        },
+        "review": {
+          "slot": 140,
+          "pillars": "己亥 丁丑 乙酉 甲申"
+        }
+      }
+    },
+    {
+      "id": "seal",
+      "match": {
+        "slots": 14291,
+        "distinct": 10382
+      },
+      "review": {
+        "slots": 37808,
+        "distinct": 27432
+      },
+      "examples": {
+        "match": {
+          "slot": 72,
+          "pillars": "己亥 丁丑 庚辰 丙子"
+        },
+        "review": {
+          "slot": 80,
+          "pillars": "己亥 丁丑 庚辰 甲申"
+        }
+      }
+    },
+    {
+      "id": "indirect-seal",
+      "match": {
+        "slots": 9847,
+        "distinct": 7144
+      },
+      "review": {
+        "slots": 38098,
+        "distinct": 27634
+      },
+      "examples": {
+        "match": {
+          "slot": 84,
+          "pillars": "己亥 丁丑 辛巳 戊子"
+        },
+        "review": {
+          "slot": 89,
+          "pillars": "己亥 丁丑 辛巳 癸巳"
+        }
+      }
+    },
+    {
+      "id": "food",
+      "match": {
+        "slots": 24961,
+        "distinct": 18038
+      },
+      "review": {
+        "slots": 26579,
+        "distinct": 19243
+      },
+      "examples": {
+        "match": {
+          "slot": 156,
+          "pillars": "己亥 丁丑 丁亥 庚子"
+        },
+        "review": {
+          "slot": 158,
+          "pillars": "己亥 丁丑 丁亥 壬寅"
+        }
+      }
+    },
+    {
+      "id": "hurting",
+      "match": {
+        "slots": 32457,
+        "distinct": 23461
+      },
+      "review": {
+        "slots": 22467,
+        "distinct": 16311
+      },
+      "examples": {
+        "match": {
+          "slot": 146,
+          "pillars": "己亥 丁丑 丙戌 庚寅"
+        },
+        "review": {
+          "slot": 148,
+          "pillars": "己亥 丁丑 丙戌 壬辰"
+        }
+      }
+    },
+    {
+      "id": "peer",
+      "match": {
+        "slots": 20738,
+        "distinct": 15033
+      },
+      "review": {
+        "slots": 2317,
+        "distinct": 1667
+      },
+      "examples": {
+        "match": {
+          "slot": 61,
+          "pillars": "己亥 丁丑 己卯 乙丑"
+        },
+        "review": {
+          "slot": 62,
+          "pillars": "己亥 丁丑 己卯 丙寅"
+        }
+      }
+    },
+    {
+      "id": "rob",
+      "match": {
+        "slots": 33199,
+        "distinct": 24019
+      },
+      "review": {
+        "slots": 3472,
+        "distinct": 2522
+      },
+      "examples": {
+        "match": {
+          "slot": 168,
+          "pillars": "己亥 丁丑 戊子 壬子"
+        },
+        "review": {
+          "slot": 172,
+          "pillars": "己亥 丁丑 戊子 丙辰"
+        }
+      }
+    },
+    {
+      "id": "lu",
+      "match": {
+        "slots": 43402,
+        "distinct": 31376
+      },
+      "review": {
+        "slots": 3165,
+        "distinct": 2297
+      },
+      "examples": {
+        "match": {
+          "slot": 480,
+          "pillars": "庚子 戊寅 甲寅 甲子"
+        },
+        "review": {
+          "slot": 53040,
+          "pillars": "壬子 壬寅 甲寅 甲子"
+        }
+      }
+    },
+    {
+      "id": "blade",
+      "match": {
+        "slots": 11549,
+        "distinct": 8307
+      },
+      "review": {
+        "slots": 11767,
+        "distinct": 8508
+      },
+      "examples": {
+        "match": {
+          "slot": 840,
+          "pillars": "庚子 己卯 甲申 甲子"
+        },
+        "review": {
+          "slot": 154200,
+          "pillars": "乙亥 己卯 甲申 甲子"
+        }
+      }
+    },
+    {
+      "id": "transform-wood",
+      "match": {
+        "slots": 176,
+        "distinct": 129
+      },
+      "review": {
+        "slots": 2642,
+        "distinct": 1915
+      },
+      "examples": {
+        "match": {
+          "slot": 13783,
+          "pillars": "癸卯 甲寅 壬午 丁未"
+        },
+        "review": {
+          "slot": 13785,
+          "pillars": "癸卯 甲寅 壬午 己酉"
+        }
+      }
+    },
+    {
+      "id": "transform-fire",
+      "match": {
+        "slots": 155,
+        "distinct": 114
+      },
+      "review": {
+        "slots": 3280,
+        "distinct": 2397
+      },
+      "examples": {
+        "match": {
+          "slot": 23754,
+          "pillars": "乙巳 辛巳 癸酉 戊午"
+        },
+        "review": {
+          "slot": 23755,
+          "pillars": "乙巳 辛巳 癸酉 己未"
+        }
+      }
+    },
+    {
+      "id": "transform-earth",
+      "match": {
+        "slots": 222,
+        "distinct": 162
+      },
+      "review": {
+        "slots": 4622,
+        "distinct": 3348
+      },
+      "examples": {
+        "match": {
+          "slot": 3485,
+          "pillars": "庚子 丙戌 甲子 己巳"
+        },
+        "review": {
+          "slot": 3486,
+          "pillars": "庚子 丙戌 甲子 庚午"
+        }
+      }
+    },
+    {
+      "id": "transform-metal",
+      "match": {
+        "slots": 67,
+        "distinct": 48
+      },
+      "review": {
+        "slots": 2095,
+        "distinct": 1521
+      },
+      "examples": {
+        "match": {
+          "slot": 37817,
+          "pillars": "戊申 庚申 乙巳 辛巳"
+        },
+        "review": {
+          "slot": 37819,
+          "pillars": "戊申 庚申 乙巳 癸未"
+        }
+      }
+    },
+    {
+      "id": "transform-water",
+      "match": {
+        "slots": 175,
+        "distinct": 130
+      },
+      "review": {
+        "slots": 2706,
+        "distinct": 1972
+      },
+      "examples": {
+        "match": {
+          "slot": 3867,
+          "pillars": "庚子 丁亥 丙申 辛卯"
+        },
+        "review": {
+          "slot": 3868,
+          "pillars": "庚子 丁亥 丙申 壬辰"
+        }
+      }
+    },
+    {
+      "id": "follow-wealth",
+      "match": {
+        "slots": 221,
+        "distinct": 161
+      },
+      "review": {
+        "slots": 12693,
+        "distinct": 9265
+      },
+      "examples": {
+        "match": {
+          "slot": 16980,
+          "pillars": "癸卯 癸亥 己酉 甲子"
+        },
+        "review": {
+          "slot": 16988,
+          "pillars": "癸卯 癸亥 己酉 壬申"
+        }
+      }
+    },
+    {
+      "id": "follow-power",
+      "match": {
+        "slots": 19,
+        "distinct": 14
+      },
+      "review": {
+        "slots": 5909,
+        "distinct": 4292
+      },
+      "examples": {
+        "match": {
+          "slot": 13980,
+          "pillars": "癸卯 乙卯 己亥 甲子"
+        },
+        "review": {
+          "slot": 13981,
+          "pillars": "癸卯 乙卯 己亥 乙丑"
+        }
+      }
+    },
+    {
+      "id": "follow-output",
+      "match": {
+        "slots": 146,
+        "distinct": 116
+      },
+      "review": {
+        "slots": 8050,
+        "distinct": 5872
+      },
+      "examples": {
+        "match": {
+          "slot": 3057,
+          "pillars": "庚子 乙酉 戊子 辛酉"
+        },
+        "review": {
+          "slot": 3059,
+          "pillars": "庚子 乙酉 戊子 癸亥"
+        }
+      }
+    },
+    {
+      "id": "follow-mixed",
+      "match": {
+        "slots": 622,
+        "distinct": 448
+      },
+      "review": {
+        "slots": 8156,
+        "distinct": 5937
+      },
+      "examples": {
+        "match": {
+          "slot": 3051,
+          "pillars": "庚子 乙酉 戊子 乙卯"
+        },
+        "review": {
+          "slot": 3057,
+          "pillars": "庚子 乙酉 戊子 辛酉"
+        }
+      }
+    },
+    {
+      "id": "follow-strength",
+      "match": {
+        "slots": 99,
+        "distinct": 79
+      },
+      "review": {
+        "slots": 2535,
+        "distinct": 1815
+      },
+      "examples": {
+        "match": {
+          "slot": 8965,
+          "pillars": "辛丑 辛丑 辛丑 己丑"
+        },
+        "review": {
+          "slot": 8968,
+          "pillars": "辛丑 辛丑 辛丑 壬辰"
+        }
+      }
+    },
+    {
+      "id": "follow-dominant",
+      "match": {
+        "slots": 115,
+        "distinct": 80
+      },
+      "review": {
+        "slots": 2591,
+        "distinct": 1866
+      },
+      "examples": {
+        "match": {
+          "slot": 9840,
+          "pillars": "壬寅 癸卯 甲寅 甲子"
+        },
+        "review": {
+          "slot": 9842,
+          "pillars": "壬寅 癸卯 甲寅 丙寅"
+        }
+      }
+    },
+    {
+      "id": "dominant-wood",
+      "match": {
+        "slots": 651,
+        "distinct": 486
+      },
+      "review": {
+        "slots": 11311,
+        "distinct": 8259
+      },
+      "examples": {
+        "match": {
+          "slot": 9604,
+          "pillars": "壬寅 癸卯 甲午 戊辰"
+        },
+        "review": {
+          "slot": 9605,
+          "pillars": "壬寅 癸卯 甲午 己巳"
+        }
+      }
+    },
+    {
+      "id": "dominant-fire",
+      "match": {
+        "slots": 624,
+        "distinct": 423
+      },
+      "review": {
+        "slots": 10264,
+        "distinct": 7358
+      },
+      "examples": {
+        "match": {
+          "slot": 1831,
+          "pillars": "庚子 辛巳 丙午 乙未"
+        },
+        "review": {
+          "slot": 1832,
+          "pillars": "庚子 辛巳 丙午 丙申"
+        }
+      }
+    },
+    {
+      "id": "dominant-earth",
+      "match": {
+        "slots": 43,
+        "distinct": 39
+      },
+      "review": {
+        "slots": 17317,
+        "distinct": 12565
+      },
+      "examples": {
+        "match": {
+          "slot": 7855,
+          "pillars": "辛丑 戊戌 戊辰 己未"
+        },
+        "review": {
+          "slot": 7856,
+          "pillars": "辛丑 戊戌 戊辰 庚申"
+        }
+      }
+    },
+    {
+      "id": "dominant-metal",
+      "match": {
+        "slots": 524,
+        "distinct": 414
+      },
+      "review": {
+        "slots": 10547,
+        "distinct": 7604
+      },
+      "examples": {
+        "match": {
+          "slot": 2734,
+          "pillars": "庚子 甲申 辛酉 戊戌"
+        },
+        "review": {
+          "slot": 2735,
+          "pillars": "庚子 甲申 辛酉 己亥"
+        }
+      }
+    },
+    {
+      "id": "dominant-water",
+      "match": {
+        "slots": 526,
+        "distinct": 380
+      },
+      "review": {
+        "slots": 9912,
+        "distinct": 7180
+      },
+      "examples": {
+        "match": {
+          "slot": 3817,
+          "pillars": "庚子 丁亥 壬辰 辛丑"
+        },
+        "review": {
+          "slot": 3818,
+          "pillars": "庚子 丁亥 壬辰 壬寅"
+        }
+      }
+    }
+  ]
+}

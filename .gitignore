@@ -6,3 +6,5 @@ dist/
 /docs/compare/app.js.LEGAL.txt
 /docs/library/corpus.mjs
 /docs/library/search/cases/*/index.html
+/docs/library/atlas/index.html
+/docs/library/atlas/*/index.html
